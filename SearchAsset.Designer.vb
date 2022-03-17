@@ -73,7 +73,6 @@ Partial Class SearchAsset
         Me.Label12.Size = New System.Drawing.Size(310, 20)
         Me.Label12.TabIndex = 100
         Me.Label12.Text = "You have authority to add 1 more person"
-        Me.Label12.Visible = False
         '
         'Main_Search_Assets
         '

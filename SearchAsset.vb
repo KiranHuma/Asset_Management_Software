@@ -126,13 +126,16 @@ Public Class SearchAsset
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
         AddAssetFrm.Show()
+        Me.Hide()
+        ' Me.Dispose()
+        '  Me.Close()
     End Sub
     Private Sub search__asset()
         Dim str As String
         Try
             Dim con As New SqlConnection(cs)
             con.Open()
-            str = "Select Asset_Number_ID,Asset_Name,Asset_Date,Asset_Location,Asset_Room,Asset_Status,Asset_Department,Asset_Tag_Number,Asset_description from Add_Asset_Tb where 
+            str = "Select AssetID,Asset_Number_ID,Asset_Name,Asset_Date,Asset_Location,Asset_Room,Asset_Status,Asset_Department,Asset_Tag_Number,Asset_description from Add_Asset_Tb where 
 Asset_Name like '" & search_assets.Text & "%' or Asset_Number_ID like '" & search_assets.Text & "%' 
 or Asset_Number like '" & search_assets.Text & "%' or AssetID like '" & search_assets.Text & "%' or
  Asset_Location like '" & search_assets.Text & "%' or Asset_Room like '" & search_assets.Text & "%' or

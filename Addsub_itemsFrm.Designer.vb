@@ -41,11 +41,11 @@ Partial Class Addsub_itemsFrm
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.countrec = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Button8 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.countrec = New System.Windows.Forms.TextBox()
         Me.TabPage4.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -205,6 +205,7 @@ Partial Class Addsub_itemsFrm
         Me.TextBox8.Name = "TextBox8"
         Me.TextBox8.Size = New System.Drawing.Size(104, 22)
         Me.TextBox8.TabIndex = 10
+        Me.TextBox8.WordWrap = False
         '
         'TextBox7
         '
@@ -213,6 +214,7 @@ Partial Class Addsub_itemsFrm
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.Size = New System.Drawing.Size(104, 22)
         Me.TextBox7.TabIndex = 9
+        Me.TextBox7.WordWrap = False
         '
         'TextBox6
         '
@@ -222,6 +224,7 @@ Partial Class Addsub_itemsFrm
         Me.TextBox6.Size = New System.Drawing.Size(104, 22)
         Me.TextBox6.TabIndex = 8
         Me.TextBox6.Text = "Remove"
+        Me.TextBox6.WordWrap = False
         '
         'TextBox2
         '
@@ -230,6 +233,7 @@ Partial Class Addsub_itemsFrm
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(104, 22)
         Me.TextBox2.TabIndex = 7
+        Me.TextBox2.WordWrap = False
         '
         'TabControl1
         '
@@ -262,6 +266,15 @@ Partial Class Addsub_itemsFrm
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "ID"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'countrec
+        '
+        Me.countrec.Location = New System.Drawing.Point(728, 27)
+        Me.countrec.Margin = New System.Windows.Forms.Padding(4)
+        Me.countrec.Name = "countrec"
+        Me.countrec.Size = New System.Drawing.Size(104, 22)
+        Me.countrec.TabIndex = 11
+        Me.countrec.WordWrap = False
         '
         'Button1
         '
@@ -306,14 +319,6 @@ Partial Class Addsub_itemsFrm
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(1067, 222)
         Me.DataGridView1.TabIndex = 12
-        '
-        'countrec
-        '
-        Me.countrec.Location = New System.Drawing.Point(728, 27)
-        Me.countrec.Margin = New System.Windows.Forms.Padding(4)
-        Me.countrec.Name = "countrec"
-        Me.countrec.Size = New System.Drawing.Size(104, 22)
-        Me.countrec.TabIndex = 11
         '
         'Addsub_itemsFrm
         '

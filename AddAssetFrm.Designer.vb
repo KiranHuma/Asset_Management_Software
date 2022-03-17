@@ -330,7 +330,7 @@ Partial Class AddAssetFrm
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(727, 7)
+        Me.Label12.Location = New System.Drawing.Point(889, 19)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(310, 20)
         Me.Label12.TabIndex = 33
@@ -738,7 +738,6 @@ Partial Class AddAssetFrm
         '
         'Button19
         '
-        Me.Button19.Enabled = False
         Me.Button19.Location = New System.Drawing.Point(1024, 10)
         Me.Button19.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button19.Name = "Button19"

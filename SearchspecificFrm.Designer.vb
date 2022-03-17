@@ -44,6 +44,7 @@ Partial Class SearchspecificFrm
         Me.searchrelated_txt.Name = "searchrelated_txt"
         Me.searchrelated_txt.Size = New System.Drawing.Size(322, 22)
         Me.searchrelated_txt.TabIndex = 11
+        Me.searchrelated_txt.Visible = False
         '
         'Button1
         '

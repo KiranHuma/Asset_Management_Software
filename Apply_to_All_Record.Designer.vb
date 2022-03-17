@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Apply_to_All_Record
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Apply_to_All_Record
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Button3 = New System.Windows.Forms.Button()
@@ -32,7 +32,6 @@ Partial Class Apply_to_All_Record
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -138,21 +137,11 @@ Partial Class Apply_to_All_Record
         Me.DateTimePicker1.TabIndex = 26
         Me.DateTimePicker1.Visible = False
         '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(702, 463)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 27
-        Me.Button2.Text = "Button2"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
         'Apply_to_All_Record
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1055, 581)
-        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.DataGridView1)
@@ -183,5 +172,4 @@ Partial Class Apply_to_All_Record
     Friend WithEvents Button1 As Button
     Friend WithEvents Label7 As Label
     Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents Button2 As Button
 End Class
