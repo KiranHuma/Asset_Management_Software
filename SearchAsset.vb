@@ -60,25 +60,7 @@ Public Class SearchAsset
         End Try
     End Sub
 
-    Private Sub search__asset()
-        Dim str As String
-        Try
-            Dim con As New SqlConnection(cs)
-            con.Open()
-            str = "Select AssetID,Asset_Number_ID,Asset_Name,Asset_Location,Asset_Room,Asset_Status,Asset_Department,Asset_Tag_Number,Asset_description from Add_Asset_Tb where Asset_Name like '" & search_assets.Text & "%' or Asset_Number_ID like '" & search_assets.Text & "%' "
-            cmd = New SqlCommand(str, con)
-            da = New SqlDataAdapter(cmd)
-            ds = New DataSet
-            da.Fill(ds, "Add_Asset_Tb")
-            con.Close()
-            Main_Search_Assets.DataSource = ds
-            Main_Search_Assets.DataMember = "Add_Asset_Tb"
-            Main_Search_Assets.Visible = True
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Failed:Search", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Me.Dispose()
-        End Try
-    End Sub
+
 
 
     Private Sub AddAssetFrm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -145,9 +127,33 @@ Public Class SearchAsset
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
         AddAssetFrm.Show()
     End Sub
-
+    Private Sub search__asset()
+        Dim str As String
+        Try
+            Dim con As New SqlConnection(cs)
+            con.Open()
+            str = "Select Asset_Number_ID,Asset_Name,Asset_Date,Asset_Location,Asset_Room,Asset_Status,Asset_Department,Asset_Tag_Number,Asset_description from Add_Asset_Tb where 
+Asset_Name like '" & search_assets.Text & "%' or Asset_Number_ID like '" & search_assets.Text & "%' 
+or Asset_Number like '" & search_assets.Text & "%' or AssetID like '" & search_assets.Text & "%' or
+ Asset_Location like '" & search_assets.Text & "%' or Asset_Room like '" & search_assets.Text & "%' or
+ Asset_Status like '" & search_assets.Text & "%' or Asset_Department like '" & search_assets.Text & "%' or
+ Asset_Tag_Number like '" & search_assets.Text & "%' or Asset_description like '" & search_assets.Text & "%' 
+and Asset_Status <> 'Pending'"
+            cmd = New SqlCommand(str, con)
+            da = New SqlDataAdapter(cmd)
+            ds = New DataSet
+            da.Fill(ds, "Add_Asset_Tb")
+            con.Close()
+            Main_Search_Assets.DataSource = ds
+            Main_Search_Assets.DataMember = "Add_Asset_Tb"
+            Main_Search_Assets.Visible = True
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Failed:Search", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Me.Dispose()
+        End Try
+    End Sub
     Private Sub search_assets_TextChanged(sender As Object, e As EventArgs) Handles search_assets.TextChanged
-
+        search__asset()
     End Sub
 
     Private Sub Main_Search_Assets_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles Main_Search_Assets.CellContentClick

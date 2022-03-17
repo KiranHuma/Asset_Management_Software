@@ -85,6 +85,12 @@
     <Compile Include="PendingFrm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="RemoveLink.Designer.vb">
+      <DependentUpon>RemoveLink.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RemoveLink.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SearchAsset.Designer.vb">
       <DependentUpon>SearchAsset.vb</DependentUpon>
     </Compile>
@@ -145,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PendingFrm.resx">
       <DependentUpon>PendingFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RemoveLink.resx">
+      <DependentUpon>RemoveLink.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SearchAsset.resx">
       <DependentUpon>SearchAsset.vb</DependentUpon>

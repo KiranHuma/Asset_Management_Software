@@ -64,13 +64,14 @@ Partial Class AddAssetFrm
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Assett_Name_txt = New System.Windows.Forms.ComboBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.Label18 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.assign_datetxt = New System.Windows.Forms.DateTimePicker()
         Me.Button12 = New System.Windows.Forms.Button()
         Me.Button14 = New System.Windows.Forms.Button()
-        Me.Button10 = New System.Windows.Forms.Button()
-        Me.Button19 = New System.Windows.Forms.Button()
         Me.Label36 = New System.Windows.Forms.Label()
         Me.Resetbtn = New System.Windows.Forms.Button()
         Me.Label33 = New System.Windows.Forms.Label()
@@ -80,30 +81,8 @@ Partial Class AddAssetFrm
         Me.assiginie_name_txt = New System.Windows.Forms.ComboBox()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.assign_asset_ID = New System.Windows.Forms.TextBox()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.Label31 = New System.Windows.Forms.Label()
-        Me.Button15 = New System.Windows.Forms.Button()
-        Me.TextBox4 = New System.Windows.Forms.ComboBox()
-        Me.all_assets_grid = New System.Windows.Forms.DataGridView()
-        Me.Label34 = New System.Windows.Forms.Label()
-        Me.TabPage4 = New System.Windows.Forms.TabPage()
-        Me.search_Assign_Date = New System.Windows.Forms.DateTimePicker()
-        Me.Button11 = New System.Windows.Forms.Button()
-        Me.search_Asssign_Description = New System.Windows.Forms.TextBox()
-        Me.search_Assign_Tag_Number = New System.Windows.Forms.TextBox()
-        Me.search_Assign_Department = New System.Windows.Forms.TextBox()
-        Me.search_Assign_Room = New System.Windows.Forms.TextBox()
-        Me.search_Assign_Location = New System.Windows.Forms.TextBox()
-        Me.search_Assign_Asset_Name = New System.Windows.Forms.TextBox()
-        Me.search_Assign_ID = New System.Windows.Forms.TextBox()
-        Me.search_Status = New System.Windows.Forms.TextBox()
-        Me.search_Assign_to = New System.Windows.Forms.TextBox()
-        Me.mega_assign_combo = New System.Windows.Forms.ComboBox()
-        Me.mega_grid = New System.Windows.Forms.DataGridView()
-        Me.TabPage5 = New System.Windows.Forms.TabPage()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.already_assignGrid = New System.Windows.Forms.DataGridView()
+        Me.Button10 = New System.Windows.Forms.Button()
+        Me.Button19 = New System.Windows.Forms.Button()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
@@ -112,19 +91,10 @@ Partial Class AddAssetFrm
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.asset_gridview = New System.Windows.Forms.DataGridView()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.Label19 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.TabPage2.SuspendLayout()
-        Me.TabPage3.SuspendLayout()
-        CType(Me.all_assets_grid, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage4.SuspendLayout()
-        CType(Me.mega_grid, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage5.SuspendLayout()
-        CType(Me.already_assignGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
         CType(Me.asset_gridview, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -133,9 +103,6 @@ Partial Class AddAssetFrm
         '
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Controls.Add(Me.TabPage3)
-        Me.TabControl1.Controls.Add(Me.TabPage4)
-        Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Location = New System.Drawing.Point(12, 11)
         Me.TabControl1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TabControl1.Name = "TabControl1"
@@ -579,6 +546,34 @@ Partial Class AddAssetFrm
         Me.TabPage2.Text = "Assign Asset"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(782, 146)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(72, 17)
+        Me.Label19.TabIndex = 98
+        Me.Label19.Text = "Terminate"
+        Me.Label19.Visible = False
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(785, 172)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(178, 22)
+        Me.TextBox3.TabIndex = 97
+        Me.TextBox3.Visible = False
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(999, 96)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(72, 17)
+        Me.Label18.TabIndex = 96
+        Me.Label18.Text = "Terminate"
+        Me.Label18.Visible = False
+        '
         'Label17
         '
         Me.Label17.AutoSize = True
@@ -614,6 +609,7 @@ Partial Class AddAssetFrm
         Me.Button12.TabIndex = 92
         Me.Button12.Text = "Refresh"
         Me.Button12.UseVisualStyleBackColor = True
+        Me.Button12.Visible = False
         '
         'Button14
         '
@@ -628,28 +624,7 @@ Partial Class AddAssetFrm
         Me.Button14.TabIndex = 47
         Me.Button14.Text = "Refresh"
         Me.Button14.UseVisualStyleBackColor = False
-        '
-        'Button10
-        '
-        Me.Button10.Location = New System.Drawing.Point(929, 12)
-        Me.Button10.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(89, 36)
-        Me.Button10.TabIndex = 90
-        Me.Button10.Text = "Terminate all its related assets"
-        Me.Button10.UseVisualStyleBackColor = True
-        Me.Button10.Visible = False
-        '
-        'Button19
-        '
-        Me.Button19.Enabled = False
-        Me.Button19.Location = New System.Drawing.Point(1024, 10)
-        Me.Button19.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button19.Name = "Button19"
-        Me.Button19.Size = New System.Drawing.Size(123, 38)
-        Me.Button19.TabIndex = 49
-        Me.Button19.Text = "Remove Link"
-        Me.Button19.UseVisualStyleBackColor = True
+        Me.Button14.Visible = False
         '
         'Label36
         '
@@ -674,6 +649,7 @@ Partial Class AddAssetFrm
         Me.Resetbtn.TabIndex = 46
         Me.Resetbtn.Text = "Reset"
         Me.Resetbtn.UseVisualStyleBackColor = False
+        Me.Resetbtn.Visible = False
         '
         'Label33
         '
@@ -698,6 +674,7 @@ Partial Class AddAssetFrm
         Me.Button9.TabIndex = 45
         Me.Button9.Text = "Delete"
         Me.Button9.UseVisualStyleBackColor = False
+        Me.Button9.Visible = False
         '
         'Label29
         '
@@ -707,6 +684,7 @@ Partial Class AddAssetFrm
         Me.Label29.Size = New System.Drawing.Size(48, 17)
         Me.Label29.TabIndex = 83
         Me.Label29.Text = "Status"
+        Me.Label29.Visible = False
         '
         'Label14
         '
@@ -735,6 +713,7 @@ Partial Class AddAssetFrm
         Me.Label24.Size = New System.Drawing.Size(126, 17)
         Me.Label24.TabIndex = 79
         Me.Label24.Text = "asset id for update"
+        Me.Label24.Visible = False
         '
         'assign_asset_ID
         '
@@ -744,257 +723,30 @@ Partial Class AddAssetFrm
         Me.assign_asset_ID.Size = New System.Drawing.Size(48, 22)
         Me.assign_asset_ID.TabIndex = 56
         Me.assign_asset_ID.Text = "0"
+        Me.assign_asset_ID.Visible = False
         '
-        'TabPage3
+        'Button10
         '
-        Me.TabPage3.Controls.Add(Me.Label31)
-        Me.TabPage3.Controls.Add(Me.Button15)
-        Me.TabPage3.Controls.Add(Me.TextBox4)
-        Me.TabPage3.Controls.Add(Me.all_assets_grid)
-        Me.TabPage3.Controls.Add(Me.Label34)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.TabPage3.Size = New System.Drawing.Size(1279, 348)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Terminated or Returned Assets"
-        Me.TabPage3.ToolTipText = "By default it shows terminted and returned assets.You can search any asset status" &
-    " in Textbox"
-        Me.TabPage3.UseVisualStyleBackColor = True
+        Me.Button10.Location = New System.Drawing.Point(929, 12)
+        Me.Button10.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button10.Name = "Button10"
+        Me.Button10.Size = New System.Drawing.Size(89, 36)
+        Me.Button10.TabIndex = 90
+        Me.Button10.Text = "Terminate all its related assets"
+        Me.Button10.UseVisualStyleBackColor = True
+        Me.Button10.Visible = False
         '
-        'Label31
+        'Button19
         '
-        Me.Label31.AutoSize = True
-        Me.Label31.Location = New System.Drawing.Point(8, 62)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(53, 17)
-        Me.Label31.TabIndex = 6
-        Me.Label31.Text = "Search"
-        '
-        'Button15
-        '
-        Me.Button15.Location = New System.Drawing.Point(306, 94)
-        Me.Button15.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button15.Name = "Button15"
-        Me.Button15.Size = New System.Drawing.Size(100, 28)
-        Me.Button15.TabIndex = 5
-        Me.Button15.Text = "Refresh"
-        Me.Button15.UseVisualStyleBackColor = True
-        '
-        'TextBox4
-        '
-        Me.TextBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.TextBox4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.TextBox4.FormattingEnabled = True
-        Me.TextBox4.Items.AddRange(New Object() {"Terminated", "Returned"})
-        Me.TextBox4.Location = New System.Drawing.Point(6, 94)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(278, 24)
-        Me.TextBox4.TabIndex = 4
-        '
-        'all_assets_grid
-        '
-        Me.all_assets_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.all_assets_grid.Location = New System.Drawing.Point(9, 128)
-        Me.all_assets_grid.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.all_assets_grid.Name = "all_assets_grid"
-        Me.all_assets_grid.RowHeadersWidth = 51
-        Me.all_assets_grid.RowTemplate.Height = 24
-        Me.all_assets_grid.Size = New System.Drawing.Size(1279, 581)
-        Me.all_assets_grid.TabIndex = 1
-        '
-        'Label34
-        '
-        Me.Label34.AutoSize = True
-        Me.Label34.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label34.Location = New System.Drawing.Point(491, 36)
-        Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(0, 32)
-        Me.Label34.TabIndex = 0
-        '
-        'TabPage4
-        '
-        Me.TabPage4.Controls.Add(Me.search_Assign_Date)
-        Me.TabPage4.Controls.Add(Me.Button11)
-        Me.TabPage4.Controls.Add(Me.search_Asssign_Description)
-        Me.TabPage4.Controls.Add(Me.search_Assign_Tag_Number)
-        Me.TabPage4.Controls.Add(Me.search_Assign_Department)
-        Me.TabPage4.Controls.Add(Me.search_Assign_Room)
-        Me.TabPage4.Controls.Add(Me.search_Assign_Location)
-        Me.TabPage4.Controls.Add(Me.search_Assign_Asset_Name)
-        Me.TabPage4.Controls.Add(Me.search_Assign_ID)
-        Me.TabPage4.Controls.Add(Me.search_Status)
-        Me.TabPage4.Controls.Add(Me.search_Assign_to)
-        Me.TabPage4.Controls.Add(Me.mega_assign_combo)
-        Me.TabPage4.Controls.Add(Me.mega_grid)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(1279, 348)
-        Me.TabPage4.TabIndex = 3
-        Me.TabPage4.Text = "Assets Record"
-        Me.TabPage4.UseVisualStyleBackColor = True
-        '
-        'search_Assign_Date
-        '
-        Me.search_Assign_Date.Location = New System.Drawing.Point(95, 116)
-        Me.search_Assign_Date.Name = "search_Assign_Date"
-        Me.search_Assign_Date.Size = New System.Drawing.Size(200, 22)
-        Me.search_Assign_Date.TabIndex = 17
-        Me.search_Assign_Date.Visible = False
-        '
-        'Button11
-        '
-        Me.Button11.Location = New System.Drawing.Point(310, 68)
-        Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(75, 23)
-        Me.Button11.TabIndex = 16
-        Me.Button11.Text = "Select"
-        Me.Button11.UseVisualStyleBackColor = True
-        '
-        'search_Asssign_Description
-        '
-        Me.search_Asssign_Description.Location = New System.Drawing.Point(105, 116)
-        Me.search_Asssign_Description.Name = "search_Asssign_Description"
-        Me.search_Asssign_Description.Size = New System.Drawing.Size(209, 22)
-        Me.search_Asssign_Description.TabIndex = 15
-        Me.search_Asssign_Description.Text = "Asssign Description"
-        Me.search_Asssign_Description.Visible = False
-        '
-        'search_Assign_Tag_Number
-        '
-        Me.search_Assign_Tag_Number.Location = New System.Drawing.Point(105, 118)
-        Me.search_Assign_Tag_Number.Name = "search_Assign_Tag_Number"
-        Me.search_Assign_Tag_Number.Size = New System.Drawing.Size(209, 22)
-        Me.search_Assign_Tag_Number.TabIndex = 14
-        Me.search_Assign_Tag_Number.Text = "Assign Tag Number"
-        Me.search_Assign_Tag_Number.Visible = False
-        '
-        'search_Assign_Department
-        '
-        Me.search_Assign_Department.Location = New System.Drawing.Point(95, 116)
-        Me.search_Assign_Department.Name = "search_Assign_Department"
-        Me.search_Assign_Department.Size = New System.Drawing.Size(209, 22)
-        Me.search_Assign_Department.TabIndex = 13
-        Me.search_Assign_Department.Text = "Assign Department"
-        Me.search_Assign_Department.Visible = False
-        '
-        'search_Assign_Room
-        '
-        Me.search_Assign_Room.Location = New System.Drawing.Point(95, 118)
-        Me.search_Assign_Room.Name = "search_Assign_Room"
-        Me.search_Assign_Room.Size = New System.Drawing.Size(209, 22)
-        Me.search_Assign_Room.TabIndex = 12
-        Me.search_Assign_Room.Text = "Assign Room"
-        Me.search_Assign_Room.Visible = False
-        '
-        'search_Assign_Location
-        '
-        Me.search_Assign_Location.Location = New System.Drawing.Point(105, 118)
-        Me.search_Assign_Location.Name = "search_Assign_Location"
-        Me.search_Assign_Location.Size = New System.Drawing.Size(209, 22)
-        Me.search_Assign_Location.TabIndex = 11
-        Me.search_Assign_Location.Text = "Assign Location"
-        Me.search_Assign_Location.Visible = False
-        '
-        'search_Assign_Asset_Name
-        '
-        Me.search_Assign_Asset_Name.Location = New System.Drawing.Point(95, 116)
-        Me.search_Assign_Asset_Name.Name = "search_Assign_Asset_Name"
-        Me.search_Assign_Asset_Name.Size = New System.Drawing.Size(209, 22)
-        Me.search_Assign_Asset_Name.TabIndex = 10
-        Me.search_Assign_Asset_Name.Text = "Assign Asset Name"
-        Me.search_Assign_Asset_Name.Visible = False
-        '
-        'search_Assign_ID
-        '
-        Me.search_Assign_ID.Location = New System.Drawing.Point(95, 118)
-        Me.search_Assign_ID.Name = "search_Assign_ID"
-        Me.search_Assign_ID.Size = New System.Drawing.Size(209, 22)
-        Me.search_Assign_ID.TabIndex = 9
-        Me.search_Assign_ID.Text = "Assign ID"
-        Me.search_Assign_ID.Visible = False
-        '
-        'search_Status
-        '
-        Me.search_Status.Location = New System.Drawing.Point(95, 116)
-        Me.search_Status.Name = "search_Status"
-        Me.search_Status.Size = New System.Drawing.Size(209, 22)
-        Me.search_Status.TabIndex = 7
-        Me.search_Status.Text = "Status"
-        Me.search_Status.Visible = False
-        '
-        'search_Assign_to
-        '
-        Me.search_Assign_to.Location = New System.Drawing.Point(105, 116)
-        Me.search_Assign_to.Name = "search_Assign_to"
-        Me.search_Assign_to.Size = New System.Drawing.Size(209, 22)
-        Me.search_Assign_to.TabIndex = 6
-        Me.search_Assign_to.Text = "Assign to"
-        Me.search_Assign_to.Visible = False
-        '
-        'mega_assign_combo
-        '
-        Me.mega_assign_combo.FormattingEnabled = True
-        Me.mega_assign_combo.Items.AddRange(New Object() {"Assign to", "Status", "Assign Date", "Assign ID", "Assign Asset Name", "Assign Location", "Assign Room", "Assign Department", "Assign Tag Number", "Asssign Description"})
-        Me.mega_assign_combo.Location = New System.Drawing.Point(95, 67)
-        Me.mega_assign_combo.Name = "mega_assign_combo"
-        Me.mega_assign_combo.Size = New System.Drawing.Size(209, 24)
-        Me.mega_assign_combo.TabIndex = 5
-        '
-        'mega_grid
-        '
-        Me.mega_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.mega_grid.Location = New System.Drawing.Point(498, 5)
-        Me.mega_grid.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.mega_grid.Name = "mega_grid"
-        Me.mega_grid.RowHeadersWidth = 51
-        Me.mega_grid.RowTemplate.Height = 24
-        Me.mega_grid.Size = New System.Drawing.Size(785, 709)
-        Me.mega_grid.TabIndex = 4
-        '
-        'TabPage5
-        '
-        Me.TabPage5.Controls.Add(Me.Label27)
-        Me.TabPage5.Controls.Add(Me.TextBox2)
-        Me.TabPage5.Controls.Add(Me.already_assignGrid)
-        Me.TabPage5.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(1279, 348)
-        Me.TabPage5.TabIndex = 4
-        Me.TabPage5.Text = "Assigned Assets Record"
-        Me.TabPage5.UseVisualStyleBackColor = True
-        '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(19, 83)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(134, 17)
-        Me.Label27.TabIndex = 89
-        Me.Label27.Text = "Search Status Or ID"
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(23, 101)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(205, 22)
-        Me.TextBox2.TabIndex = 88
-        '
-        'already_assignGrid
-        '
-        Me.already_assignGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.already_assignGrid.Location = New System.Drawing.Point(3, 139)
-        Me.already_assignGrid.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.already_assignGrid.Name = "already_assignGrid"
-        Me.already_assignGrid.RowHeadersWidth = 51
-        Me.already_assignGrid.RowTemplate.Height = 24
-        Me.already_assignGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.already_assignGrid.Size = New System.Drawing.Size(1280, 575)
-        Me.already_assignGrid.TabIndex = 87
+        Me.Button19.Enabled = False
+        Me.Button19.Location = New System.Drawing.Point(1024, 10)
+        Me.Button19.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button19.Name = "Button19"
+        Me.Button19.Size = New System.Drawing.Size(123, 38)
+        Me.Button19.TabIndex = 49
+        Me.Button19.Text = "Remove Link"
+        Me.Button19.UseVisualStyleBackColor = True
+        Me.Button19.Visible = False
         '
         'Panel5
         '
@@ -1053,7 +805,7 @@ Partial Class AddAssetFrm
         'Label28
         '
         Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(34, 502)
+        Me.Label28.Location = New System.Drawing.Point(28, 487)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(187, 17)
         Me.Label28.TabIndex = 48
@@ -1061,7 +813,7 @@ Partial Class AddAssetFrm
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(37, 534)
+        Me.TextBox1.Location = New System.Drawing.Point(31, 506)
         Me.TextBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(272, 22)
@@ -1070,40 +822,14 @@ Partial Class AddAssetFrm
         'asset_gridview
         '
         Me.asset_gridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.asset_gridview.Location = New System.Drawing.Point(37, 583)
+        Me.asset_gridview.Location = New System.Drawing.Point(31, 532)
         Me.asset_gridview.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.asset_gridview.Name = "asset_gridview"
         Me.asset_gridview.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.asset_gridview.RowTemplate.Height = 24
         Me.asset_gridview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.asset_gridview.Size = New System.Drawing.Size(1195, 131)
+        Me.asset_gridview.Size = New System.Drawing.Size(1255, 207)
         Me.asset_gridview.TabIndex = 0
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(999, 96)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(72, 17)
-        Me.Label18.TabIndex = 96
-        Me.Label18.Text = "Terminate"
-        Me.Label18.Visible = False
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Location = New System.Drawing.Point(785, 172)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(178, 22)
-        Me.TextBox3.TabIndex = 97
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(782, 146)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(72, 17)
-        Me.Label19.TabIndex = 98
-        Me.Label19.Text = "Terminate"
         '
         'AddAssetFrm
         '
@@ -1126,15 +852,6 @@ Partial Class AddAssetFrm
         Me.Panel2.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
-        Me.TabPage3.ResumeLayout(False)
-        Me.TabPage3.PerformLayout()
-        CType(Me.all_assets_grid, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TabPage4.ResumeLayout(False)
-        Me.TabPage4.PerformLayout()
-        CType(Me.mega_grid, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TabPage5.ResumeLayout(False)
-        Me.TabPage5.PerformLayout()
-        CType(Me.already_assignGrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         CType(Me.asset_gridview, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -1197,30 +914,6 @@ Partial Class AddAssetFrm
     Friend WithEvents Label33 As Label
     Friend WithEvents Button12 As Button
     Friend WithEvents Label14 As Label
-    Friend WithEvents TabPage3 As TabPage
-    Friend WithEvents Label31 As Label
-    Friend WithEvents Button15 As Button
-    Friend WithEvents TextBox4 As ComboBox
-    Friend WithEvents all_assets_grid As DataGridView
-    Friend WithEvents Label34 As Label
-    Friend WithEvents TabPage4 As TabPage
-    Friend WithEvents search_Assign_Date As DateTimePicker
-    Friend WithEvents Button11 As Button
-    Friend WithEvents search_Asssign_Description As TextBox
-    Friend WithEvents search_Assign_Tag_Number As TextBox
-    Friend WithEvents search_Assign_Department As TextBox
-    Friend WithEvents search_Assign_Room As TextBox
-    Friend WithEvents search_Assign_Location As TextBox
-    Friend WithEvents search_Assign_Asset_Name As TextBox
-    Friend WithEvents search_Assign_ID As TextBox
-    Friend WithEvents search_Status As TextBox
-    Friend WithEvents search_Assign_to As TextBox
-    Friend WithEvents mega_assign_combo As ComboBox
-    Friend WithEvents mega_grid As DataGridView
-    Friend WithEvents TabPage5 As TabPage
-    Friend WithEvents Label27 As Label
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents already_assignGrid As DataGridView
     Friend WithEvents TextBox6 As TextBox
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents Button19 As Button

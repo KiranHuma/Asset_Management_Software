@@ -47,9 +47,9 @@ Partial Class SearchspecificFrm
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(829, 88)
+        Me.Button1.Location = New System.Drawing.Point(892, 89)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(108, 23)
+        Me.Button1.Size = New System.Drawing.Size(108, 39)
         Me.Button1.TabIndex = 12
         Me.Button1.Text = "Download"
         Me.Button1.UseVisualStyleBackColor = True

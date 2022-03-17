@@ -42,7 +42,21 @@ Public Class PendingFrm
             Me.Dispose()
         End Try
     End Sub
+    Private Sub update_main_table_pending()
+        Try
+            dbaccessconnection()
+            con.Open()
+            cmd.CommandText = "Update Add_Asset_Tb set Asset_Status='" & Label1.Text & "', Asset_Date='" & DateTimePicker1.Value & "' where Asset_Status='Pending'"
 
+            cmd.ExecuteNonQuery()
+            con.Close()
+            ' get_asset_record()
+            '  MessageBox.Show("Operation completed Successfully")
+        Catch ex As Exception
+            MessageBox.Show("Failed:Deleting Selected Values" & ex.Message)
+            Me.Dispose()
+        End Try
+    End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs)
 
     End Sub
@@ -67,6 +81,7 @@ Public Class PendingFrm
         If ask = MsgBoxResult.Yes Then
 
             terminate_asset()
+            update_main_table_pending()
             SearchAsset.Show()
             Me.Close()
             MessageBox.Show("All Assets Terminated successfully")

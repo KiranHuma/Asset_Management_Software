@@ -30,7 +30,7 @@ Public Class AddAssetFrm
         get_asset_record()
         'Panel3.Visible = False
 
-        get_already_assign()
+
         FillCombo_ad_ID()
         FillCombo_ad_location()
         FillCombo_ad_department()
@@ -75,7 +75,7 @@ Public Class AddAssetFrm
         Try
             Dim con As New SqlConnection(cs)
             con.Open()
-            Dim da As New SqlDataAdapter("Select A_No,Asset_Number_ID,Asset_Name,Asset_Date,Asset_Location,Asset_Room,Asset_Status,Asset_Department,Asset_Tag_Number,Asset_description from Add_Asset_Tb", con)
+            Dim da As New SqlDataAdapter("Select A_No,Asset_Number_ID,Asset_Name,Asset_Date,Asset_Location,Asset_Room,Asset_Status,Asset_Department,Asset_Tag_Number,Asset_description from Add_Asset_Tb where Asset_Status <> 'Pending' ", con)
             Dim dt As New DataTable
             da.Fill(dt)
             source2.DataSource = dt
@@ -458,7 +458,10 @@ Public Class AddAssetFrm
     End Sub
 
     Private Sub asset_gridview_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles asset_gridview.CellContentClick
-
+        If asset_gridview.Rows(e.RowIndex).Cells(e.ColumnIndex).Value IsNot Nothing Then
+            SearchspecificFrm.searchrelated_txt.Text = asset_gridview.Rows(e.RowIndex).Cells(e.ColumnIndex).Value.ToString()
+            SearchspecificFrm.Show()
+        End If
     End Sub
 
     Private Sub Button8_Click_1(sender As Object, e As EventArgs)
@@ -545,7 +548,7 @@ Public Class AddAssetFrm
         Try
             Dim con As New SqlConnection(cs)
             con.Open()
-            str = "Select A_No,Asset_Number_ID,Asset_Name,Asset_Date,Asset_Location,Asset_Room,Asset_Status,Asset_Department,Asset_Tag_Number,Asset_description from Add_Asset_Tb where Asset_Name like '" & TextBox1.Text & "%' or Asset_Number_ID like '" & TextBox1.Text & "%' "
+            str = "Select A_No,Asset_Number_ID,Asset_Name,Asset_Date,Asset_Location,Asset_Room,Asset_Status,Asset_Department,Asset_Tag_Number,Asset_description from Add_Asset_Tb where Asset_Name like '" & TextBox1.Text & "%' or Asset_Number_ID like '" & TextBox1.Text & "%' and Asset_Status <> 'Pending'"
             cmd = New SqlCommand(str, con)
             da = New SqlDataAdapter(cmd)
             ds = New DataSet
@@ -559,45 +562,12 @@ Public Class AddAssetFrm
             Me.Dispose()
         End Try
     End Sub
-    Private Sub search__asign_asset()
-        Dim str As String
-        Try
-            Dim con As New SqlConnection(cs)
-            con.Open()
-            str = "Select Alot_ID,Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name,Assign_Location,Assign_Room,Assign_Department,Assign_Tag_Number,Assign_description from Assign_Asset_TB where Assign_Number_ID like '" & TextBox2.Text & "%' or Assign_Status like '" & TextBox2.Text & "%'"
-            cmd = New SqlCommand(str, con)
-            da = New SqlDataAdapter(cmd)
-            ds = New DataSet
-            da.Fill(ds, "already_assignGrid")
-            con.Close()
-            already_assignGrid.DataSource = ds
-            already_assignGrid.DataMember = "already_assignGrid"
-            already_assignGrid.Visible = True
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Failed:Search", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Me.Dispose()
-        End Try
-    End Sub
 
 
 
 
-    Private Sub get_already_assign()
-        Try
-            Dim con As New SqlConnection(cs)
-            con.Open()
-            Dim da As New SqlDataAdapter("Select Alot_ID,Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name,Assign_Location,Assign_Room,Assign_Department,Assign_Tag_Number,Assign_description  from Assign_Asset_TB ", con)
-            Dim dt2 As New DataTable
-            da.Fill(dt2)
-            source3.DataSource = dt2
-            already_assignGrid.DataSource = dt2
-            'assign_gridview.DataSource = ds.Tables(0)
-            already_assignGrid.Refresh()
-        Catch ex As Exception
-            MessageBox.Show("Failed:Retrieving  Data" & ex.Message)
-            Me.Dispose()
-        End Try
-    End Sub
+
+
 
 
 
@@ -607,7 +577,7 @@ Public Class AddAssetFrm
         Button5.Visible = False
         Button8.Visible = False
         Button10.Visible = False
-        Button19.Visible = True
+        Button19.Visible = False
     End Sub
 
 
@@ -623,9 +593,7 @@ Public Class AddAssetFrm
         End If
     End Sub
 
-    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs)
-        search__asign_asset()
-    End Sub
+
 
 
 
@@ -664,30 +632,8 @@ Public Class AddAssetFrm
 
 
 
-    Private Sub get_all_asset()
-        Dim str As String
-        Try
-            Dim con As New SqlConnection(cs)
-            con.Open()
-            str = "Select Alot_ID,Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name,Assign_Location,Assign_Room,Assign_Department,Assign_Tag_Number,Assign_description from Assign_Asset_TB where Assign_Number_ID='" & Label3.Text & "' And Assign_Running='Stop' or Assign_Status='Terminated' or Assign_Status='Returned' "
-            cmd = New SqlCommand(str, con)
-            da = New SqlDataAdapter(cmd)
-            ds = New DataSet
-            da.Fill(ds, "Assign_Asset_TB")
-            con.Close()
-            all_assets_grid.DataSource = ds
-            all_assets_grid.DataMember = "Assign_Asset_TB"
-            all_assets_grid.Visible = True
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Failed:Search", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Me.Dispose()
-        End Try
-    End Sub
 
-    Private Sub TabPage3_Enter(sender As Object, e As EventArgs) Handles TabPage3.Enter
 
-        get_all_asset()
-    End Sub
 
     Private Sub TabPage1_Click(sender As Object, e As EventArgs) Handles TabPage1.Click
 
@@ -714,51 +660,10 @@ Public Class AddAssetFrm
         Apply_to_All_Record.Show()
         Me.Close()
     End Sub
-    Private Sub get_terminated()
-        Dim str As String
-        Try
-            Dim con As New SqlConnection(cs)
-            con.Open()
-            str = "Select Alot_ID,Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name,Assign_Location,Assign_Room,Assign_Department,Assign_Tag_Number,Assign_description from Assign_Asset_TB where Assign_Status='Terminated' or Assign_Status='Returned' "
-            cmd = New SqlCommand(str, con)
-            da = New SqlDataAdapter(cmd)
-            ds = New DataSet
-            da.Fill(ds, "Assign_Asset_TB")
-            con.Close()
-            all_assets_grid.DataSource = ds
-            all_assets_grid.DataMember = "Assign_Asset_TB"
-            all_assets_grid.Visible = True
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Failed:Search", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Me.Dispose()
-        End Try
-    End Sub
-    Private Sub search__return_terminated_assets()
-        Dim str As String
-        Try
-            Dim con As New SqlConnection(cs)
-            con.Open()
-            str = "Select Alot_ID,Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name,Assign_Location,Assign_Room,Assign_Department,Assign_Tag_Number,Assign_description from Assign_Asset_TB where Assign_Status = '" & TextBox4.Text & "'"
-            cmd = New SqlCommand(str, con)
-            da = New SqlDataAdapter(cmd)
-            ds = New DataSet
-            da.Fill(ds, "Assign_Asset_TB")
-            con.Close()
-            all_assets_grid.DataSource = ds
-            all_assets_grid.DataMember = "Assign_Asset_TB"
-            all_assets_grid.Visible = True
-
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Failed:Search", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Me.Dispose()
-        End Try
-    End Sub
 
 
-    Private Sub TextBox4_MouseClick(sender As Object, e As MouseEventArgs)
-        ToolTip1.Show("By default it shows terminted and returned assets.You can search any asset status in Textbox
-", TextBox4)
-    End Sub
+
+
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
         Addsub_itemsFrm.Show()
@@ -784,449 +689,28 @@ Public Class AddAssetFrm
 
 
 
-    Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
-        get_already_assign()
-    End Sub
-
-    Private Sub TextBox4_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TextBox4.SelectedIndexChanged
-        If TextBox4.SelectedIndex = -1 Then
-            get_terminated()
-        Else
-            search__return_terminated_assets()
-        End If
-    End Sub
-
-    Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click
-        get_terminated()
-    End Sub
-
-    Private Sub get_mega_record()
-        Dim str As String
-        Try
-            Dim con As New SqlConnection(cs)
-            con.Open()
-            str = "Select Alot_ID,Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name,Assign_Location,Assign_Room,Assign_Department,Assign_Tag_Number,Assign_description from Assign_Asset_TB   "
-            cmd = New SqlCommand(str, con)
-            da = New SqlDataAdapter(cmd)
-            ds = New DataSet
-            da.Fill(ds, "Assign_Asset_TB")
-            con.Close()
-            mega_grid.DataSource = ds
-            mega_grid.DataMember = "Assign_Asset_TB"
-            mega_grid.Visible = True
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Failed:Search", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Me.Dispose()
-        End Try
-    End Sub
-
-    Private Sub TabPage4_Enter(sender As Object, e As EventArgs) Handles TabPage4.Enter
-        get_mega_record()
-    End Sub
-    Private Sub visible_searchbox()
-        Try
-            If mega_assign_combo.Text = "Assign to" Then
-                search_Assign_to.Visible = True
-
-                search_Status.Visible = False
-                search_Assign_Date.Visible = False
-                search_Assign_ID.Visible = False
-                search_Assign_Asset_Name.Visible = False
-                search_Assign_Location.Visible = False
-                search_Assign_Room.Visible = False
-                search_Assign_Department.Visible = False
-                search_Assign_Tag_Number.Visible = False
-                search_Asssign_Description.Visible = False
-            ElseIf mega_assign_combo.Text = "Status" Then
-                search_Status.Visible = True
-                search_Assign_to.Visible = False
-
-                'search_Status.Visible = False
-                search_Assign_Date.Visible = False
-                search_Assign_ID.Visible = False
-                search_Assign_Asset_Name.Visible = False
-                search_Assign_Location.Visible = False
-                search_Assign_Room.Visible = False
-                search_Assign_Department.Visible = False
-                search_Assign_Tag_Number.Visible = False
-                search_Asssign_Description.Visible = False
-            ElseIf mega_assign_combo.Text = "Assign Date" Then
-                search_Assign_Date.Visible = True
-                search_Status.Visible = False
-                search_Assign_to.Visible = False
-
-
-                search_Assign_ID.Visible = False
-                search_Assign_Asset_Name.Visible = False
-                search_Assign_Location.Visible = False
-                search_Assign_Room.Visible = False
-                search_Assign_Department.Visible = False
-                search_Assign_Tag_Number.Visible = False
-                search_Asssign_Description.Visible = False
-            ElseIf mega_assign_combo.Text = "Assign ID" Then
-                search_Assign_ID.Visible = True
-
-                search_Assign_Date.Visible = False
-                search_Status.Visible = False
-                search_Assign_to.Visible = False
-                search_Assign_Asset_Name.Visible = False
-                search_Assign_Location.Visible = False
-                search_Assign_Room.Visible = False
-                search_Assign_Department.Visible = False
-                search_Assign_Tag_Number.Visible = False
-                search_Asssign_Description.Visible = False
-            ElseIf mega_assign_combo.Text = "Assign Asset Name" Then
-                search_Assign_Asset_Name.Visible = True
-
-                search_Assign_ID.Visible = False
-
-                search_Assign_Date.Visible = False
-                search_Status.Visible = False
-                search_Assign_to.Visible = False
-                ' search_Assign_Asset_Name.Visible = False
-                search_Assign_Location.Visible = False
-                search_Assign_Room.Visible = False
-                search_Assign_Department.Visible = False
-                search_Assign_Tag_Number.Visible = False
-                search_Asssign_Description.Visible = False
-            ElseIf mega_assign_combo.Text = "Assign Location" Then
-                search_Assign_Location.Visible = True
-                search_Assign_ID.Visible = False
-
-                search_Assign_Date.Visible = False
-                search_Status.Visible = False
-                search_Assign_to.Visible = False
-                search_Assign_Asset_Name.Visible = False
-                ' search_Assign_Location.Visible = False
-                search_Assign_Room.Visible = False
-                search_Assign_Department.Visible = False
-                search_Assign_Tag_Number.Visible = False
-                search_Asssign_Description.Visible = False
-            ElseIf mega_assign_combo.Text = "Assign Room" Then
-                search_Assign_Room.Visible = True
-                search_Assign_ID.Visible = False
-
-                search_Assign_Date.Visible = False
-                search_Status.Visible = False
-                search_Assign_to.Visible = False
-                search_Assign_Asset_Name.Visible = False
-                search_Assign_Location.Visible = False
-                'search_Assign_Room.Visible = False
-                search_Assign_Department.Visible = False
-                search_Assign_Tag_Number.Visible = False
-                search_Asssign_Description.Visible = False
-            ElseIf mega_assign_combo.Text = "Assign Department" Then
-                search_Assign_Department.Visible = True
-                search_Assign_ID.Visible = False
-
-                search_Assign_Date.Visible = False
-                search_Status.Visible = False
-                search_Assign_to.Visible = False
-                search_Assign_Asset_Name.Visible = False
-                search_Assign_Location.Visible = False
-                search_Assign_Room.Visible = False
-                'search_Assign_Department.Visible = False
-                search_Assign_Tag_Number.Visible = False
-                search_Asssign_Description.Visible = False
-            ElseIf mega_assign_combo.Text = "Assign Tag Number" Then
-                search_Assign_Tag_Number.Visible = True
-                search_Assign_ID.Visible = False
-
-                search_Assign_Date.Visible = False
-                search_Status.Visible = False
-                search_Assign_to.Visible = False
-                search_Assign_Asset_Name.Visible = False
-                search_Assign_Location.Visible = False
-                search_Assign_Room.Visible = False
-                search_Assign_Department.Visible = False
-                'search_Assign_Tag_Number.Visible = False
-                search_Asssign_Description.Visible = False
-            ElseIf mega_assign_combo.Text = "Asssign Description" Then
-                search_Asssign_Description.Visible = True
-
-                search_Assign_ID.Visible = False
-
-                search_Assign_Date.Visible = False
-                search_Status.Visible = False
-                search_Assign_to.Visible = False
-                search_Assign_Asset_Name.Visible = False
-                search_Assign_Location.Visible = False
-                search_Assign_Room.Visible = False
-                search_Assign_Department.Visible = False
-                search_Assign_Tag_Number.Visible = False
-                ' search_Asssign_Description.Visible = False
 
 
 
-            End If
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Failed:Search", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-    End Sub
-    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles mega_assign_combo.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
-        visible_searchbox()
-    End Sub
-    Private Sub searchtextbox_assign_to()
-        Dim str As String
-        Try
-            Dim con As New SqlConnection(cs)
-            con.Open()
-            str = "Select Alot_ID,Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name,Assign_Location,Assign_Room,Assign_Department,Assign_Tag_Number,Assign_description from Assign_Asset_TB where Assign_Name like '" & search_Assign_to.Text & "%'"
-            cmd = New SqlCommand(str, con)
-            da = New SqlDataAdapter(cmd)
-            ds = New DataSet
-            da.Fill(ds, "Assign_Asset_TB")
-            con.Close()
-            mega_grid.DataSource = ds
-            mega_grid.DataMember = "Assign_Asset_TB"
-            mega_grid.Visible = True
-
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Failed:Search", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Me.Dispose()
-        End Try
-    End Sub
-
-    Private Sub searchtextbox_Status()
-        Dim str As String
-        Try
-            Dim con As New SqlConnection(cs)
-            con.Open()
-            str = "Select Alot_ID,Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name,Assign_Location,Assign_Room,Assign_Department,Assign_Tag_Number,Assign_description from Assign_Asset_TB where Assign_Status like '" & search_Status.Text & "%'"
-            cmd = New SqlCommand(str, con)
-            da = New SqlDataAdapter(cmd)
-            ds = New DataSet
-            da.Fill(ds, "Assign_Asset_TB")
-            con.Close()
-            mega_grid.DataSource = ds
-            mega_grid.DataMember = "Assign_Asset_TB"
-            mega_grid.Visible = True
-
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Failed:Search", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Me.Dispose()
-        End Try
-    End Sub
-    Private Sub searchtextbox_Assign_Date()
-        Dim str As String
-        Try
-            Dim con As New SqlConnection(cs)
-            con.Open()
-
-            str = "Select Alot_ID,Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name,Assign_Location,Assign_Room,Assign_Department,Assign_Tag_Number,Assign_description from Assign_Asset_TB where Assign_Date ='" & search_Assign_Date.Text & "'"
-            cmd = New SqlCommand(str, con)
-            da = New SqlDataAdapter(cmd)
-            ds = New DataSet
-            da.Fill(ds, "Assign_Asset_TB")
-            con.Close()
-            mega_grid.DataSource = ds
-            mega_grid.DataMember = "Assign_Asset_TB"
-            mega_grid.Visible = True
-
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Failed:Search", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Me.Dispose()
-        End Try
-    End Sub
-    Private Sub search_Assign_to_TextChanged(sender As Object, e As EventArgs) Handles search_Assign_to.TextChanged
-        searchtextbox_assign_to()
-    End Sub
 
 
-    Private Sub search_Assign_to_MouseClick(sender As Object, e As MouseEventArgs) Handles search_Assign_to.MouseClick
-        search_Assign_to.Text = ""
-    End Sub
 
-    Private Sub search_Status_TextChanged(sender As Object, e As EventArgs) Handles search_Status.TextChanged
-        searchtextbox_Status()
-    End Sub
 
-    Private Sub search_Assign_Date_ValueChanged(sender As Object, e As EventArgs) Handles search_Assign_Date.ValueChanged
-        searchtextbox_Assign_Date()
-    End Sub
 
-    Private Sub search_Assign_ID_TextChanged(sender As Object, e As EventArgs) Handles search_Assign_ID.TextChanged
-        Dim str As String
-        Try
-            Dim con As New SqlConnection(cs)
-            con.Open()
-            str = "Select Alot_ID,Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name,Assign_Location,Assign_Room,Assign_Department,Assign_Tag_Number,Assign_description from Assign_Asset_TB where Assign_Number_ID like '" & search_Assign_ID.Text & "%'"
-            cmd = New SqlCommand(str, con)
-            da = New SqlDataAdapter(cmd)
-            ds = New DataSet
-            da.Fill(ds, "Assign_Asset_TB")
-            con.Close()
-            mega_grid.DataSource = ds
-            mega_grid.DataMember = "Assign_Asset_TB"
-            mega_grid.Visible = True
 
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Failed:Search", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Me.Dispose()
-        End Try
-    End Sub
 
-    Private Sub search_Assign_Asset_Name_TextChanged(sender As Object, e As EventArgs) Handles search_Assign_Asset_Name.TextChanged
-        Dim str As String
-        Try
-            Dim con As New SqlConnection(cs)
-            con.Open()
-            str = "Select Alot_ID,Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name,Assign_Location,Assign_Room,Assign_Department,Assign_Tag_Number,Assign_description from Assign_Asset_TB where Assiginie_Name like '" & search_Assign_Asset_Name.Text & "%'"
-            cmd = New SqlCommand(str, con)
-            da = New SqlDataAdapter(cmd)
-            ds = New DataSet
-            da.Fill(ds, "Assign_Asset_TB")
-            con.Close()
-            mega_grid.DataSource = ds
-            mega_grid.DataMember = "Assign_Asset_TB"
-            mega_grid.Visible = True
 
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Failed:Search", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Me.Dispose()
-        End Try
-    End Sub
 
-    Private Sub search_Assign_Location_TextChanged(sender As Object, e As EventArgs) Handles search_Assign_Location.TextChanged
-        Dim str As String
-        Try
-            Dim con As New SqlConnection(cs)
-            con.Open()
-            str = "Select Alot_ID,Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name,Assign_Location,Assign_Room,Assign_Department,Assign_Tag_Number,Assign_description from Assign_Asset_TB where Assign_Location like '" & search_Assign_Location.Text & "%'"
-            cmd = New SqlCommand(str, con)
-            da = New SqlDataAdapter(cmd)
-            ds = New DataSet
-            da.Fill(ds, "Assign_Asset_TB")
-            con.Close()
-            mega_grid.DataSource = ds
-            mega_grid.DataMember = "Assign_Asset_TB"
-            mega_grid.Visible = True
 
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Failed:Search", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Me.Dispose()
-        End Try
-    End Sub
 
-    Private Sub search_Assign_Room_TextChanged(sender As Object, e As EventArgs) Handles search_Assign_Room.TextChanged
-        Dim str As String
-        Try
-            Dim con As New SqlConnection(cs)
-            con.Open()
-            str = "Select Alot_ID,Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name,Assign_Location,Assign_Room,Assign_Department,Assign_Tag_Number,Assign_description from Assign_Asset_TB where Assign_Room like '" & search_Assign_Room.Text & "%'"
-            cmd = New SqlCommand(str, con)
-            da = New SqlDataAdapter(cmd)
-            ds = New DataSet
-            da.Fill(ds, "Assign_Asset_TB")
-            con.Close()
-            mega_grid.DataSource = ds
-            mega_grid.DataMember = "Assign_Asset_TB"
-            mega_grid.Visible = True
 
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Failed:Search", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Me.Dispose()
-        End Try
-    End Sub
 
-    Private Sub search_Assign_Department_TextChanged(sender As Object, e As EventArgs) Handles search_Assign_Department.TextChanged
-        Dim str As String
-        Try
-            Dim con As New SqlConnection(cs)
-            con.Open()
-            str = "Select Alot_ID,Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name,Assign_Location,Assign_Room,Assign_Department,Assign_Tag_Number,Assign_description from Assign_Asset_TB where Assign_Department like '" & search_Assign_Department.Text & "%'"
-            cmd = New SqlCommand(str, con)
-            da = New SqlDataAdapter(cmd)
-            ds = New DataSet
-            da.Fill(ds, "Assign_Asset_TB")
-            con.Close()
-            mega_grid.DataSource = ds
-            mega_grid.DataMember = "Assign_Asset_TB"
-            mega_grid.Visible = True
 
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Failed:Search", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Me.Dispose()
-        End Try
-    End Sub
 
-    Private Sub search_Assign_Tag_Number_TextChanged(sender As Object, e As EventArgs) Handles search_Assign_Tag_Number.TextChanged
-        Dim str As String
-        Try
-            Dim con As New SqlConnection(cs)
-            con.Open()
-            str = "Select Alot_ID,Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name,Assign_Location,Assign_Room,Assign_Department,Assign_Tag_Number,Assign_description from Assign_Asset_TB where Assign_Tag_Number like '" & search_Assign_Tag_Number.Text & "%'"
-            cmd = New SqlCommand(str, con)
-            da = New SqlDataAdapter(cmd)
-            ds = New DataSet
-            da.Fill(ds, "Assign_Asset_TB")
-            con.Close()
-            mega_grid.DataSource = ds
-            mega_grid.DataMember = "Assign_Asset_TB"
-            mega_grid.Visible = True
 
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Failed:Search", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Me.Dispose()
-        End Try
-    End Sub
 
-    Private Sub search_Asssign_Description_TextChanged(sender As Object, e As EventArgs) Handles search_Asssign_Description.TextChanged
-        Dim str As String
-        Try
-            Dim con As New SqlConnection(cs)
-            con.Open()
-            str = "Select Alot_ID,Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name,Assign_Location,Assign_Room,Assign_Department,Assign_Tag_Number,Assign_description from Assign_Asset_TB where Assign_description like '" & search_Asssign_Description.Text & "%'"
-            cmd = New SqlCommand(str, con)
-            da = New SqlDataAdapter(cmd)
-            ds = New DataSet
-            da.Fill(ds, "Assign_Asset_TB")
-            con.Close()
-            mega_grid.DataSource = ds
-            mega_grid.DataMember = "Assign_Asset_TB"
-            mega_grid.Visible = True
 
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Failed:Search", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Me.Dispose()
-        End Try
-    End Sub
 
-    Private Sub search_Status_MouseClick(sender As Object, e As MouseEventArgs) Handles search_Status.MouseClick
-        search_Status.Text = ""
-    End Sub
-
-    Private Sub search_Asssign_Description_MouseClick(sender As Object, e As MouseEventArgs) Handles search_Asssign_Description.MouseClick
-        search_Asssign_Description.Text = ""
-    End Sub
-
-    Private Sub search_Assign_ID_MouseClick(sender As Object, e As MouseEventArgs) Handles search_Assign_ID.MouseClick
-        search_Assign_ID.Text = ""
-    End Sub
-
-    Private Sub search_Assign_Asset_Name_MouseClick(sender As Object, e As MouseEventArgs) Handles search_Assign_Asset_Name.MouseClick
-        search_Assign_Asset_Name.Text = ""
-    End Sub
-
-    Private Sub search_Assign_Location_MouseClick(sender As Object, e As MouseEventArgs) Handles search_Assign_Location.MouseClick
-        search_Assign_Location.Text = ""
-    End Sub
-
-    Private Sub search_Assign_Room_MouseClick(sender As Object, e As MouseEventArgs) Handles search_Assign_Room.MouseClick
-        search_Assign_Room.Text = ""
-    End Sub
-
-    Private Sub search_Assign_Department_MouseClick(sender As Object, e As MouseEventArgs) Handles search_Assign_Department.MouseClick
-        search_Assign_Department.Text = ""
-    End Sub
-
-    Private Sub search_Assign_Tag_Number_MouseClick(sender As Object, e As MouseEventArgs) Handles search_Assign_Tag_Number.MouseClick
-        search_Assign_Tag_Number.Text = ""
-    End Sub
     Private Sub reset_addasset_db()
 
         Try
@@ -1304,7 +788,7 @@ Public Class AddAssetFrm
 
     End Sub
 
-    Private Sub TextBox2_TextChanged_1(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
+    Private Sub TextBox2_TextChanged_1(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -1340,6 +824,10 @@ Public Class AddAssetFrm
     End Sub
 
     Private Sub TabPage1_DragLeave(sender As Object, e As EventArgs) Handles TabPage1.DragLeave
+
+    End Sub
+
+    Private Sub Button19_Click(sender As Object, e As EventArgs) Handles Button19.Click
 
     End Sub
 End Class

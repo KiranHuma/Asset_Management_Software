@@ -42,7 +42,10 @@ Assign_Status like '" & searchrelated_txt.Text & "%' or Assign_Number_ID like '"
 Assign_Name  like '" & searchrelated_txt.Text & "%' or Assign_Location like '" & searchrelated_txt.Text & "%'  Or 
 Assign_Room like '" & searchrelated_txt.Text & "%' or Assign_Department like '" & searchrelated_txt.Text & "%' or
 
-Assign_description  like '" & searchrelated_txt.Text & "%' "
+Assign_description  like '" & searchrelated_txt.Text & "%' or Current_Status  like '" & searchrelated_txt.Text & "%' or
+
+Assign_Tag_Number  like '" & searchrelated_txt.Text & "%' or Assign_description  like '" & searchrelated_txt.Text & "%'
+"
 
 
             cmd = New SqlCommand(str, con)

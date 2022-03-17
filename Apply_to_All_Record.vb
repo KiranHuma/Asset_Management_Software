@@ -138,7 +138,7 @@ Public Class Apply_to_All_Record
 
 
     Private Sub Button3_Click_2(sender As Object, e As EventArgs) Handles Button3.Click
-        SearchAsset.Show()
+        AddAssetFrm.Show()
         Me.Close()
     End Sub
 
