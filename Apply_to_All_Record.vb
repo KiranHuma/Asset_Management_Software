@@ -27,26 +27,42 @@ Public Class Apply_to_All_Record
         Label5.Visible = False
     End Sub
 
-    Private Sub delete_singel_asset()
-        Try
-            dbaccessconnection()
-            con.Open()
-            cmd.CommandText = "Update Assign_Asset_TB set Assign_Running='" & Label4.Text & "', Assign_Status='Terminated' where Alot_ID='" & Label5.Text & "'"
 
-            cmd.ExecuteNonQuery()
-            con.Close()
-            ' get_asset_record()
-            ' MessageBox.Show("Operation completed Successfully")
-        Catch ex As Exception
-            MessageBox.Show("Failed:Deleting Selected Values" & ex.Message)
-            Me.Dispose()
-        End Try
-    End Sub
     Private Sub no_terminate()
         Try
             dbaccessconnection()
             con.Open()
             cmd.CommandText = "Update Assign_Asset_TB set Current_Status='" & Label7.Text & "', Current_Status_Date='" & DateTimePicker1.Value & "' where Assign_Number_ID='" & Label3.Text & "'"
+
+            cmd.ExecuteNonQuery()
+            con.Close()
+            ' get_asset_record()
+            '  MessageBox.Show("Operation completed Successfully")
+        Catch ex As Exception
+            MessageBox.Show("Failed:Deleting Selected Values" & ex.Message)
+            Me.Dispose()
+        End Try
+    End Sub
+    Private Sub update_main_table()
+        Try
+            dbaccessconnection()
+            con.Open()
+            cmd.CommandText = "Update Add_Asset_Tb set Asset_Status='" & Label4.Text & "', Asset_Date='" & DateTimePicker1.Value & "' where Asset_Number_ID='" & Label3.Text & "'"
+
+            cmd.ExecuteNonQuery()
+            con.Close()
+            ' get_asset_record()
+            '  MessageBox.Show("Operation completed Successfully")
+        Catch ex As Exception
+            MessageBox.Show("Failed:Deleting Selected Values" & ex.Message)
+            Me.Dispose()
+        End Try
+    End Sub
+    Private Sub update_main_table_pending()
+        Try
+            dbaccessconnection()
+            con.Open()
+            cmd.CommandText = "Update Add_Asset_Tb set Asset_Status='" & Label7.Text & "', Asset_Date='" & DateTimePicker1.Value & "' where Asset_Number_ID='" & Label3.Text & "'"
 
             cmd.ExecuteNonQuery()
             con.Close()
@@ -99,11 +115,13 @@ Public Class Apply_to_All_Record
                 If ask = MsgBoxResult.Yes Then
 
             update_running()
+            update_main_table()
             SearchAsset.Show()
                     Me.Close()
                     MessageBox.Show("All Assets Terminated successfully")
                 ElseIf ask = MsgBoxResult.No Then
             no_terminate()
+            'update_main_table_pending()
             MessageBox.Show("Termination Cancel successfully")
                 End If
 
@@ -122,5 +140,9 @@ Public Class Apply_to_All_Record
     Private Sub Button3_Click_2(sender As Object, e As EventArgs) Handles Button3.Click
         SearchAsset.Show()
         Me.Close()
+    End Sub
+
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+        'update_main_table()
     End Sub
 End Class

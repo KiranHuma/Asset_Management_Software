@@ -24,6 +24,7 @@ Public Class AddAssetFrm
         txtboxid()
         txtboxid_assign()
         FillCombo_assign()
+        Button1.Visible = True
         'FillCombo_ad_ID()
         count_login()
         get_asset_record()
@@ -606,6 +607,7 @@ Public Class AddAssetFrm
         Button5.Visible = False
         Button8.Visible = False
         Button10.Visible = False
+        Button19.Visible = True
     End Sub
 
 
@@ -708,6 +710,7 @@ Public Class AddAssetFrm
 
     Private Sub Button10_Click_1(sender As Object, e As EventArgs) Handles Button10.Click
         Apply_to_All_Record.Label3.Text = asset_gridview.CurrentRow.Cells(1).Value.ToString
+
         Apply_to_All_Record.Show()
         Me.Close()
     End Sub
@@ -1333,5 +1336,10 @@ Public Class AddAssetFrm
         Button5.Visible = True
         Button8.Visible = True
         Button10.Visible = True
+        Button19.Visible = True
+    End Sub
+
+    Private Sub TabPage1_DragLeave(sender As Object, e As EventArgs) Handles TabPage1.DragLeave
+
     End Sub
 End Class

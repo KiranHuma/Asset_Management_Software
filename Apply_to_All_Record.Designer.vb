@@ -32,6 +32,7 @@ Partial Class Apply_to_All_Record
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -62,7 +63,7 @@ Partial Class Apply_to_All_Record
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(165, 660)
+        Me.Label5.Location = New System.Drawing.Point(206, 526)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(58, 17)
         Me.Label5.TabIndex = 21
@@ -72,7 +73,7 @@ Partial Class Apply_to_All_Record
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(67, 660)
+        Me.Label4.Location = New System.Drawing.Point(108, 526)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(72, 17)
         Me.Label4.TabIndex = 20
@@ -82,7 +83,7 @@ Partial Class Apply_to_All_Record
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(17, 660)
+        Me.Label3.Location = New System.Drawing.Point(58, 526)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(21, 17)
         Me.Label3.TabIndex = 19
@@ -122,7 +123,7 @@ Partial Class Apply_to_All_Record
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(67, 631)
+        Me.Label7.Location = New System.Drawing.Point(108, 497)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(60, 17)
         Me.Label7.TabIndex = 25
@@ -131,17 +132,27 @@ Partial Class Apply_to_All_Record
         '
         'DateTimePicker1
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(51, 568)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(92, 434)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(200, 22)
         Me.DateTimePicker1.TabIndex = 26
         Me.DateTimePicker1.Visible = False
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(702, 463)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 27
+        Me.Button2.Text = "Button2"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'Apply_to_All_Record
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1055, 702)
+        Me.ClientSize = New System.Drawing.Size(1055, 581)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.DataGridView1)
@@ -172,4 +183,5 @@ Partial Class Apply_to_All_Record
     Friend WithEvents Button1 As Button
     Friend WithEvents Label7 As Label
     Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents Button2 As Button
 End Class

@@ -561,7 +561,6 @@ Partial Class AddAssetFrm
         Me.TabPage2.Controls.Add(Me.assign_datetxt)
         Me.TabPage2.Controls.Add(Me.Button12)
         Me.TabPage2.Controls.Add(Me.Button14)
-        Me.TabPage2.Controls.Add(Me.Button19)
         Me.TabPage2.Controls.Add(Me.Label36)
         Me.TabPage2.Controls.Add(Me.Resetbtn)
         Me.TabPage2.Controls.Add(Me.Label33)
@@ -644,7 +643,7 @@ Partial Class AddAssetFrm
         'Button19
         '
         Me.Button19.Enabled = False
-        Me.Button19.Location = New System.Drawing.Point(1093, 222)
+        Me.Button19.Location = New System.Drawing.Point(1024, 10)
         Me.Button19.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button19.Name = "Button19"
         Me.Button19.Size = New System.Drawing.Size(123, 38)
@@ -1003,6 +1002,7 @@ Partial Class AddAssetFrm
         Me.Panel5.Controls.Add(Me.Button5)
         Me.Panel5.Controls.Add(Me.Button8)
         Me.Panel5.Controls.Add(Me.Button10)
+        Me.Panel5.Controls.Add(Me.Button19)
         Me.Panel5.Location = New System.Drawing.Point(18, 407)
         Me.Panel5.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel5.Name = "Panel5"
