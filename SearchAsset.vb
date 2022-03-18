@@ -158,9 +158,8 @@ Public Class SearchAsset
         PendingFrm.Show()
     End Sub
 
-    Private Sub Label12_Click_1(sender As Object, e As EventArgs) Handles Label12.Click
-        Admin_CodeFrm.Show()
-        Me.Close()
+    Private Sub Label12_Click_1(sender As Object, e As EventArgs)
+
     End Sub
 
     Private Sub get_asign_assets()
@@ -234,6 +233,13 @@ Public Class SearchAsset
         Panel1.Enabled = False
         panel3.Visible = True
         panel3.Enabled = True
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Label12.Click
+        Admin_CodeFrm.Label3.Text = Label1.Text
+
+        Admin_CodeFrm.Show()
+        Me.Hide()
     End Sub
 End Class
 

@@ -29,6 +29,7 @@ Partial Class PendingFrm
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button9 = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -92,11 +93,21 @@ Partial Class PendingFrm
         Me.Button9.TabIndex = 94
         Me.Button9.UseVisualStyleBackColor = False
         '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(460, 580)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(160, 22)
+        Me.TextBox1.TabIndex = 95
+        Me.TextBox1.Text = "export"
+        Me.TextBox1.Visible = False
+        '
         'PendingFrm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1022, 631)
+        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Button9)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.DateTimePicker1)
@@ -118,4 +129,5 @@ Partial Class PendingFrm
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents Label1 As Label
     Friend WithEvents Button9 As Button
+    Friend WithEvents TextBox1 As TextBox
 End Class

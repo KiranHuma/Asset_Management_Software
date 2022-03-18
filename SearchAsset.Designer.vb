@@ -31,13 +31,14 @@ Partial Class SearchAsset
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.count_users = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.Main_Search_Assets = New System.Windows.Forms.DataGridView()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.panel3 = New System.Windows.Forms.Panel()
         Me.pictureBox3 = New System.Windows.Forms.PictureBox()
         Me.search_assets = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -59,11 +60,12 @@ Partial Class SearchAsset
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.Label1)
+        Me.TabPage1.Controls.Add(Me.Label12)
         Me.TabPage1.Controls.Add(Me.RadioButton2)
         Me.TabPage1.Controls.Add(Me.RadioButton1)
         Me.TabPage1.Controls.Add(Me.Panel1)
         Me.TabPage1.Controls.Add(Me.count_users)
-        Me.TabPage1.Controls.Add(Me.Label12)
         Me.TabPage1.Controls.Add(Me.Main_Search_Assets)
         Me.TabPage1.Controls.Add(Me.Button2)
         Me.TabPage1.Controls.Add(Me.Button1)
@@ -144,17 +146,6 @@ Partial Class SearchAsset
         Me.count_users.Text = "Count User"
         Me.count_users.Visible = False
         '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Image = CType(resources.GetObject("Label12.Image"), System.Drawing.Image)
-        Me.Label12.Location = New System.Drawing.Point(1177, 21)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(0, 20)
-        Me.Label12.TabIndex = 100
-        Me.Label12.Visible = False
-        '
         'Main_Search_Assets
         '
         Me.Main_Search_Assets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -218,6 +209,27 @@ Partial Class SearchAsset
         Me.search_assets.TabIndex = 2
         Me.search_assets.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
+        'Label12
+        '
+        Me.Label12.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Label12.ForeColor = System.Drawing.Color.White
+        Me.Label12.Image = CType(resources.GetObject("Label12.Image"), System.Drawing.Image)
+        Me.Label12.Location = New System.Drawing.Point(1115, 22)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(75, 45)
+        Me.Label12.TabIndex = 104
+        Me.Label12.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(1105, 95)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(33, 17)
+        Me.Label1.TabIndex = 105
+        Me.Label1.Text = "new"
+        '
         'SearchAsset
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -250,11 +262,12 @@ Partial Class SearchAsset
     Friend WithEvents Button2 As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents Main_Search_Assets As DataGridView
-    Friend WithEvents Label12 As Label
     Friend WithEvents count_users As Label
     Private WithEvents Panel1 As Panel
     Private WithEvents PictureBox1 As PictureBox
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents RadioButton2 As RadioButton
     Friend WithEvents RadioButton1 As RadioButton
+    Friend WithEvents Label12 As Button
+    Friend WithEvents Label1 As Label
 End Class

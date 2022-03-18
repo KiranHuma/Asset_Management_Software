@@ -27,6 +27,7 @@ Partial Class Admin_CodeFrm
         Me.login_idTxt = New System.Windows.Forms.TextBox()
         Me.pass_id_txt = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label2
@@ -74,11 +75,21 @@ Partial Class Admin_CodeFrm
         Me.Button1.Text = "Save"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(222, 18)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(60, 17)
+        Me.Label3.TabIndex = 12
+        Me.Label3.Text = "Login ID"
+        '
         'Admin_CodeFrm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(427, 257)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.login_idTxt)
@@ -98,4 +109,5 @@ Partial Class Admin_CodeFrm
     Friend WithEvents login_idTxt As TextBox
     Friend WithEvents pass_id_txt As TextBox
     Friend WithEvents Button1 As Button
+    Friend WithEvents Label3 As Label
 End Class

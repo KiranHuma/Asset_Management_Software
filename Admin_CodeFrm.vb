@@ -59,8 +59,14 @@ Public Class Admin_CodeFrm
         insert()
         LoginFrm.Label3.Visible = False
         LoginFrm.Label8.Visible = False
+        LoginFrm.loginID.Text = ""
+        LoginFrm.txtPass.Text = ""
         LoginFrm.Show()
-        Me.Hide()
+        If Label3.Text = "new" Then
+            SearchAsset.Label12.Visible = False
+        End If
+        Me.Close()
+
 
 
     End Sub
