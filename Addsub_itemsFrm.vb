@@ -81,7 +81,82 @@ Public Class Addsub_itemsFrm
         txtboxid_assign()
         get_idasset()
     End Sub
+    Public Sub code_check_id()
+        Dim con As New SqlConnection(cs)
+        con.Open()
+        str = "select count(*)from Asset_Records where Add_ID_code='" & TextBox1.Text & "' AND Add_ID_code IS NOT NULL AND Add_ID_code <>'Enter Here' AND Add_subitems IS NULL"
+        com = New SqlCommand(str, con)
+        Dim count As Integer = Convert.ToInt32(com.ExecuteScalar())
+        con.Close()
+        If count > 0 Then
+            Label13.Visible = True
+            Label13.Text = "Sorry! Already registered"
+            Label13.ForeColor = Color.Red
+            'label7.Text = "";
+        Else
+            Label13.Text = ""
+            Label13.Visible = False
 
+        End If
+
+    End Sub
+    Public Sub code_check_dep()
+        Dim con As New SqlConnection(cs)
+        con.Open()
+        str = "select count(*)from Asset_Records where Add_Department='" & TextBox3.Text & "' AND Add_Department IS NOT NULL AND Add_Department <>'Enter Here' AND Add_subitems IS NULL"
+        com = New SqlCommand(str, con)
+        Dim count As Integer = Convert.ToInt32(com.ExecuteScalar())
+        con.Close()
+        If count > 0 Then
+            Label13.Visible = True
+            Label13.Text = "Sorry! Already registered"
+            Label13.ForeColor = Color.Red
+            'label7.Text = "";
+        Else
+            Label13.Text = ""
+            Label13.Visible = False
+
+        End If
+
+    End Sub
+    Public Sub code_Status()
+        Dim con As New SqlConnection(cs)
+        con.Open()
+        str = "select count(*)from Asset_Records where Add_Statuses='" & TextBox4.Text & "'AND Add_Statuses IS NOT NULL AND Add_Statuses <>'Enter Here' AND Add_subitems IS NULL "
+        com = New SqlCommand(str, con)
+        Dim count As Integer = Convert.ToInt32(com.ExecuteScalar())
+        con.Close()
+        If count > 0 Then
+            Label13.Visible = True
+            Label13.Text = "Sorry! Already registered"
+            Label13.ForeColor = Color.Red
+            'label7.Text = "";
+        Else
+            Label13.Text = ""
+            Label13.Visible = False
+
+        End If
+
+    End Sub
+    Public Sub code_check_loc()
+        Dim con As New SqlConnection(cs)
+        con.Open()
+        str = "select count(*)from Asset_Records where Add_Location='" & TextBox5.Text & "' AND Add_Location IS NOT NULL AND Add_Location <>'Enter Here' AND Add_subitems IS NULL"
+        com = New SqlCommand(str, con)
+        Dim count As Integer = Convert.ToInt32(com.ExecuteScalar())
+        con.Close()
+        If count > 0 Then
+            Label13.Visible = True
+            Label13.Text = "Sorry! Already registered"
+            Label13.ForeColor = Color.Red
+            'label7.Text = "";
+        Else
+            Label13.Text = ""
+            Label13.Visible = False
+
+        End If
+
+    End Sub
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         txtboxid_assign()
         insert()
@@ -94,6 +169,7 @@ Public Class Addsub_itemsFrm
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         txtboxid_assign()
+
         insert()
         get_department()
         Button4.Enabled = False
@@ -114,6 +190,7 @@ Public Class Addsub_itemsFrm
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         txtboxid_assign()
+
         insert()
         get_idasset()
         Button4.Enabled = False
@@ -327,11 +404,11 @@ Public Class Addsub_itemsFrm
     End Sub
 
     Private Sub TextBox3_TextChanged(sender As Object, e As EventArgs) Handles TextBox3.TextChanged
-
+        code_check_dep()
     End Sub
 
     Private Sub TextBox5_TextChanged(sender As Object, e As EventArgs) Handles TextBox5.TextChanged
-
+        code_check_loc()
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
@@ -361,7 +438,7 @@ Public Class Addsub_itemsFrm
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
-
+        code_check_id()
     End Sub
 
     Private Sub TextBox1_MouseClick(sender As Object, e As MouseEventArgs) Handles TextBox1.MouseClick
@@ -384,7 +461,7 @@ Public Class Addsub_itemsFrm
     End Sub
 
     Private Sub TextBox4_TextChanged(sender As Object, e As EventArgs) Handles TextBox4.TextChanged
-
+        code_Status()
     End Sub
 
     Private Sub TextBox4_MouseClick(sender As Object, e As MouseEventArgs) Handles TextBox4.MouseClick

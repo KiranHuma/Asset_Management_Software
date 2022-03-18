@@ -22,6 +22,7 @@ Partial Class Addsub_itemsFrm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Addsub_itemsFrm))
         Me.Button9 = New System.Windows.Forms.Button()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.TextBox5 = New System.Windows.Forms.TextBox()
@@ -46,6 +47,7 @@ Partial Class Addsub_itemsFrm
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Button8 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.TabPage4.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -56,13 +58,16 @@ Partial Class Addsub_itemsFrm
         '
         'Button9
         '
-        Me.Button9.Location = New System.Drawing.Point(903, 285)
+        Me.Button9.BackColor = System.Drawing.SystemColors.Control
+        Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button9.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button9.Image = CType(resources.GetObject("Button9.Image"), System.Drawing.Image)
+        Me.Button9.Location = New System.Drawing.Point(988, 285)
         Me.Button9.Margin = New System.Windows.Forms.Padding(4)
         Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(148, 28)
+        Me.Button9.Size = New System.Drawing.Size(63, 39)
         Me.Button9.TabIndex = 14
-        Me.Button9.Text = "Back"
-        Me.Button9.UseVisualStyleBackColor = True
+        Me.Button9.UseVisualStyleBackColor = False
         '
         'TabPage4
         '
@@ -205,7 +210,7 @@ Partial Class Addsub_itemsFrm
         Me.TextBox8.Name = "TextBox8"
         Me.TextBox8.Size = New System.Drawing.Size(104, 22)
         Me.TextBox8.TabIndex = 10
-        Me.TextBox8.WordWrap = False
+        Me.TextBox8.Visible = False
         '
         'TextBox7
         '
@@ -214,7 +219,7 @@ Partial Class Addsub_itemsFrm
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.Size = New System.Drawing.Size(104, 22)
         Me.TextBox7.TabIndex = 9
-        Me.TextBox7.WordWrap = False
+        Me.TextBox7.Visible = False
         '
         'TextBox6
         '
@@ -224,7 +229,7 @@ Partial Class Addsub_itemsFrm
         Me.TextBox6.Size = New System.Drawing.Size(104, 22)
         Me.TextBox6.TabIndex = 8
         Me.TextBox6.Text = "Remove"
-        Me.TextBox6.WordWrap = False
+        Me.TextBox6.Visible = False
         '
         'TextBox2
         '
@@ -233,7 +238,7 @@ Partial Class Addsub_itemsFrm
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(104, 22)
         Me.TextBox2.TabIndex = 7
-        Me.TextBox2.WordWrap = False
+        Me.TextBox2.Visible = False
         '
         'TabControl1
         '
@@ -274,7 +279,7 @@ Partial Class Addsub_itemsFrm
         Me.countrec.Name = "countrec"
         Me.countrec.Size = New System.Drawing.Size(104, 22)
         Me.countrec.TabIndex = 11
-        Me.countrec.WordWrap = False
+        Me.countrec.Visible = False
         '
         'Button1
         '
@@ -320,11 +325,22 @@ Partial Class Addsub_itemsFrm
         Me.DataGridView1.Size = New System.Drawing.Size(1067, 222)
         Me.DataGridView1.TabIndex = 12
         '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(355, 296)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(124, 17)
+        Me.Label13.TabIndex = 39
+        Me.Label13.Text = "Already registered"
+        Me.Label13.Visible = False
+        '
         'Addsub_itemsFrm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1067, 554)
+        Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.Button9)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.DataGridView1)
@@ -343,6 +359,7 @@ Partial Class Addsub_itemsFrm
         Me.TabPage1.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -370,4 +387,5 @@ Partial Class Addsub_itemsFrm
     Friend WithEvents Button8 As Button
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents countrec As TextBox
+    Friend WithEvents Label13 As Label
 End Class

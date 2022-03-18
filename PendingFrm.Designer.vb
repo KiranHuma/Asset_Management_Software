@@ -22,27 +22,29 @@ Partial Class PendingFrm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PendingFrm))
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Button9 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 35)
+        Me.DataGridView1.Location = New System.Drawing.Point(12, 12)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(998, 418)
+        Me.DataGridView1.Size = New System.Drawing.Size(998, 538)
         Me.DataGridView1.TabIndex = 0
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(504, 538)
+        Me.Button2.Location = New System.Drawing.Point(856, 574)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(139, 35)
         Me.Button2.TabIndex = 3
@@ -51,7 +53,7 @@ Partial Class PendingFrm
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(312, 538)
+        Me.Button3.Location = New System.Drawing.Point(685, 574)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(153, 35)
         Me.Button3.TabIndex = 2
@@ -60,7 +62,7 @@ Partial Class PendingFrm
         '
         'DateTimePicker1
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(519, 477)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(152, 578)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(200, 22)
         Me.DateTimePicker1.TabIndex = 4
@@ -69,25 +71,41 @@ Partial Class PendingFrm
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(349, 477)
+        Me.Label1.Location = New System.Drawing.Point(172, 605)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(72, 17)
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "Terminate"
         Me.Label1.Visible = False
         '
+        'Button9
+        '
+        Me.Button9.BackColor = System.Drawing.SystemColors.Control
+        Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button9.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button9.Image = CType(resources.GetObject("Button9.Image"), System.Drawing.Image)
+        Me.Button9.Location = New System.Drawing.Point(12, 571)
+        Me.Button9.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(49, 38)
+        Me.Button9.TabIndex = 94
+        Me.Button9.UseVisualStyleBackColor = False
+        '
         'PendingFrm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1022, 631)
+        Me.Controls.Add(Me.Button9)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.DataGridView1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "PendingFrm"
-        Me.Text = "PendingFrm"
+        Me.Text = "Pending"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -99,4 +117,5 @@ Partial Class PendingFrm
     Friend WithEvents Button3 As Button
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents Label1 As Label
+    Friend WithEvents Button9 As Button
 End Class

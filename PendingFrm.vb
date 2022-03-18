@@ -90,4 +90,9 @@ Public Class PendingFrm
             MessageBox.Show("Termination Cancel successfully")
         End If
     End Sub
+
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+        SearchAsset.Show()
+        Me.Hide()
+    End Sub
 End Class

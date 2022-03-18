@@ -147,6 +147,7 @@ Public Class LoginFrm
         'Me.Close()
         Admin_CodeFrm.Show()
         Me.Hide()
+        ' Me.Close()
 
 
     End Sub
@@ -172,6 +173,10 @@ Public Class LoginFrm
     End Sub
 
     Private Sub loginID_TextChanged(sender As Object, e As EventArgs) Handles loginID.TextChanged
+
+    End Sub
+
+    Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
 
     End Sub
 End Class

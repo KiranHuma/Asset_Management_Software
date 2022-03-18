@@ -22,8 +22,8 @@ Partial Class Apply_to_All_Record
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Apply_to_All_Record))
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -32,6 +32,7 @@ Partial Class Apply_to_All_Record
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Button9 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -47,17 +48,6 @@ Partial Class Apply_to_All_Record
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(1055, 412)
         Me.DataGridView1.TabIndex = 14
-        '
-        'Button3
-        '
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(918, 521)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(94, 36)
-        Me.Button3.TabIndex = 24
-        Me.Button3.Text = "Back"
-        Me.Button3.UseVisualStyleBackColor = True
         '
         'Label5
         '
@@ -93,7 +83,7 @@ Partial Class Apply_to_All_Record
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(553, 532)
+        Me.Label2.Location = New System.Drawing.Point(713, 539)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(233, 17)
         Me.Label2.TabIndex = 18
@@ -111,7 +101,7 @@ Partial Class Apply_to_All_Record
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(837, 521)
+        Me.Button1.Location = New System.Drawing.Point(967, 526)
         Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 36)
@@ -137,15 +127,28 @@ Partial Class Apply_to_All_Record
         Me.DateTimePicker1.TabIndex = 26
         Me.DateTimePicker1.Visible = False
         '
+        'Button9
+        '
+        Me.Button9.BackColor = System.Drawing.SystemColors.Control
+        Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button9.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button9.Image = CType(resources.GetObject("Button9.Image"), System.Drawing.Image)
+        Me.Button9.Location = New System.Drawing.Point(979, 433)
+        Me.Button9.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(63, 28)
+        Me.Button9.TabIndex = 27
+        Me.Button9.UseVisualStyleBackColor = False
+        '
         'Apply_to_All_Record
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1055, 581)
+        Me.Controls.Add(Me.Button9)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
@@ -155,7 +158,7 @@ Partial Class Apply_to_All_Record
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "Apply_to_All_Record"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Apply_to_All_Record"
+        Me.Text = "Terminate"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -163,7 +166,6 @@ Partial Class Apply_to_All_Record
     End Sub
 
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents Button3 As Button
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
@@ -172,4 +174,5 @@ Partial Class Apply_to_All_Record
     Friend WithEvents Button1 As Button
     Friend WithEvents Label7 As Label
     Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents Button9 As Button
 End Class

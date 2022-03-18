@@ -392,7 +392,6 @@ Partial Class LoginFrm
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
-    Private WithEvents Label8 As Label
     Friend WithEvents PictureBox4 As PictureBox
     Private WithEvents Label9 As Label
     Private WithEvents panel3 As Panel
@@ -405,4 +404,5 @@ Partial Class LoginFrm
     Friend WithEvents Label3 As Label
     Private WithEvents Panel4 As Panel
     Friend WithEvents loginID As TextBox
+    Public WithEvents Label8 As Label
 End Class

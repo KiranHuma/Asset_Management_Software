@@ -25,6 +25,12 @@ Partial Class SearchAsset
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SearchAsset))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.count_users = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Main_Search_Assets = New System.Windows.Forms.DataGridView()
         Me.Button2 = New System.Windows.Forms.Button()
@@ -34,6 +40,8 @@ Partial Class SearchAsset
         Me.search_assets = New System.Windows.Forms.TextBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Main_Search_Assets, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panel3.SuspendLayout()
         CType(Me.pictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -51,6 +59,10 @@ Partial Class SearchAsset
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.RadioButton2)
+        Me.TabPage1.Controls.Add(Me.RadioButton1)
+        Me.TabPage1.Controls.Add(Me.Panel1)
+        Me.TabPage1.Controls.Add(Me.count_users)
         Me.TabPage1.Controls.Add(Me.Label12)
         Me.TabPage1.Controls.Add(Me.Main_Search_Assets)
         Me.TabPage1.Controls.Add(Me.Button2)
@@ -61,18 +73,87 @@ Partial Class SearchAsset
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage1.Size = New System.Drawing.Size(1222, 759)
         Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "Main"
+        Me.TabPage1.Text = "Search"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'RadioButton2
+        '
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Location = New System.Drawing.Point(383, 22)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(141, 21)
+        Me.RadioButton2.TabIndex = 103
+        Me.RadioButton2.TabStop = True
+        Me.RadioButton2.Text = "Add Asset History"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Location = New System.Drawing.Point(564, 22)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(181, 21)
+        Me.RadioButton1.TabIndex = 102
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "Assigned Assets History"
+        Me.RadioButton1.UseVisualStyleBackColor = True
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.Controls.Add(Me.PictureBox1)
+        Me.Panel1.Controls.Add(Me.TextBox2)
+        Me.Panel1.Location = New System.Drawing.Point(110, 56)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(951, 55)
+        Me.Panel1.TabIndex = 97
+        Me.Panel1.Visible = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(889, 12)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(43, 31)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 2
+        Me.PictureBox1.TabStop = False
+        '
+        'TextBox2
+        '
+        Me.TextBox2.BackColor = System.Drawing.Color.LightGray
+        Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox2.Location = New System.Drawing.Point(12, 12)
+        Me.TextBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(856, 31)
+        Me.TextBox2.TabIndex = 2
+        Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'count_users
+        '
+        Me.count_users.AutoSize = True
+        Me.count_users.Location = New System.Drawing.Point(34, 22)
+        Me.count_users.Name = "count_users"
+        Me.count_users.Size = New System.Drawing.Size(79, 17)
+        Me.count_users.TabIndex = 101
+        Me.count_users.Text = "Count User"
+        Me.count_users.Visible = False
         '
         'Label12
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(873, 19)
+        Me.Label12.Image = CType(resources.GetObject("Label12.Image"), System.Drawing.Image)
+        Me.Label12.Location = New System.Drawing.Point(1177, 21)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(310, 20)
+        Me.Label12.Size = New System.Drawing.Size(0, 20)
         Me.Label12.TabIndex = 100
-        Me.Label12.Text = "You have authority to add 1 more person"
+        Me.Label12.Visible = False
         '
         'Main_Search_Assets
         '
@@ -146,10 +227,13 @@ Partial Class SearchAsset
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "SearchAsset"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "AddAssetFrm"
+        Me.Text = "Search"
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Main_Search_Assets, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panel3.ResumeLayout(False)
         Me.panel3.PerformLayout()
@@ -167,4 +251,10 @@ Partial Class SearchAsset
     Friend WithEvents Button1 As Button
     Friend WithEvents Main_Search_Assets As DataGridView
     Friend WithEvents Label12 As Label
+    Friend WithEvents count_users As Label
+    Private WithEvents Panel1 As Panel
+    Private WithEvents PictureBox1 As PictureBox
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents RadioButton2 As RadioButton
+    Friend WithEvents RadioButton1 As RadioButton
 End Class

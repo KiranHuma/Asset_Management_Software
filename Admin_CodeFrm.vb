@@ -57,9 +57,12 @@ Public Class Admin_CodeFrm
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         insert()
-        Me.Dispose()
-        LoginFrm.Refresh()
+        LoginFrm.Label3.Visible = False
+        LoginFrm.Label8.Visible = False
         LoginFrm.Show()
+        Me.Hide()
+
+
     End Sub
 
     Private Sub Admin_CodeFrm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
