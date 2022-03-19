@@ -22,17 +22,22 @@ Partial Class Apply_to_All_Record
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Apply_to_All_Record))
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.terminate_lbl = New System.Windows.Forms.Label()
+        Me.asst_id_number = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label7 = New System.Windows.Forms.Label()
+        Me.pending_lbl = New System.Windows.Forms.Label()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Button9 = New System.Windows.Forms.Button()
+        Me.assinie_nme_lbl = New System.Windows.Forms.Label()
+        Me.running_tbl = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -59,25 +64,25 @@ Partial Class Apply_to_All_Record
         Me.Label5.Text = "Auto_ID"
         Me.Label5.Visible = False
         '
-        'Label4
+        'terminate_lbl
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(108, 526)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(72, 17)
-        Me.Label4.TabIndex = 20
-        Me.Label4.Text = "Terminate"
-        Me.Label4.Visible = False
+        Me.terminate_lbl.AutoSize = True
+        Me.terminate_lbl.Location = New System.Drawing.Point(108, 526)
+        Me.terminate_lbl.Name = "terminate_lbl"
+        Me.terminate_lbl.Size = New System.Drawing.Size(72, 17)
+        Me.terminate_lbl.TabIndex = 20
+        Me.terminate_lbl.Text = "Terminate"
+        Me.terminate_lbl.Visible = False
         '
-        'Label3
+        'asst_id_number
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(58, 526)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(21, 17)
-        Me.Label3.TabIndex = 19
-        Me.Label3.Text = "ID"
-        Me.Label3.Visible = False
+        Me.asst_id_number.AutoSize = True
+        Me.asst_id_number.Location = New System.Drawing.Point(58, 526)
+        Me.asst_id_number.Name = "asst_id_number"
+        Me.asst_id_number.Size = New System.Drawing.Size(21, 17)
+        Me.asst_id_number.TabIndex = 19
+        Me.asst_id_number.Text = "ID"
+        Me.asst_id_number.Visible = False
         '
         'Label2
         '
@@ -109,15 +114,15 @@ Partial Class Apply_to_All_Record
         Me.Button1.Text = "Yes"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'Label7
+        'pending_lbl
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(108, 497)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(60, 17)
-        Me.Label7.TabIndex = 25
-        Me.Label7.Text = "Pending"
-        Me.Label7.Visible = False
+        Me.pending_lbl.AutoSize = True
+        Me.pending_lbl.Location = New System.Drawing.Point(108, 497)
+        Me.pending_lbl.Name = "pending_lbl"
+        Me.pending_lbl.Size = New System.Drawing.Size(60, 17)
+        Me.pending_lbl.TabIndex = 25
+        Me.pending_lbl.Text = "Pending"
+        Me.pending_lbl.Visible = False
         '
         'DateTimePicker1
         '
@@ -133,25 +138,59 @@ Partial Class Apply_to_All_Record
         Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button9.ForeColor = System.Drawing.SystemColors.Control
         Me.Button9.Image = CType(resources.GetObject("Button9.Image"), System.Drawing.Image)
-        Me.Button9.Location = New System.Drawing.Point(979, 433)
+        Me.Button9.Location = New System.Drawing.Point(967, 434)
         Me.Button9.Margin = New System.Windows.Forms.Padding(4)
         Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(63, 28)
+        Me.Button9.Size = New System.Drawing.Size(63, 44)
         Me.Button9.TabIndex = 27
+        Me.ToolTip1.SetToolTip(Me.Button9, "Return to Assets")
         Me.Button9.UseVisualStyleBackColor = False
+        '
+        'assinie_nme_lbl
+        '
+        Me.assinie_nme_lbl.AutoSize = True
+        Me.assinie_nme_lbl.Location = New System.Drawing.Point(314, 526)
+        Me.assinie_nme_lbl.Name = "assinie_nme_lbl"
+        Me.assinie_nme_lbl.Size = New System.Drawing.Size(51, 17)
+        Me.assinie_nme_lbl.TabIndex = 28
+        Me.assinie_nme_lbl.Text = "Label6"
+        Me.assinie_nme_lbl.Visible = False
+        '
+        'running_tbl
+        '
+        Me.running_tbl.AutoSize = True
+        Me.running_tbl.Location = New System.Drawing.Point(289, 497)
+        Me.running_tbl.Name = "running_tbl"
+        Me.running_tbl.Size = New System.Drawing.Size(61, 17)
+        Me.running_tbl.TabIndex = 92
+        Me.running_tbl.Text = "Running"
+        Me.running_tbl.Visible = False
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(783, 434)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(38, 17)
+        Me.Label8.TabIndex = 94
+        Me.Label8.Text = "Main"
+        Me.Label8.Visible = False
         '
         'Apply_to_All_Record
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1055, 581)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.running_tbl)
+        Me.Controls.Add(Me.assinie_nme_lbl)
         Me.Controls.Add(Me.Button9)
         Me.Controls.Add(Me.DateTimePicker1)
-        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.pending_lbl)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.terminate_lbl)
+        Me.Controls.Add(Me.asst_id_number)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button1)
@@ -167,12 +206,16 @@ Partial Class Apply_to_All_Record
 
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Label5 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label3 As Label
+    Friend WithEvents terminate_lbl As Label
+    Friend WithEvents asst_id_number As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Button1 As Button
-    Friend WithEvents Label7 As Label
+    Friend WithEvents pending_lbl As Label
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents Button9 As Button
+    Friend WithEvents assinie_nme_lbl As Label
+    Friend WithEvents running_tbl As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

@@ -107,7 +107,8 @@ Public Class SearchAsset
 
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-        AddAssetFrm.Show()
+
+        Call (New AddAssetFrm()).Show()
         Me.Hide()
         ' Me.Dispose()
         '  Me.Close()
@@ -238,7 +239,9 @@ Public Class SearchAsset
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Label12.Click
         Admin_CodeFrm.Label3.Text = Label1.Text
 
-        Admin_CodeFrm.Show()
+
+
+        Call (New Admin_CodeFrm()).Show()
         Me.Hide()
     End Sub
 End Class

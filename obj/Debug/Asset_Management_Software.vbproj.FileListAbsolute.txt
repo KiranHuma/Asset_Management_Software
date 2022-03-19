@@ -14,7 +14,6 @@ D:\SOFTWARE(PROJECTS)\Asset_Management_Software\Asset_Management_Software\obj\De
 D:\SOFTWARE(PROJECTS)\Asset_Management_Software\Asset_Management_Software\obj\Debug\Asset_Management_Software.pdb
 D:\SOFTWARE(PROJECTS)\Asset_Management_Software\Asset_Management_Software\obj\Debug\Asset_Management_Software.AddAssetFrm.resources
 D:\SOFTWARE(PROJECTS)\Asset_Management_Software\Asset_Management_Software\obj\Debug\Asset_Management_Software.SearchAsset.resources
-D:\SOFTWARE(PROJECTS)\Asset_Management_Software\Asset_Management_Software\obj\Debug\Asset_Management_Software.vbproj.AssemblyReference.cache
 D:\SOFTWARE(PROJECTS)\Asset_Management_Software\Asset_Management_Software\obj\Debug\Asset_Management_Software.SearchspecificFrm.resources
 D:\SOFTWARE(PROJECTS)\Asset_Management_Software\Asset_Management_Software\obj\Debug\Asset_Management_Software.PendingFrm.resources
 D:\SOFTWARE(PROJECTS)\Asset_Management_Software\Asset_Management_Software\obj\Debug\Asset_Management_Software.vbproj.ResolveComReference.cache

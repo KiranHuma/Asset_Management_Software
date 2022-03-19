@@ -42,6 +42,25 @@ Public Class PendingFrm
             Me.Dispose()
         End Try
     End Sub
+    Private Sub get_pending_assign()
+        Dim str As String
+        Try
+            Dim con As New SqlConnection(cs)
+            con.Open()
+            str = "Select * from Add_Asset_Tb where Asset_Status='Pending'"
+            cmd = New SqlCommand(str, con)
+            da = New SqlDataAdapter(cmd)
+            ds = New DataSet
+            da.Fill(ds, "Assign_Asset_TB")
+            con.Close()
+            DataGridView1.DataSource = ds
+            DataGridView1.DataMember = "Assign_Asset_TB"
+            DataGridView1.Visible = True
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Failed:Search", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Me.Dispose()
+        End Try
+    End Sub
     Private Sub update_main_table_pending()
         Try
             dbaccessconnection()
@@ -82,8 +101,10 @@ Public Class PendingFrm
 
             terminate_asset()
             update_main_table_pending()
-            SearchAsset.Show()
-            Me.Close()
+
+
+            Call (New SearchAsset()).Show()
+            Me.Hide()
             MessageBox.Show("All Assets Terminated successfully")
         ElseIf ask = MsgBoxResult.No Then
             terminate_asset()
@@ -92,8 +113,11 @@ Public Class PendingFrm
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
-        SearchAsset.Show()
+
+
+        Call (New SearchAsset()).Show()
         Me.Hide()
+
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -138,5 +162,13 @@ Public Class PendingFrm
             End If
         End If
 
+    End Sub
+
+    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged
+        get_pending_asset()
+    End Sub
+
+    Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.CheckedChanged
+        get_pending_assign()
     End Sub
 End Class

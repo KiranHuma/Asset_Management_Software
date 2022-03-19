@@ -22,6 +22,7 @@ Partial Class Addsub_itemsFrm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Addsub_itemsFrm))
         Me.Button9 = New System.Windows.Forms.Button()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
@@ -47,13 +48,17 @@ Partial Class Addsub_itemsFrm
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Button8 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Label13 = New System.Windows.Forms.Label()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.TabPage4.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button9
@@ -67,6 +72,7 @@ Partial Class Addsub_itemsFrm
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(63, 39)
         Me.Button9.TabIndex = 14
+        Me.ToolTip1.SetToolTip(Me.Button9, "Return to Assets")
         Me.Button9.UseVisualStyleBackColor = False
         '
         'TabPage4
@@ -95,7 +101,7 @@ Partial Class Addsub_itemsFrm
         'Button4
         '
         Me.Button4.Enabled = False
-        Me.Button4.Location = New System.Drawing.Point(367, 80)
+        Me.Button4.Location = New System.Drawing.Point(440, 80)
         Me.Button4.Margin = New System.Windows.Forms.Padding(4)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(148, 28)
@@ -113,6 +119,7 @@ Partial Class Addsub_itemsFrm
         Me.Button5.TabIndex = 9
         Me.Button5.Text = "Delete Location"
         Me.Button5.UseVisualStyleBackColor = True
+        Me.Button5.Visible = False
         '
         'TextBox4
         '
@@ -140,7 +147,7 @@ Partial Class Addsub_itemsFrm
         'Button3
         '
         Me.Button3.Enabled = False
-        Me.Button3.Location = New System.Drawing.Point(367, 79)
+        Me.Button3.Location = New System.Drawing.Point(442, 79)
         Me.Button3.Margin = New System.Windows.Forms.Padding(4)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(148, 28)
@@ -158,6 +165,7 @@ Partial Class Addsub_itemsFrm
         Me.Button6.TabIndex = 8
         Me.Button6.Text = "Delete Status"
         Me.Button6.UseVisualStyleBackColor = True
+        Me.Button6.Visible = False
         '
         'TextBox3
         '
@@ -184,7 +192,7 @@ Partial Class Addsub_itemsFrm
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(367, 85)
+        Me.Button2.Location = New System.Drawing.Point(439, 85)
         Me.Button2.Margin = New System.Windows.Forms.Padding(4)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(148, 28)
@@ -202,6 +210,7 @@ Partial Class Addsub_itemsFrm
         Me.Button7.TabIndex = 7
         Me.Button7.Text = "Delete Department"
         Me.Button7.UseVisualStyleBackColor = True
+        Me.Button7.Visible = False
         '
         'TextBox8
         '
@@ -284,7 +293,7 @@ Partial Class Addsub_itemsFrm
         'Button1
         '
         Me.Button1.Enabled = False
-        Me.Button1.Location = New System.Drawing.Point(367, 79)
+        Me.Button1.Location = New System.Drawing.Point(441, 79)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(148, 28)
@@ -305,17 +314,19 @@ Partial Class Addsub_itemsFrm
         'Button8
         '
         Me.Button8.Enabled = False
-        Me.Button8.Location = New System.Drawing.Point(523, 79)
+        Me.Button8.Location = New System.Drawing.Point(441, 24)
         Me.Button8.Margin = New System.Windows.Forms.Padding(4)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(148, 28)
         Me.Button8.TabIndex = 6
         Me.Button8.Text = "Delete  ID"
         Me.Button8.UseVisualStyleBackColor = True
+        Me.Button8.Visible = False
         '
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.ContextMenuStrip = Me.ContextMenuStrip1
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.DataGridView1.Location = New System.Drawing.Point(0, 332)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4)
@@ -324,6 +335,19 @@ Partial Class Addsub_itemsFrm
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(1067, 222)
         Me.DataGridView1.TabIndex = 12
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeleteToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(123, 28)
+        '
+        'DeleteToolStripMenuItem
+        '
+        Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
+        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(122, 24)
+        Me.DeleteToolStripMenuItem.Text = "Delete"
         '
         'Label13
         '
@@ -358,6 +382,7 @@ Partial Class Addsub_itemsFrm
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -388,4 +413,7 @@ Partial Class Addsub_itemsFrm
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents countrec As TextBox
     Friend WithEvents Label13 As Label
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents DeleteToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

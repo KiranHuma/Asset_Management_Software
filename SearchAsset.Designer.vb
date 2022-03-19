@@ -22,9 +22,12 @@ Partial Class SearchAsset
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SearchAsset))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Button()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -37,8 +40,7 @@ Partial Class SearchAsset
         Me.panel3 = New System.Windows.Forms.Panel()
         Me.pictureBox3 = New System.Windows.Forms.PictureBox()
         Me.search_assets = New System.Windows.Forms.TextBox()
-        Me.Label12 = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -77,6 +79,28 @@ Partial Class SearchAsset
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Search"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(1105, 95)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(33, 17)
+        Me.Label1.TabIndex = 105
+        Me.Label1.Text = "new"
+        '
+        'Label12
+        '
+        Me.Label12.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Label12.ForeColor = System.Drawing.Color.White
+        Me.Label12.Image = CType(resources.GetObject("Label12.Image"), System.Drawing.Image)
+        Me.Label12.Location = New System.Drawing.Point(1115, 22)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(75, 45)
+        Me.Label12.TabIndex = 104
+        Me.ToolTip1.SetToolTip(Me.Label12, "Add 1 User")
+        Me.Label12.UseVisualStyleBackColor = True
         '
         'RadioButton2
         '
@@ -209,27 +233,6 @@ Partial Class SearchAsset
         Me.search_assets.TabIndex = 2
         Me.search_assets.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'Label12
-        '
-        Me.Label12.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label12.ForeColor = System.Drawing.Color.White
-        Me.Label12.Image = CType(resources.GetObject("Label12.Image"), System.Drawing.Image)
-        Me.Label12.Location = New System.Drawing.Point(1115, 22)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(75, 45)
-        Me.Label12.TabIndex = 104
-        Me.Label12.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(1105, 95)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(33, 17)
-        Me.Label1.TabIndex = 105
-        Me.Label1.Text = "new"
-        '
         'SearchAsset
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -270,4 +273,5 @@ Partial Class SearchAsset
     Friend WithEvents RadioButton1 As RadioButton
     Friend WithEvents Label12 As Button
     Friend WithEvents Label1 As Label
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

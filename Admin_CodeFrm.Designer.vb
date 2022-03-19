@@ -28,12 +28,13 @@ Partial Class Admin_CodeFrm
         Me.pass_id_txt = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(47, 118)
+        Me.Label2.Location = New System.Drawing.Point(26, 117)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(69, 17)
         Me.Label2.TabIndex = 11
@@ -42,7 +43,7 @@ Partial Class Admin_CodeFrm
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(47, 65)
+        Me.Label1.Location = New System.Drawing.Point(26, 64)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(60, 17)
         Me.Label1.TabIndex = 10
@@ -50,7 +51,7 @@ Partial Class Admin_CodeFrm
         '
         'login_idTxt
         '
-        Me.login_idTxt.Location = New System.Drawing.Point(140, 65)
+        Me.login_idTxt.Location = New System.Drawing.Point(119, 64)
         Me.login_idTxt.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.login_idTxt.Name = "login_idTxt"
         Me.login_idTxt.Size = New System.Drawing.Size(240, 22)
@@ -58,7 +59,7 @@ Partial Class Admin_CodeFrm
         '
         'pass_id_txt
         '
-        Me.pass_id_txt.Location = New System.Drawing.Point(140, 113)
+        Me.pass_id_txt.Location = New System.Drawing.Point(119, 112)
         Me.pass_id_txt.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.pass_id_txt.Name = "pass_id_txt"
         Me.pass_id_txt.Size = New System.Drawing.Size(240, 22)
@@ -67,7 +68,7 @@ Partial Class Admin_CodeFrm
         'Button1
         '
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(207, 156)
+        Me.Button1.Location = New System.Drawing.Point(119, 156)
         Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 36)
@@ -83,12 +84,25 @@ Partial Class Admin_CodeFrm
         Me.Label3.Size = New System.Drawing.Size(60, 17)
         Me.Label3.TabIndex = 12
         Me.Label3.Text = "Login ID"
+        Me.Label3.Visible = False
+        '
+        'Button2
+        '
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Location = New System.Drawing.Point(284, 156)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 36)
+        Me.Button2.TabIndex = 13
+        Me.Button2.Text = "Cancel"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'Admin_CodeFrm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(427, 257)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -110,4 +124,5 @@ Partial Class Admin_CodeFrm
     Friend WithEvents pass_id_txt As TextBox
     Friend WithEvents Button1 As Button
     Friend WithEvents Label3 As Label
+    Friend WithEvents Button2 As Button
 End Class

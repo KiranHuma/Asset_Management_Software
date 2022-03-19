@@ -73,7 +73,7 @@ Public Class AddAssetFrm
         End Try
     End Sub
     Private Sub yes_no_dialogue_add()
-        If TextBox5.Text = String.Empty Then
+        If asset_concatenate_id_txt.Text = String.Empty Then
 
             MessageBox.Show("Asset Number should not empty")
         Else
@@ -167,9 +167,9 @@ Public Class AddAssetFrm
             cmd.ExecuteNonQuery()
             con.Close()
 
-            Me.Hide()
+
             Call (New AddAssetFrm()).Show()
-            '
+            Me.Hide()
         Catch ex As Exception
             MsgBox("Data Inserted Failed because " & ex.Message)
             Me.Dispose()
@@ -211,10 +211,7 @@ Public Class AddAssetFrm
 
     End Sub
 
-    Private Sub Label12_Click(sender As Object, e As EventArgs)
-        Me.Close()
-        Admin_CodeFrm.Show()
-    End Sub
+
     Private Sub FillCombo_assign()
         Try
             Dim conn As New System.Data.SqlClient.SqlConnection(cs)
@@ -342,9 +339,9 @@ Public Class AddAssetFrm
             cmd.ExecuteNonQuery()
             con.Close()
 
-            Me.Hide()
+
             Call (New AddAssetFrm()).Show()
-            '
+            Me.Hide()
         Catch ex As Exception
             MsgBox("Data assigned Failed because " & ex.Message)
             Me.Dispose()
@@ -383,7 +380,8 @@ Public Class AddAssetFrm
         Panel3.Visible = False
         Panel1.Visible = True
         Panel5.Visible = False
-
+        Panel7.Visible = False
+        Panel8.Visible = True
         yes_no_dialogue_assign()
 
 
@@ -444,6 +442,7 @@ Public Class AddAssetFrm
             Button7.Visible = False
             Label35.Visible = True
             TextBox5.Visible = True
+
             get_code()
         Catch ex As Exception
             MsgBox("Failed:GridCick " & ex.Message)
@@ -575,34 +574,41 @@ Public Class AddAssetFrm
 
 
     Private Sub Button10_Click_1(sender As Object, e As EventArgs) Handles Button10.Click
-        Apply_to_All_Record.Label3.Text = asset_gridview.CurrentRow.Cells(1).Value.ToString
+        Apply_to_All_Record.asst_id_number.Text = asset_gridview.CurrentRow.Cells(1).Value.ToString
+
+        Apply_to_All_Record.Label8.Text = "Tmain"
+
+
 
         Apply_to_All_Record.Show()
         Me.Hide()
+
     End Sub
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        Addsub_itemsFrm.Show()
+
+
+        Call (New Addsub_itemsFrm()).Show()
         Me.Hide()
-        Me.Dispose()
-        Me.Close()
+        'Me.Dispose()
+        'Me.Close()
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Addsub_itemsFrm.Show()
+        Call (New Addsub_itemsFrm()).Show()
         Me.Hide()
-        Me.Dispose()
-        Me.Close()
+        'Me.Dispose()
+        'Me.Close()
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Addsub_itemsFrm.Show()
+        Call (New Addsub_itemsFrm()).Show()
         Me.Hide()
-        Me.Dispose()
-        Me.Close()
+        'Me.Dispose()
+        'Me.Close()
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        Addsub_itemsFrm.Show()
+        Call (New Addsub_itemsFrm()).Show()
         Me.Hide()
     End Sub
 
@@ -740,7 +746,9 @@ Public Class AddAssetFrm
     Private Sub asset_gridview_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles asset_gridview.CellDoubleClick
         If asset_gridview.Rows(e.RowIndex).Cells(e.ColumnIndex).Value IsNot Nothing Then
             SearchspecificFrm.searchrelated_txt.Text = asset_gridview.Rows(e.RowIndex).Cells(e.ColumnIndex).Value.ToString()
+
             SearchspecificFrm.Show()
+            Me.Hide()
         End If
     End Sub
 
@@ -772,7 +780,7 @@ Public Class AddAssetFrm
 
             dbaccessconnection()
             con.Open()
-            cmd.CommandText = "Update Assign_Asset_TB set Assiginie_Name='" & ComboBox1.Text & "', Assign_Status='" & assignasset_status.Text & "', Assign_Date='" & assign_datetxt.Value & "',
+            cmd.CommandText = "Update Assign_Asset_TB set Assiginie_Name='" & ComboBox1.Text & "', Assign_Status='" & assignasset_status.Text & "', Assign_Date='" & assign_datetxt.Text & "',
          Assign_Number_ID= '" & assignasset_id.Text & "',Assign_Name = '" & assign_Asset_Name_txt.Text & "',Assign_Location= '" & assign_Asset_location_txt.Text & "' ,
          Assign_Room= '" & assign_Asset_room_txt.Text & "',Assign_Department= '" & assign_Asset_department_txt.Text & "',
          Assign_Tag_Number= '" & assign_Asset_tag_txt.Text & "'  ,Assign_description= '" & assign_Asset_description_txt.Text & "' 
@@ -829,7 +837,10 @@ Public Class AddAssetFrm
     Private Sub DataGridView1_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseDoubleClick
         If asset_gridview.Rows(e.RowIndex).Cells(e.ColumnIndex).Value IsNot Nothing Then
             SearchspecificFrm.searchrelated_txt.Text = asset_gridview.Rows(e.RowIndex).Cells(e.ColumnIndex).Value.ToString()
+
             SearchspecificFrm.Show()
+            Me.Hide()
+
         End If
     End Sub
     Private Sub ass_search()
@@ -875,10 +886,12 @@ Public Class AddAssetFrm
             MsgBox("Select the asset to terminate all assets linked to it")
         Else
             Label32.Text = "Terminate"
-            Apply_to_All_Record.Label3.Text = DataGridView1.CurrentRow.Cells(4).Value.ToString
+            Apply_to_All_Record.asst_id_number.Text = DataGridView1.CurrentRow.Cells(4).Value.ToString
+            Apply_to_All_Record.assinie_nme_lbl.Text = DataGridView1.CurrentRow.Cells(1).Value.ToString
 
             Apply_to_All_Record.Show()
             Me.Hide()
+
         End If
 
 
@@ -986,11 +999,44 @@ Public Class AddAssetFrm
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
-        SearchAsset.Show()
+
+
+        Call (New SearchAsset()).Show()
         Me.Hide()
     End Sub
 
     Private Sub TextBox5_TextChanged(sender As Object, e As EventArgs) Handles TextBox5.TextChanged
+
+    End Sub
+
+    Private Sub TabPage1_Click(sender As Object, e As EventArgs) Handles TabPage1.Click
+
+    End Sub
+
+    Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
+        Call (New AddAssetFrm()).Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
+
+
+        Dim ask As MsgBoxResult = MsgBox("All previous Records will permanantly delete", MsgBoxStyle.YesNo)
+        If ask = MsgBoxResult.Yes Then
+
+
+            reset_addasset_db()
+            reset_Asset_Records_db()
+            reset_Assign_Asset_TB_db()
+            Application.Exit()
+
+        ElseIf ask = MsgBoxResult.No Then
+
+            MessageBox.Show("Reset Cancel")
+            Call (New AddAssetFrm()).Show()
+
+            Me.Hide()
+        End If
 
     End Sub
 End Class

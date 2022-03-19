@@ -530,6 +530,37 @@ Public Class Addsub_itemsFrm
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
-        AddAssetFrm.Show()
+        Call (New AddAssetFrm()).Show()
+        Me.Hide()
+
+
+
+    End Sub
+
+    Private Sub DeleteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteToolStripMenuItem.Click
+
+        Try
+            Dim ObjConnection As New SqlConnection()
+            Dim i As Integer
+            Dim mResult
+            mResult = MsgBox("Want you really delete the selected records?",
+            vbYesNo + vbQuestion, "Removal confirmation")
+            If mResult = vbNo Then
+                Exit Sub
+            End If
+            ObjConnection.ConnectionString = cs
+            Dim ObjCommand As New SqlCommand()
+            ObjCommand.Connection = ObjConnection
+            For i = Me.DataGridView1.SelectedRows.Count - 1 To 0 Step -1
+                ObjCommand.CommandText = "delete from Asset_Records where M_ID='" & DataGridView1.SelectedRows(i).Cells("M_ID").Value & "'"
+                ObjConnection.Open()
+                ObjCommand.ExecuteNonQuery()
+                ObjConnection.Close()
+                Me.DataGridView1.Rows.Remove(Me.DataGridView1.SelectedRows(i))
+            Next
+        Catch ex As Exception
+            MessageBox.Show("Failed:Deleting Selected Values" & ex.Message)
+            Me.Dispose()
+        End Try
     End Sub
 End Class

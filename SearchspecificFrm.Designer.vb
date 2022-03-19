@@ -22,6 +22,7 @@ Partial Class SearchspecificFrm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SearchspecificFrm))
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.searchrelated_txt = New System.Windows.Forms.TextBox()
@@ -31,6 +32,8 @@ Partial Class SearchspecificFrm
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ToolTip2 = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -50,7 +53,6 @@ Partial Class SearchspecificFrm
         Me.searchrelated_txt.Name = "searchrelated_txt"
         Me.searchrelated_txt.Size = New System.Drawing.Size(322, 22)
         Me.searchrelated_txt.TabIndex = 11
-        Me.searchrelated_txt.Visible = False
         '
         'Button1
         '
@@ -72,6 +74,7 @@ Partial Class SearchspecificFrm
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(63, 28)
         Me.Button9.TabIndex = 15
+        Me.ToolTip1.SetToolTip(Me.Button9, "Back to Main")
         Me.Button9.UseVisualStyleBackColor = False
         '
         'Label1
@@ -94,16 +97,17 @@ Partial Class SearchspecificFrm
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(63, 28)
         Me.Button2.TabIndex = 17
+        Me.ToolTip2.SetToolTip(Me.Button2, "Exit")
         Me.Button2.UseVisualStyleBackColor = False
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(1045, 45)
+        Me.Label2.Location = New System.Drawing.Point(1073, 45)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(79, 17)
+        Me.Label2.Size = New System.Drawing.Size(50, 17)
         Me.Label2.TabIndex = 18
-        Me.Label2.Text = "Exit Search"
+        Me.Label2.Text = "Assets"
         '
         'TextBox1
         '
@@ -129,6 +133,7 @@ Partial Class SearchspecificFrm
         Me.Controls.Add(Me.DataGridView1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "SearchspecificFrm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "History"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -143,4 +148,6 @@ Partial Class SearchspecificFrm
     Friend WithEvents Button2 As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents ToolTip2 As ToolTip
 End Class
