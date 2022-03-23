@@ -39,8 +39,12 @@ Partial Class PendingFrm
         '
         'DataGridView1
         '
+        Me.DataGridView1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedHeaders
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 63)
+        Me.DataGridView1.Location = New System.Drawing.Point(12, 122)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.RowTemplate.Height = 24
@@ -49,16 +53,18 @@ Partial Class PendingFrm
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(856, 574)
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button2.Location = New System.Drawing.Point(857, 25)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(139, 35)
+        Me.Button2.Size = New System.Drawing.Size(153, 35)
         Me.Button2.TabIndex = 3
         Me.Button2.Text = "Download List"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(685, 574)
+        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button3.Location = New System.Drawing.Point(857, 62)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(153, 35)
         Me.Button3.TabIndex = 2
@@ -67,7 +73,7 @@ Partial Class PendingFrm
         '
         'DateTimePicker1
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(152, 578)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(141, 62)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(200, 22)
         Me.DateTimePicker1.TabIndex = 4
@@ -76,7 +82,7 @@ Partial Class PendingFrm
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(172, 605)
+        Me.Label1.Location = New System.Drawing.Point(180, 24)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(72, 17)
         Me.Label1.TabIndex = 5
@@ -90,7 +96,7 @@ Partial Class PendingFrm
         Me.Button9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button9.ForeColor = System.Drawing.SystemColors.Control
         Me.Button9.Image = CType(resources.GetObject("Button9.Image"), System.Drawing.Image)
-        Me.Button9.Location = New System.Drawing.Point(12, 571)
+        Me.Button9.Location = New System.Drawing.Point(12, 25)
         Me.Button9.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(49, 38)
@@ -100,7 +106,7 @@ Partial Class PendingFrm
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(460, 580)
+        Me.TextBox1.Location = New System.Drawing.Point(141, 90)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(160, 22)
         Me.TextBox1.TabIndex = 95
@@ -109,8 +115,9 @@ Partial Class PendingFrm
         '
         'RadioButton1
         '
+        Me.RadioButton1.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(261, 25)
+        Me.RadioButton1.Location = New System.Drawing.Point(398, 22)
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.Size = New System.Drawing.Size(133, 21)
         Me.RadioButton1.TabIndex = 96
@@ -120,8 +127,9 @@ Partial Class PendingFrm
         '
         'RadioButton2
         '
+        Me.RadioButton2.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(505, 25)
+        Me.RadioButton2.Location = New System.Drawing.Point(553, 25)
         Me.RadioButton2.Name = "RadioButton2"
         Me.RadioButton2.Size = New System.Drawing.Size(71, 21)
         Me.RadioButton2.TabIndex = 97
@@ -143,7 +151,6 @@ Partial Class PendingFrm
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.DataGridView1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "PendingFrm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Pending"

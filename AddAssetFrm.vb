@@ -534,7 +534,7 @@ Public Class AddAssetFrm
                or Asset_Number like '" & TextBox1.Text & "%' or AssetID like '" & TextBox1.Text & "%' or
             Asset_Location like '" & TextBox1.Text & "%' or Asset_Room like '" & TextBox1.Text & "%' or
             Asset_Status like '" & TextBox1.Text & "%' or Asset_Department like '" & TextBox1.Text & "%' or
-              Asset_Tag_Number like '" & TextBox1.Text & "%' or Asset_description like '" & asset_gridview.Text & "%' 
+              Asset_Tag_Number like '" & TextBox1.Text & "%' or Asset_description like '" & TextBox1.Text & "%' 
               and Asset_Status <> 'Pending'"
             cmd = New SqlCommand(str, con)
             da = New SqlDataAdapter(cmd)
@@ -835,8 +835,8 @@ Public Class AddAssetFrm
     End Sub
 
     Private Sub DataGridView1_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseDoubleClick
-        If asset_gridview.Rows(e.RowIndex).Cells(e.ColumnIndex).Value IsNot Nothing Then
-            SearchspecificFrm.searchrelated_txt.Text = asset_gridview.Rows(e.RowIndex).Cells(e.ColumnIndex).Value.ToString()
+        If DataGridView1.Rows(e.RowIndex).Cells(e.ColumnIndex).Value IsNot Nothing Then
+            SearchspecificFrm.searchrelated_txt.Text = DataGridView1.Rows(e.RowIndex).Cells(e.ColumnIndex).Value.ToString()
 
             SearchspecificFrm.Show()
             Me.Hide()

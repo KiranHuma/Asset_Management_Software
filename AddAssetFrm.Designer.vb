@@ -26,6 +26,7 @@ Partial Class AddAssetFrm
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AddAssetFrm))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Button13 = New System.Windows.Forms.Button()
         Me.Button12 = New System.Windows.Forms.Button()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.TextBox6 = New System.Windows.Forms.TextBox()
@@ -121,7 +122,6 @@ Partial Class AddAssetFrm
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.Button13 = New System.Windows.Forms.Button()
         Me.ToolTip2 = New System.Windows.Forms.ToolTip(Me.components)
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -141,6 +141,9 @@ Partial Class AddAssetFrm
         '
         'TabControl1
         '
+        Me.TabControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Location = New System.Drawing.Point(12, 11)
@@ -199,8 +202,25 @@ Partial Class AddAssetFrm
         Me.TabPage1.Text = "Add Asset"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
+        'Button13
+        '
+        Me.Button13.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.Button13.BackColor = System.Drawing.Color.White
+        Me.Button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button13.ForeColor = System.Drawing.Color.Transparent
+        Me.Button13.Image = CType(resources.GetObject("Button13.Image"), System.Drawing.Image)
+        Me.Button13.Location = New System.Drawing.Point(1267, 107)
+        Me.Button13.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button13.Name = "Button13"
+        Me.Button13.Size = New System.Drawing.Size(49, 48)
+        Me.Button13.TabIndex = 95
+        Me.ToolTip2.SetToolTip(Me.Button13, "Reset Application")
+        Me.Button13.UseVisualStyleBackColor = False
+        '
         'Button12
         '
+        Me.Button12.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Button12.BackColor = System.Drawing.Color.White
         Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -216,6 +236,7 @@ Partial Class AddAssetFrm
         '
         'Button9
         '
+        Me.Button9.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Button9.BackColor = System.Drawing.Color.White
         Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1019,15 +1040,20 @@ Partial Class AddAssetFrm
         '
         'asset_gridview
         '
+        Me.asset_gridview.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.asset_gridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.asset_gridview.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders
         Me.asset_gridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.asset_gridview.ContextMenuStrip = Me.ContextMenuStrip1
-        Me.asset_gridview.Location = New System.Drawing.Point(12, 65)
+        Me.asset_gridview.Location = New System.Drawing.Point(15, 58)
         Me.asset_gridview.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.asset_gridview.Name = "asset_gridview"
         Me.asset_gridview.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.asset_gridview.RowTemplate.Height = 24
         Me.asset_gridview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.asset_gridview.Size = New System.Drawing.Size(1304, 242)
+        Me.asset_gridview.Size = New System.Drawing.Size(1269, 183)
         Me.asset_gridview.TabIndex = 0
         '
         'ContextMenuStrip1
@@ -1069,24 +1095,32 @@ Partial Class AddAssetFrm
         '
         'Panel1
         '
+        Me.Panel1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.Controls.Add(Me.asset_gridview)
         Me.Panel1.Controls.Add(Me.Label28)
         Me.Panel1.Controls.Add(Me.TextBox1)
-        Me.Panel1.Location = New System.Drawing.Point(16, 447)
+        Me.Panel1.Location = New System.Drawing.Point(16, 504)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1329, 325)
+        Me.Panel1.Size = New System.Drawing.Size(1303, 266)
         Me.Panel1.TabIndex = 93
         '
         'DataGridView1
         '
+        Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(31, 77)
+        Me.DataGridView1.Location = New System.Drawing.Point(28, 81)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.DataGridView1.RowTemplate.Height = 24
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(1261, 189)
+        Me.DataGridView1.Size = New System.Drawing.Size(1242, 160)
         Me.DataGridView1.TabIndex = 52
         '
         'TextBox2
@@ -1108,16 +1142,20 @@ Partial Class AddAssetFrm
         '
         'Panel3
         '
+        Me.Panel3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel3.Controls.Add(Me.DataGridView1)
         Me.Panel3.Controls.Add(Me.Label12)
         Me.Panel3.Controls.Add(Me.TextBox2)
-        Me.Panel3.Location = New System.Drawing.Point(16, 429)
+        Me.Panel3.Location = New System.Drawing.Point(46, 504)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1326, 294)
+        Me.Panel3.Size = New System.Drawing.Size(1286, 263)
         Me.Panel3.TabIndex = 94
         '
         'Panel4
         '
+        Me.Panel4.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Panel4.Controls.Add(Me.Button5)
         Me.Panel4.Controls.Add(Me.Button19)
         Me.Panel4.Controls.Add(Me.Button6)
@@ -1129,6 +1167,7 @@ Partial Class AddAssetFrm
         '
         'Panel5
         '
+        Me.Panel5.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Panel5.Controls.Add(Me.Button1)
         Me.Panel5.Controls.Add(Me.Button8)
         Me.Panel5.Controls.Add(Me.Button10)
@@ -1136,21 +1175,6 @@ Partial Class AddAssetFrm
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(603, 72)
         Me.Panel5.TabIndex = 96
-        '
-        'Button13
-        '
-        Me.Button13.BackColor = System.Drawing.Color.White
-        Me.Button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button13.ForeColor = System.Drawing.Color.Transparent
-        Me.Button13.Image = CType(resources.GetObject("Button13.Image"), System.Drawing.Image)
-        Me.Button13.Location = New System.Drawing.Point(1267, 107)
-        Me.Button13.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button13.Name = "Button13"
-        Me.Button13.Size = New System.Drawing.Size(49, 48)
-        Me.Button13.TabIndex = 95
-        Me.ToolTip2.SetToolTip(Me.Button13, "Reset Application")
-        Me.Button13.UseVisualStyleBackColor = False
         '
         'AddAssetFrm
         '
@@ -1162,10 +1186,10 @@ Partial Class AddAssetFrm
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.TabControl1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "AddAssetFrm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AddAssetFrm"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()

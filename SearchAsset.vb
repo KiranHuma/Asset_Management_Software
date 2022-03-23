@@ -150,6 +150,7 @@ Public Class SearchAsset
         If Main_Search_Assets.Rows(e.RowIndex).Cells(e.ColumnIndex).Value IsNot Nothing Then
             SearchspecificFrm.searchrelated_txt.Text = Main_Search_Assets.Rows(e.RowIndex).Cells(e.ColumnIndex).Value.ToString()
             SearchspecificFrm.Show()
+            Me.Hide()
         End If
 
 

@@ -154,7 +154,7 @@ Public Class Apply_to_All_Record
         Try
             Dim con As New SqlConnection(cs)
             con.Open()
-            str = "Select Alot_ID,Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name,Assign_Location,Assign_Room,Assign_Department,Assign_Tag_Number,Assign_description,Current_Status,Current_Status_Date from Assign_Asset_TB where  Assign_Number_ID ='" & asst_id_number.Text & "'   AND Current_Status='Running' "
+            str = "Select Alot_ID,Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name,Assign_Location,Assign_Room,Assign_Department,Assign_Tag_Number,Assign_description,Current_Status,Current_Status_Date from Assign_Asset_TB where  Assign_Number_ID ='" & asst_id_number.Text & "' AND Current_Status='Running' "
             cmd = New SqlCommand(str, con)
             da = New SqlDataAdapter(cmd)
             ds = New DataSet
@@ -176,33 +176,42 @@ Public Class Apply_to_All_Record
 
             'update_main_table()
             If Label8.Text = "Tmain" Then
+                get_asign_main_asset()
                 update_main_table_terminate_running()
                 update_running_assign_from_main()
                 AddAssetFrm.ShowDialog()
                 Me.Hide()
             Else
+                get_asign_asset()
                 update_running()
                 AddAssetFrm.ShowDialog()
                 Me.Hide()
-
             End If
 
-
             MessageBox.Show("All Assets Terminated successfully")
-        ElseIf ask = MsgBoxResult.No Then
+                ElseIf ask = MsgBoxResult.No Then
             If Label8.Text = "Tmain" Then
 
                 update_main_table_pending()
                 no_terminate_from_main_to_all_assign()
             Else
+                get_asign_asset()
                 no_terminate()
+                no_terminate_from_main_to_all_assign()
+                update_main_table_pending()
             End If
 
 
-            MessageBox.Show("Termination Cancel successfully")
-                End If
+                MessageBox.Show("Termination Cancel successfully")
+            End If
+
+        If Label8.Text = "Tmain" Then
+            get_asign_main_asset()
 
 
+        Else
+            get_asign_asset()
+        End If
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs)
@@ -233,5 +242,11 @@ Public Class Apply_to_All_Record
 
     Private Sub Button2_Click_2(sender As Object, e As EventArgs)
         ' get_asign_asset()
+    End Sub
+
+    Private Sub Button2_Click_3(sender As Object, e As EventArgs) Handles Button2.Click
+        Call (New AddAssetFrm()).Show()
+
+        Me.Hide()
     End Sub
 End Class

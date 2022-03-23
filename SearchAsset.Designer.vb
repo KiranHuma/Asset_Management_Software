@@ -52,8 +52,10 @@ Partial Class SearchAsset
         '
         'TabControl1
         '
+        Me.TabControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -82,9 +84,9 @@ Partial Class SearchAsset
         '
         'Label1
         '
-        Me.Label1.AutoSize = True
+        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(1105, 95)
+        Me.Label1.Location = New System.Drawing.Point(8, 22)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(33, 17)
         Me.Label1.TabIndex = 105
@@ -92,6 +94,7 @@ Partial Class SearchAsset
         '
         'Label12
         '
+        Me.Label12.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label12.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Label12.ForeColor = System.Drawing.Color.White
         Me.Label12.Image = CType(resources.GetObject("Label12.Image"), System.Drawing.Image)
@@ -104,6 +107,7 @@ Partial Class SearchAsset
         '
         'RadioButton2
         '
+        Me.RadioButton2.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.RadioButton2.AutoSize = True
         Me.RadioButton2.Location = New System.Drawing.Point(383, 22)
         Me.RadioButton2.Name = "RadioButton2"
@@ -115,6 +119,7 @@ Partial Class SearchAsset
         '
         'RadioButton1
         '
+        Me.RadioButton1.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.RadioButton1.AutoSize = True
         Me.RadioButton1.Location = New System.Drawing.Point(564, 22)
         Me.RadioButton1.Name = "RadioButton1"
@@ -126,6 +131,7 @@ Partial Class SearchAsset
         '
         'Panel1
         '
+        Me.Panel1.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.Panel1.BackColor = System.Drawing.Color.White
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.TextBox2)
@@ -163,7 +169,7 @@ Partial Class SearchAsset
         'count_users
         '
         Me.count_users.AutoSize = True
-        Me.count_users.Location = New System.Drawing.Point(34, 22)
+        Me.count_users.Location = New System.Drawing.Point(25, 175)
         Me.count_users.Name = "count_users"
         Me.count_users.Size = New System.Drawing.Size(79, 17)
         Me.count_users.TabIndex = 101
@@ -172,6 +178,10 @@ Partial Class SearchAsset
         '
         'Main_Search_Assets
         '
+        Me.Main_Search_Assets.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Main_Search_Assets.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.Main_Search_Assets.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedHeaders
         Me.Main_Search_Assets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Main_Search_Assets.Location = New System.Drawing.Point(8, 245)
         Me.Main_Search_Assets.Name = "Main_Search_Assets"
@@ -182,7 +192,8 @@ Partial Class SearchAsset
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(919, 185)
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button2.Location = New System.Drawing.Point(1087, 175)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(103, 32)
         Me.Button2.TabIndex = 98
@@ -191,7 +202,8 @@ Partial Class SearchAsset
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(779, 185)
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.Location = New System.Drawing.Point(1087, 137)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(103, 32)
         Me.Button1.TabIndex = 97
@@ -200,6 +212,7 @@ Partial Class SearchAsset
         '
         'panel3
         '
+        Me.panel3.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.panel3.BackColor = System.Drawing.Color.White
         Me.panel3.Controls.Add(Me.pictureBox3)
         Me.panel3.Controls.Add(Me.search_assets)
@@ -239,10 +252,11 @@ Partial Class SearchAsset
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1230, 788)
         Me.Controls.Add(Me.TabControl1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Name = "SearchAsset"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Search"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
