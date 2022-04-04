@@ -78,7 +78,7 @@ Partial Class SearchspecificFrm
         Me.Button9.Location = New System.Drawing.Point(29, 13)
         Me.Button9.Margin = New System.Windows.Forms.Padding(4)
         Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(63, 28)
+        Me.Button9.Size = New System.Drawing.Size(63, 41)
         Me.Button9.TabIndex = 15
         Me.ToolTip1.SetToolTip(Me.Button9, "Back to Main")
         Me.Button9.UseVisualStyleBackColor = False
@@ -86,7 +86,7 @@ Partial Class SearchspecificFrm
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(26, 45)
+        Me.Label1.Location = New System.Drawing.Point(26, 58)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(94, 17)
         Me.Label1.TabIndex = 16

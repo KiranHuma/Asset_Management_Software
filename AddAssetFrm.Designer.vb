@@ -26,6 +26,7 @@ Partial Class AddAssetFrm
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AddAssetFrm))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Button14 = New System.Windows.Forms.Button()
         Me.Button13 = New System.Windows.Forms.Button()
         Me.Button12 = New System.Windows.Forms.Button()
         Me.Button9 = New System.Windows.Forms.Button()
@@ -67,8 +68,10 @@ Partial Class AddAssetFrm
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Assett_Name_txt = New System.Windows.Forms.ComboBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.Button15 = New System.Windows.Forms.Button()
         Me.Label32 = New System.Windows.Forms.Label()
         Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.TextBox4 = New System.Windows.Forms.ComboBox()
         Me.assiginie_name_txt = New System.Windows.Forms.ComboBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Panel7 = New System.Windows.Forms.Panel()
@@ -155,6 +158,7 @@ Partial Class AddAssetFrm
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.Button14)
         Me.TabPage1.Controls.Add(Me.Button13)
         Me.TabPage1.Controls.Add(Me.Button12)
         Me.TabPage1.Controls.Add(Me.Button9)
@@ -202,15 +206,31 @@ Partial Class AddAssetFrm
         Me.TabPage1.Text = "Add Asset"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
+        'Button14
+        '
+        Me.Button14.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button14.BackColor = System.Drawing.Color.White
+        Me.Button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button14.ForeColor = System.Drawing.Color.Transparent
+        Me.Button14.Image = CType(resources.GetObject("Button14.Image"), System.Drawing.Image)
+        Me.Button14.Location = New System.Drawing.Point(1267, 207)
+        Me.Button14.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button14.Name = "Button14"
+        Me.Button14.Size = New System.Drawing.Size(49, 44)
+        Me.Button14.TabIndex = 96
+        Me.ToolTip1.SetToolTip(Me.Button14, "Exit")
+        Me.Button14.UseVisualStyleBackColor = False
+        '
         'Button13
         '
-        Me.Button13.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.Button13.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button13.BackColor = System.Drawing.Color.White
         Me.Button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button13.ForeColor = System.Drawing.Color.Transparent
         Me.Button13.Image = CType(resources.GetObject("Button13.Image"), System.Drawing.Image)
-        Me.Button13.Location = New System.Drawing.Point(1267, 107)
+        Me.Button13.Location = New System.Drawing.Point(1267, 143)
         Me.Button13.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button13.Name = "Button13"
         Me.Button13.Size = New System.Drawing.Size(49, 48)
@@ -220,23 +240,23 @@ Partial Class AddAssetFrm
         '
         'Button12
         '
-        Me.Button12.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.Button12.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button12.BackColor = System.Drawing.Color.White
         Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button12.ForeColor = System.Drawing.Color.Transparent
         Me.Button12.Image = CType(resources.GetObject("Button12.Image"), System.Drawing.Image)
-        Me.Button12.Location = New System.Drawing.Point(1267, 52)
+        Me.Button12.Location = New System.Drawing.Point(1267, 79)
         Me.Button12.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button12.Name = "Button12"
-        Me.Button12.Size = New System.Drawing.Size(49, 48)
+        Me.Button12.Size = New System.Drawing.Size(49, 60)
         Me.Button12.TabIndex = 94
         Me.ToolTip2.SetToolTip(Me.Button12, "Refresh Form" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10))
         Me.Button12.UseVisualStyleBackColor = False
         '
         'Button9
         '
-        Me.Button9.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.Button9.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button9.BackColor = System.Drawing.Color.White
         Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -245,7 +265,7 @@ Partial Class AddAssetFrm
         Me.Button9.Location = New System.Drawing.Point(1267, 11)
         Me.Button9.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(49, 38)
+        Me.Button9.Size = New System.Drawing.Size(49, 58)
         Me.Button9.TabIndex = 93
         Me.ToolTip1.SetToolTip(Me.Button9, "Return to Main" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10))
         Me.Button9.UseVisualStyleBackColor = False
@@ -602,6 +622,7 @@ Partial Class AddAssetFrm
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.Button15)
         Me.TabPage2.Controls.Add(Me.Label32)
         Me.TabPage2.Controls.Add(Me.Panel8)
         Me.TabPage2.Controls.Add(Me.Panel7)
@@ -621,6 +642,22 @@ Partial Class AddAssetFrm
         Me.TabPage2.Text = "Assign Asset"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
+        'Button15
+        '
+        Me.Button15.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button15.BackColor = System.Drawing.Color.White
+        Me.Button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button15.ForeColor = System.Drawing.Color.Transparent
+        Me.Button15.Image = CType(resources.GetObject("Button15.Image"), System.Drawing.Image)
+        Me.Button15.Location = New System.Drawing.Point(1279, 3)
+        Me.Button15.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button15.Name = "Button15"
+        Me.Button15.Size = New System.Drawing.Size(49, 60)
+        Me.Button15.TabIndex = 103
+        Me.ToolTip2.SetToolTip(Me.Button15, "Refresh Form" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10))
+        Me.Button15.UseVisualStyleBackColor = False
+        '
         'Label32
         '
         Me.Label32.AutoSize = True
@@ -633,12 +670,23 @@ Partial Class AddAssetFrm
         '
         'Panel8
         '
+        Me.Panel8.Controls.Add(Me.TextBox4)
         Me.Panel8.Controls.Add(Me.assiginie_name_txt)
         Me.Panel8.Controls.Add(Me.Label14)
         Me.Panel8.Location = New System.Drawing.Point(18, 52)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(315, 146)
+        Me.Panel8.Size = New System.Drawing.Size(315, 229)
         Me.Panel8.TabIndex = 101
+        '
+        'TextBox4
+        '
+        Me.TextBox4.FormattingEnabled = True
+        Me.TextBox4.Items.AddRange(New Object() {"sa", "dsd"})
+        Me.TextBox4.Location = New System.Drawing.Point(10, 133)
+        Me.TextBox4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(299, 24)
+        Me.TextBox4.TabIndex = 104
         '
         'assiginie_name_txt
         '
@@ -1315,4 +1363,7 @@ Partial Class AddAssetFrm
     Friend WithEvents Button12 As Button
     Friend WithEvents Button13 As Button
     Friend WithEvents ToolTip2 As ToolTip
+    Friend WithEvents TextBox4 As ComboBox
+    Friend WithEvents Button14 As Button
+    Friend WithEvents Button15 As Button
 End Class

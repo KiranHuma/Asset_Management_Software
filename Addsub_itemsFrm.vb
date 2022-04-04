@@ -531,7 +531,7 @@ Public Class Addsub_itemsFrm
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
         Call (New AddAssetFrm()).Show()
-        Me.Hide()
+        Me.Close()
 
 
 

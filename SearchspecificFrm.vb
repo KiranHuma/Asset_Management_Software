@@ -73,7 +73,7 @@ Assign_Tag_Number  like '" & searchrelated_txt.Text & "%' or Assign_description 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
 
         Call (New SearchAsset()).Show()
-        Me.Hide()
+        Me.Close()
 
 
     End Sub
@@ -131,6 +131,6 @@ Assign_Tag_Number  like '" & searchrelated_txt.Text & "%' or Assign_description 
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         AddAssetFrm.Show()
-        Me.Hide()
+        Me.Close()
     End Sub
 End Class

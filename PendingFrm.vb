@@ -104,7 +104,7 @@ Public Class PendingFrm
 
 
             Call (New SearchAsset()).Show()
-            Me.Hide()
+            Me.Close()
             MessageBox.Show("All Assets Terminated successfully")
         ElseIf ask = MsgBoxResult.No Then
             terminate_asset()
@@ -116,7 +116,7 @@ Public Class PendingFrm
 
 
         Call (New SearchAsset()).Show()
-        Me.Hide()
+        Me.Close()
 
     End Sub
 

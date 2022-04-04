@@ -63,7 +63,7 @@ Public Class Admin_CodeFrm
         LoginFrm.txtPass.Text = ""
 
         Call (New LoginFrm()).Show()
-        Me.Hide()
+        Me.Close()
         If Label3.Text = "new" Then
             SearchAsset.Label12.Visible = False
         End If
@@ -79,6 +79,6 @@ Public Class Admin_CodeFrm
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Call (New LoginFrm()).Show()
-        Me.Hide()
+        Me.Close()
     End Sub
 End Class

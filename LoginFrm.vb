@@ -38,8 +38,9 @@ Public Class LoginFrm
                     If Label4.Text = 1 Then
                         Label3.Visible = False
                         Label8.Visible = False
-                        Me.Hide()
                         SearchAsset.Show()
+                        Me.Close()
+
                     Else
 
                         MsgBox("Invalid login")
@@ -146,7 +147,7 @@ Public Class LoginFrm
     Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
 
         Call (New Admin_CodeFrm()).Show()
-        Me.Hide()
+        Me.Close()
 
     End Sub
 

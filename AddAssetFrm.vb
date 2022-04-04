@@ -1,4 +1,5 @@
-﻿Imports System.Data.SqlClient
+﻿Imports System.ComponentModel
+Imports System.Data.SqlClient
 Imports System.IO
 Public Class AddAssetFrm
     Dim cmd As New SqlCommand()
@@ -42,7 +43,7 @@ Public Class AddAssetFrm
         Try
             Dim con As New SqlConnection(cs)
             con.Open()
-            str = "Select Alot_ID,Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name as [Asset_Name],Assign_Location,Assign_Room,
+            str = "Select Alot_ID,Assiginie_Name as [Assignie Name],Assign_Status as [Status],Assign_Date,Assign_Number_ID,Assign_Name as [Asset_Name],Assign_Location,Assign_Room,
             Assign_Department,Assign_Tag_Number,Assign_description,Current_Status,Current_Status_Date from Assign_Asset_TB "
             cmd = New SqlCommand(str, con)
             da = New SqlDataAdapter(cmd)
@@ -169,7 +170,8 @@ Public Class AddAssetFrm
 
 
             Call (New AddAssetFrm()).Show()
-            Me.Hide()
+            Me.Close()
+            Me.Dispose()
         Catch ex As Exception
             MsgBox("Data Inserted Failed because " & ex.Message)
             Me.Dispose()
@@ -215,7 +217,8 @@ Public Class AddAssetFrm
     Private Sub FillCombo_assign()
         Try
             Dim conn As New System.Data.SqlClient.SqlConnection(cs)
-            Dim strSQL As String = "SELECT DISTINCT Asset_Name FROM Add_Asset_Tb "
+            'Dim strSQL As String = "SELECT DISTINCT Asset_Name FROM Add_Asset_Tb "
+            Dim strSQL As String = "SELECT  Asset_Name FROM Add_Asset_Tb "
             Dim da As New System.Data.SqlClient.SqlDataAdapter(strSQL, conn)
             Dim ds As New DataSet
             da.Fill(ds, "Add_Asset_Tb")
@@ -340,8 +343,7 @@ Public Class AddAssetFrm
             con.Close()
 
 
-            Call (New AddAssetFrm()).Show()
-            Me.Hide()
+            assign_tab_refresh()
         Catch ex As Exception
             MsgBox("Data assigned Failed because " & ex.Message)
             Me.Dispose()
@@ -362,15 +364,13 @@ Public Class AddAssetFrm
                 'update_status()
                 insert_assign()
                 Button5.Enabled = False
-                Call (New AddAssetFrm()).Show()
-                Me.Hide()
-
+                assign_tab_refresh()
 
             ElseIf ask = MsgBoxResult.No Then
 
                 MessageBox.Show("Asset not assigned")
                 Call (New AddAssetFrm()).Show()
-
+                Me.Dispose()
 
             End If
         End If
@@ -382,6 +382,7 @@ Public Class AddAssetFrm
         Panel5.Visible = False
         Panel7.Visible = False
         Panel8.Visible = True
+
         yes_no_dialogue_assign()
 
 
@@ -581,35 +582,38 @@ Public Class AddAssetFrm
 
 
         Apply_to_All_Record.Show()
-        Me.Hide()
-
+        Me.Close()
+        Me.Dispose()
     End Sub
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
 
 
         Call (New Addsub_itemsFrm()).Show()
-        Me.Hide()
+        Me.Close()
+        Me.Dispose()
         'Me.Dispose()
         'Me.Close()
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Call (New Addsub_itemsFrm()).Show()
-        Me.Hide()
+        Me.Close()
+        Me.Dispose()
         'Me.Dispose()
         'Me.Close()
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Call (New Addsub_itemsFrm()).Show()
-        Me.Hide()
-        'Me.Dispose()
+        Me.Close()
+        Me.Dispose()
         'Me.Close()
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         Call (New Addsub_itemsFrm()).Show()
-        Me.Hide()
+        Me.Close()
+        Me.Dispose()
     End Sub
 
 
@@ -680,12 +684,7 @@ Public Class AddAssetFrm
     End Sub
 
 
-    Private Sub Button14_Click(sender As Object, e As EventArgs)
-        Dim f2 As New AddAssetFrm
-        Me.Dispose()  '~~> Or Me.Close()
-        f2.Show()
 
-    End Sub
 
 
 
@@ -728,15 +727,16 @@ Public Class AddAssetFrm
                 update2()
                 get_asset_record()
                 Call (New AddAssetFrm()).Show()
-                Me.Hide()
+                Me.Close()
 
-
+                Me.Dispose()
             ElseIf ask = MsgBoxResult.No Then
 
                 MessageBox.Show("Asset not Update")
                 Call (New AddAssetFrm()).Show()
 
-                Me.Hide()
+                Me.Close()
+                Me.Dispose()
             End If
         End If
 
@@ -748,7 +748,8 @@ Public Class AddAssetFrm
             SearchspecificFrm.searchrelated_txt.Text = asset_gridview.Rows(e.RowIndex).Cells(e.ColumnIndex).Value.ToString()
 
             SearchspecificFrm.Show()
-            Me.Hide()
+            Me.Close()
+            Me.Dispose()
         End If
     End Sub
 
@@ -815,8 +816,7 @@ Public Class AddAssetFrm
 
                 get_asign_assets()
 
-                Call (New AddAssetFrm()).Show()
-                Me.Hide()
+                assign_tab_refresh()
                 Panel7.Visible = False
                 Panel8.Visible = True
 
@@ -825,7 +825,8 @@ Public Class AddAssetFrm
                 MessageBox.Show("Asset not Update")
                 Call (New AddAssetFrm()).Show()
 
-                Me.Hide()
+                Me.Close()
+                Me.Dispose()
             End If
         End If
     End Sub
@@ -839,8 +840,8 @@ Public Class AddAssetFrm
             SearchspecificFrm.searchrelated_txt.Text = DataGridView1.Rows(e.RowIndex).Cells(e.ColumnIndex).Value.ToString()
 
             SearchspecificFrm.Show()
-            Me.Hide()
-
+            Me.Close()
+            Me.Dispose()
         End If
     End Sub
     Private Sub ass_search()
@@ -890,8 +891,8 @@ Public Class AddAssetFrm
             Apply_to_All_Record.assinie_nme_lbl.Text = DataGridView1.CurrentRow.Cells(1).Value.ToString
 
             Apply_to_All_Record.Show()
-            Me.Hide()
-
+            Me.Close()
+            Me.Dispose()
         End If
 
 
@@ -932,7 +933,8 @@ Public Class AddAssetFrm
                 get_asign_assets()
 
                 Call (New AddAssetFrm()).Show()
-                Me.Hide()
+                Me.Close()
+                Me.Dispose()
                 Panel7.Visible = False
                 Panel8.Visible = True
 
@@ -941,7 +943,8 @@ Public Class AddAssetFrm
                 MessageBox.Show("Asset not Update")
                 Call (New AddAssetFrm()).Show()
 
-                Me.Hide()
+                Me.Close()
+                Me.Dispose()
             End If
         End If
     End Sub
@@ -963,7 +966,8 @@ Public Class AddAssetFrm
                 terminate_assets_permanantly_status()
 
                 Call (New AddAssetFrm()).Show()
-                Me.Hide()
+                Me.Close()
+                Me.Dispose()
                 Panel7.Visible = False
                 Panel8.Visible = True
 
@@ -972,7 +976,8 @@ Public Class AddAssetFrm
                 MessageBox.Show("Asset not Delete")
                 Call (New AddAssetFrm()).Show()
 
-                Me.Hide()
+                Me.Close()
+                Me.Dispose()
             End If
         End If
     End Sub
@@ -993,7 +998,27 @@ Public Class AddAssetFrm
             Me.Dispose()
         End Try
     End Sub
+    Private Sub get_code_assign()
+        Dim con As New SqlConnection(cs)
+        Try
 
+            Dim command As New SqlCommand("select AssetID,Asset_Number from Add_Asset_Tb where Asset_Name='" & assiginie_name_txt.Text & "'", con)
+            con.Open()
+            cmd.Parameters.Clear()
+            Dim read As SqlDataReader = command.ExecuteReader()
+
+            Do While read.Read()
+                ' TextBox4.Text = (read("AssetID").ToString())
+                TextBox4.Text = (read("Asset_Number").ToString())
+            Loop
+            read.Close()
+
+        Catch ex As Exception
+
+            MessageBox.Show(ex.Message)
+            Me.Dispose()
+        End Try
+    End Sub
     Private Sub TabPage2_Click(sender As Object, e As EventArgs) Handles TabPage2.Click
 
     End Sub
@@ -1002,7 +1027,8 @@ Public Class AddAssetFrm
 
 
         Call (New SearchAsset()).Show()
-        Me.Hide()
+        Me.Close()
+        Me.Dispose()
     End Sub
 
     Private Sub TextBox5_TextChanged(sender As Object, e As EventArgs) Handles TextBox5.TextChanged
@@ -1015,7 +1041,8 @@ Public Class AddAssetFrm
 
     Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
         Call (New AddAssetFrm()).Show()
-        Me.Hide()
+        Me.Close()
+        Me.Dispose()
     End Sub
 
     Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
@@ -1035,8 +1062,70 @@ Public Class AddAssetFrm
             MessageBox.Show("Reset Cancel")
             Call (New AddAssetFrm()).Show()
 
-            Me.Hide()
+            Me.Close()
+            Me.Dispose()
         End If
 
+    End Sub
+    Private Sub FillCombo_assign_get_id()
+        Try
+            Dim conn As New System.Data.SqlClient.SqlConnection(cs)
+            'Dim strSQL As String = "SELECT DISTINCT Asset_Name FROM Add_Asset_Tb "
+            Dim strSQL As String = "SELECT  Asset_Name,Asset_Number FROM Add_Asset_Tb where Asset_Name='" & assiginie_name_txt.Text & "' "
+            Dim da As New System.Data.SqlClient.SqlDataAdapter(strSQL, conn)
+            Dim ds As New DataSet
+            da.Fill(ds, "Add_Asset_Tb")
+            With Me.TextBox4
+                .DataSource = ds.Tables("Add_Asset_Tb")
+                .DisplayMember = "Asset_Number"
+                .ValueMember = "Asset_Number"
+                .SelectedIndex = -1
+                .AutoCompleteMode = AutoCompleteMode.SuggestAppend
+                .AutoCompleteSource = AutoCompleteSource.ListItems
+            End With
+
+
+
+        Catch ex As Exception
+            MessageBox.Show("Failed:Retrieving and Populating  " & ex.Message)
+            'Me.Dispose()
+        End Try
+    End Sub
+    Private Sub assiginie_name_txt_SelectedIndexChanged(sender As Object, e As EventArgs) Handles assiginie_name_txt.SelectedIndexChanged
+        ' get_code_assign()
+        FillCombo_assign_get_id()
+    End Sub
+
+    Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click
+        assign_tab_refresh()
+    End Sub
+    Private Sub assign_tab_refresh()
+        For Each txt In Panel7.Controls.OfType(Of TextBox)()
+            txt.Text = ""
+        Next
+        For Each txt2 In Panel7.Controls.OfType(Of ComboBox)()
+            txt2.Text = ""
+        Next
+        For Each txt3 In Panel8.Controls.OfType(Of ComboBox)()
+            txt3.Text = ""
+        Next
+        assign_Asset_description_txt.Text = " "
+        TabControl1.SelectedIndex = 0
+
+        TabControl1.SelectedIndex = 1
+        Panel4.Visible = True
+        Panel3.Visible = True
+        Panel1.Visible = False
+        Panel5.Visible = False
+        Panel7.Visible = False
+        Panel8.Visible = True
+        assign_datetxt.Value = DateTime.Now
+    End Sub
+    Private Sub assiginie_name_txt_MouseEnter(sender As Object, e As EventArgs) Handles assiginie_name_txt.MouseEnter
+
+    End Sub
+
+    Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
+        Application.Exit()
     End Sub
 End Class

@@ -109,7 +109,7 @@ Public Class SearchAsset
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
 
         Call (New AddAssetFrm()).Show()
-        Me.Hide()
+        Me.Close()
         ' Me.Dispose()
         '  Me.Close()
     End Sub
@@ -150,7 +150,7 @@ Public Class SearchAsset
         If Main_Search_Assets.Rows(e.RowIndex).Cells(e.ColumnIndex).Value IsNot Nothing Then
             SearchspecificFrm.searchrelated_txt.Text = Main_Search_Assets.Rows(e.RowIndex).Cells(e.ColumnIndex).Value.ToString()
             SearchspecificFrm.Show()
-            Me.Hide()
+            Me.Close()
         End If
 
 
@@ -243,7 +243,7 @@ Public Class SearchAsset
 
 
         Call (New Admin_CodeFrm()).Show()
-        Me.Hide()
+        Me.Close()
     End Sub
 End Class
 
