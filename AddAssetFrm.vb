@@ -1002,14 +1002,14 @@ Public Class AddAssetFrm
         Dim con As New SqlConnection(cs)
         Try
 
-            Dim command As New SqlCommand("select AssetID,Asset_Number from Add_Asset_Tb where Asset_Name='" & assiginie_name_txt.Text & "'", con)
+            Dim command As New SqlCommand("select AssetID,Asset_Number,Asset_Number_ID from Add_Asset_Tb where Asset_Name='" & assiginie_name_txt.Text & "'", con)
             con.Open()
             cmd.Parameters.Clear()
             Dim read As SqlDataReader = command.ExecuteReader()
 
             Do While read.Read()
                 ' TextBox4.Text = (read("AssetID").ToString())
-                TextBox4.Text = (read("Asset_Number").ToString())
+                TextBox4.Text = (read("Asset_Number_ID").ToString())
             Loop
             read.Close()
 
@@ -1071,14 +1071,14 @@ Public Class AddAssetFrm
         Try
             Dim conn As New System.Data.SqlClient.SqlConnection(cs)
             'Dim strSQL As String = "SELECT DISTINCT Asset_Name FROM Add_Asset_Tb "
-            Dim strSQL As String = "SELECT  Asset_Name,Asset_Number FROM Add_Asset_Tb where Asset_Name='" & assiginie_name_txt.Text & "' "
+            Dim strSQL As String = "SELECT  Asset_Name,Asset_Number,Asset_Number_ID FROM Add_Asset_Tb where Asset_Name='" & assiginie_name_txt.Text & "' "
             Dim da As New System.Data.SqlClient.SqlDataAdapter(strSQL, conn)
             Dim ds As New DataSet
             da.Fill(ds, "Add_Asset_Tb")
             With Me.TextBox4
                 .DataSource = ds.Tables("Add_Asset_Tb")
-                .DisplayMember = "Asset_Number"
-                .ValueMember = "Asset_Number"
+                .DisplayMember = "Asset_Number_ID"
+                .ValueMember = "Asset_Number_ID"
                 .SelectedIndex = -1
                 .AutoCompleteMode = AutoCompleteMode.SuggestAppend
                 .AutoCompleteSource = AutoCompleteSource.ListItems
