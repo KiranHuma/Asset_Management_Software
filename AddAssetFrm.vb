@@ -23,9 +23,10 @@ Public Class AddAssetFrm
 
     Private Sub AddAssetFrm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtboxid()
+        alphanumeric_genrated()
         txtboxid_assign()
         FillCombo_assign()
-        ' FillCombo_assign()
+
         get_asset_record()
         'Panel3.Visible = False
         Panel4.Visible = False
@@ -124,6 +125,32 @@ Public Class AddAssetFrm
         End Try
 
     End Sub
+    Private Sub alphanumeric_genrated()
+        'auto increment alphanumeric id
+
+        Try
+            Dim curValue As Integer
+            Dim result As String
+            Using con As SqlConnection = New SqlConnection(cs)
+                con.Open()
+                Dim cmd = New SqlCommand("select Max(Asset_Number) from Add_Asset_Tb", con)
+                result = cmd.ExecuteScalar().ToString()
+                If String.IsNullOrEmpty(result) Then
+                    result = "0000"
+                End If
+
+                result = result.Substring(3)
+                Int32.TryParse(result, curValue)
+                curValue = curValue + 1
+                result = curValue.ToString("D4")
+                Asset_Number_txt.Text = result
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Failed:AutoIncrement of AssetID" & ex.Message)
+            Me.Dispose()
+        End Try
+
+    End Sub
     Private Sub txtboxid_assign()
         Try
             Dim num As New Integer
@@ -182,12 +209,7 @@ Public Class AddAssetFrm
     End Sub
 
     Private Sub Asset_Number_txt_TextChanged(sender As Object, e As EventArgs) Handles Asset_Number_txt.TextChanged
-        Dim strMyString As String = Assett_Name_txt.Text
-        Dim usertext As String = "IT-"
-        Asset_Code_txt.Text = usertext + Microsoft.VisualBasic.Left(strMyString, 2)
 
-        asset_concatenate_id_txt.Text = Asset_Code_txt.Text + separater_txt.Text + Asset_Number_txt.Text
-        code_check()
 
 
 
@@ -415,7 +437,12 @@ Public Class AddAssetFrm
     Private Sub Assett_Name_txt_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Assett_Name_txt.SelectedIndexChanged
         Dim strMyString As String = Assett_Name_txt.Text
         Asset_Code_txt.Text = Microsoft.VisualBasic.Left(strMyString, 2)
+        'Dim strMyString2 As String = Assett_Name_txt.Text
+        Dim usertext As String = "IT-"
+        Asset_Code_txt.Text = usertext + Microsoft.VisualBasic.Left(strMyString, 2)
 
+        asset_concatenate_id_txt.Text = Asset_Code_txt.Text + separater_txt.Text + Asset_Number_txt.Text
+        code_check()
     End Sub
 
     Private Sub asset_gridview_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles asset_gridview.CellMouseClick
@@ -849,7 +876,7 @@ Public Class AddAssetFrm
         Try
             Dim con As New SqlConnection(cs)
             con.Open()
-            strr = "Select Alot_ID,Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name as [Asset_Name],Assign_Location,Assign_Room,
+            strr = "Select Alot_ID,Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name ,Assign_Location,Assign_Room,
             Assign_Department,Assign_Tag_Number,Assign_description,Current_Status,Current_Status_Date from Assign_Asset_TB where 
 
               Assign_Status like '" & TextBox2.Text & "%' or Assiginie_Name  like '" & TextBox2.Text & "%'or
@@ -1045,7 +1072,7 @@ Public Class AddAssetFrm
         Me.Dispose()
     End Sub
 
-    Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
+    Private Sub Button13_Click(sender As Object, e As EventArgs)
 
 
         Dim ask As MsgBoxResult = MsgBox("All previous Records will permanantly delete", MsgBoxStyle.YesNo)
@@ -1127,5 +1154,14 @@ Public Class AddAssetFrm
 
     Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
         Application.Exit()
+    End Sub
+
+    Private Sub Asset_Name_txt_TextChanged(sender As Object, e As EventArgs) Handles Asset_Name_txt.TextChanged
+        Dim strMyString As String = Assett_Name_txt.Text
+        Dim usertext As String = "IT-"
+        Asset_Code_txt.Text = usertext + Microsoft.VisualBasic.Left(strMyString, 2)
+
+        asset_concatenate_id_txt.Text = Asset_Code_txt.Text + separater_txt.Text + Asset_Number_txt.Text
+        code_check()
     End Sub
 End Class

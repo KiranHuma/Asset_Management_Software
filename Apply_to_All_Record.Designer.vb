@@ -56,13 +56,13 @@ Partial Class Apply_to_All_Record
         Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.DataGridView1.RowTemplate.Height = 24
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(1291, 577)
+        Me.DataGridView1.Size = New System.Drawing.Size(1291, 558)
         Me.DataGridView1.TabIndex = 14
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(177, 713)
+        Me.Label5.Location = New System.Drawing.Point(236, 690)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(58, 17)
         Me.Label5.TabIndex = 21
@@ -72,7 +72,7 @@ Partial Class Apply_to_All_Record
         'terminate_lbl
         '
         Me.terminate_lbl.AutoSize = True
-        Me.terminate_lbl.Location = New System.Drawing.Point(79, 713)
+        Me.terminate_lbl.Location = New System.Drawing.Point(138, 690)
         Me.terminate_lbl.Name = "terminate_lbl"
         Me.terminate_lbl.Size = New System.Drawing.Size(72, 17)
         Me.terminate_lbl.TabIndex = 20
@@ -82,7 +82,7 @@ Partial Class Apply_to_All_Record
         'asst_id_number
         '
         Me.asst_id_number.AutoSize = True
-        Me.asst_id_number.Location = New System.Drawing.Point(381, 684)
+        Me.asst_id_number.Location = New System.Drawing.Point(440, 661)
         Me.asst_id_number.Name = "asst_id_number"
         Me.asst_id_number.Size = New System.Drawing.Size(21, 17)
         Me.asst_id_number.TabIndex = 19
@@ -94,7 +94,7 @@ Partial Class Apply_to_All_Record
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(732, 628)
+        Me.Label2.Location = New System.Drawing.Point(820, 760)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(233, 17)
         Me.Label2.TabIndex = 18
@@ -105,7 +105,7 @@ Partial Class Apply_to_All_Record
         Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(21, 593)
+        Me.Label1.Location = New System.Drawing.Point(8, 636)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(336, 25)
         Me.Label1.TabIndex = 16
@@ -115,7 +115,7 @@ Partial Class Apply_to_All_Record
         '
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(994, 607)
+        Me.Button1.Location = New System.Drawing.Point(1075, 750)
         Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 36)
@@ -126,7 +126,7 @@ Partial Class Apply_to_All_Record
         'pending_lbl
         '
         Me.pending_lbl.AutoSize = True
-        Me.pending_lbl.Location = New System.Drawing.Point(79, 684)
+        Me.pending_lbl.Location = New System.Drawing.Point(138, 661)
         Me.pending_lbl.Name = "pending_lbl"
         Me.pending_lbl.Size = New System.Drawing.Size(60, 17)
         Me.pending_lbl.TabIndex = 25
@@ -135,7 +135,7 @@ Partial Class Apply_to_All_Record
         '
         'DateTimePicker1
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(63, 621)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(122, 598)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(200, 22)
         Me.DateTimePicker1.TabIndex = 26
@@ -143,12 +143,12 @@ Partial Class Apply_to_All_Record
         '
         'Button9
         '
-        Me.Button9.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Button9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Button9.BackColor = System.Drawing.SystemColors.Control
         Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button9.ForeColor = System.Drawing.SystemColors.Control
         Me.Button9.Image = CType(resources.GetObject("Button9.Image"), System.Drawing.Image)
-        Me.Button9.Location = New System.Drawing.Point(9, 684)
+        Me.Button9.Location = New System.Drawing.Point(13, 750)
         Me.Button9.Margin = New System.Windows.Forms.Padding(4)
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(63, 44)
@@ -159,7 +159,7 @@ Partial Class Apply_to_All_Record
         'assinie_nme_lbl
         '
         Me.assinie_nme_lbl.AutoSize = True
-        Me.assinie_nme_lbl.Location = New System.Drawing.Point(285, 713)
+        Me.assinie_nme_lbl.Location = New System.Drawing.Point(344, 690)
         Me.assinie_nme_lbl.Name = "assinie_nme_lbl"
         Me.assinie_nme_lbl.Size = New System.Drawing.Size(51, 17)
         Me.assinie_nme_lbl.TabIndex = 28
@@ -169,7 +169,7 @@ Partial Class Apply_to_All_Record
         'running_tbl
         '
         Me.running_tbl.AutoSize = True
-        Me.running_tbl.Location = New System.Drawing.Point(260, 684)
+        Me.running_tbl.Location = New System.Drawing.Point(319, 661)
         Me.running_tbl.Name = "running_tbl"
         Me.running_tbl.Size = New System.Drawing.Size(61, 17)
         Me.running_tbl.TabIndex = 92
@@ -179,7 +179,7 @@ Partial Class Apply_to_All_Record
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(495, 601)
+        Me.Label8.Location = New System.Drawing.Point(554, 578)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(38, 17)
         Me.Label8.TabIndex = 94
@@ -190,7 +190,7 @@ Partial Class Apply_to_All_Record
         '
         Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(1091, 607)
+        Me.Button2.Location = New System.Drawing.Point(1172, 750)
         Me.Button2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 36)
@@ -200,9 +200,9 @@ Partial Class Apply_to_All_Record
         '
         'Button3
         '
-        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button3.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(994, 666)
+        Me.Button3.Location = New System.Drawing.Point(1075, 690)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(172, 35)
         Me.Button3.TabIndex = 96
@@ -211,7 +211,7 @@ Partial Class Apply_to_All_Record
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(735, 684)
+        Me.TextBox1.Location = New System.Drawing.Point(816, 711)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(160, 22)
         Me.TextBox1.TabIndex = 97
@@ -222,7 +222,7 @@ Partial Class Apply_to_All_Record
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1291, 739)
+        Me.ClientSize = New System.Drawing.Size(1291, 855)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)

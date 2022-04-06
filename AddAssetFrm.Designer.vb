@@ -27,7 +27,6 @@ Partial Class AddAssetFrm
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Button14 = New System.Windows.Forms.Button()
-        Me.Button13 = New System.Windows.Forms.Button()
         Me.Button12 = New System.Windows.Forms.Button()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.TextBox6 = New System.Windows.Forms.TextBox()
@@ -159,7 +158,6 @@ Partial Class AddAssetFrm
         'TabPage1
         '
         Me.TabPage1.Controls.Add(Me.Button14)
-        Me.TabPage1.Controls.Add(Me.Button13)
         Me.TabPage1.Controls.Add(Me.Button12)
         Me.TabPage1.Controls.Add(Me.Button9)
         Me.TabPage1.Controls.Add(Me.TextBox6)
@@ -214,29 +212,13 @@ Partial Class AddAssetFrm
         Me.Button14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button14.ForeColor = System.Drawing.Color.Transparent
         Me.Button14.Image = CType(resources.GetObject("Button14.Image"), System.Drawing.Image)
-        Me.Button14.Location = New System.Drawing.Point(1267, 207)
+        Me.Button14.Location = New System.Drawing.Point(1267, 159)
         Me.Button14.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button14.Name = "Button14"
         Me.Button14.Size = New System.Drawing.Size(49, 44)
         Me.Button14.TabIndex = 96
         Me.ToolTip1.SetToolTip(Me.Button14, "Exit")
         Me.Button14.UseVisualStyleBackColor = False
-        '
-        'Button13
-        '
-        Me.Button13.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button13.BackColor = System.Drawing.Color.White
-        Me.Button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button13.ForeColor = System.Drawing.Color.Transparent
-        Me.Button13.Image = CType(resources.GetObject("Button13.Image"), System.Drawing.Image)
-        Me.Button13.Location = New System.Drawing.Point(1267, 143)
-        Me.Button13.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button13.Name = "Button13"
-        Me.Button13.Size = New System.Drawing.Size(49, 48)
-        Me.Button13.TabIndex = 95
-        Me.ToolTip2.SetToolTip(Me.Button13, "Reset Application")
-        Me.Button13.UseVisualStyleBackColor = False
         '
         'Button12
         '
@@ -1361,7 +1343,6 @@ Partial Class AddAssetFrm
     Friend WithEvents DeletePermanentlyToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Button9 As Button
     Friend WithEvents Button12 As Button
-    Friend WithEvents Button13 As Button
     Friend WithEvents ToolTip2 As ToolTip
     Friend WithEvents TextBox4 As ComboBox
     Friend WithEvents Button14 As Button
