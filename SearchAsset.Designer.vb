@@ -41,6 +41,8 @@ Partial Class SearchAsset
         Me.pictureBox3 = New System.Windows.Forms.PictureBox()
         Me.search_assets = New System.Windows.Forms.TextBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -64,6 +66,8 @@ Partial Class SearchAsset
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.TextBox1)
+        Me.TabPage1.Controls.Add(Me.Button3)
         Me.TabPage1.Controls.Add(Me.Label1)
         Me.TabPage1.Controls.Add(Me.Label12)
         Me.TabPage1.Controls.Add(Me.RadioButton2)
@@ -246,6 +250,25 @@ Partial Class SearchAsset
         Me.search_assets.TabIndex = 2
         Me.search_assets.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
+        'Button3
+        '
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Location = New System.Drawing.Point(6, 14)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(172, 35)
+        Me.Button3.TabIndex = 106
+        Me.Button3.Text = "Download List"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(28, 137)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(160, 22)
+        Me.TextBox1.TabIndex = 107
+        Me.TextBox1.Text = "export"
+        Me.TextBox1.Visible = False
+        '
         'SearchAsset
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -288,4 +311,6 @@ Partial Class SearchAsset
     Friend WithEvents Label12 As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents Button3 As Button
+    Friend WithEvents TextBox1 As TextBox
 End Class
