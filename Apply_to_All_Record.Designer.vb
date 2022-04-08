@@ -41,6 +41,8 @@ Partial Class Apply_to_All_Record
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -62,7 +64,7 @@ Partial Class Apply_to_All_Record
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(236, 690)
+        Me.Label5.Location = New System.Drawing.Point(277, 760)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(58, 17)
         Me.Label5.TabIndex = 21
@@ -126,7 +128,7 @@ Partial Class Apply_to_All_Record
         'pending_lbl
         '
         Me.pending_lbl.AutoSize = True
-        Me.pending_lbl.Location = New System.Drawing.Point(138, 661)
+        Me.pending_lbl.Location = New System.Drawing.Point(138, 760)
         Me.pending_lbl.Name = "pending_lbl"
         Me.pending_lbl.Size = New System.Drawing.Size(60, 17)
         Me.pending_lbl.TabIndex = 25
@@ -218,11 +220,31 @@ Partial Class Apply_to_All_Record
         Me.TextBox1.Text = "export"
         Me.TextBox1.Visible = False
         '
+        'TextBox2
+        '
+        Me.TextBox2.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.TextBox2.Location = New System.Drawing.Point(1043, 600)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(229, 22)
+        Me.TextBox2.TabIndex = 98
+        '
+        'Label3
+        '
+        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.Label3.Location = New System.Drawing.Point(1197, 572)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(75, 23)
+        Me.Label3.TabIndex = 100
+        Me.Label3.Text = "Search"
+        Me.Label3.UseVisualStyleBackColor = True
+        '
         'Apply_to_All_Record
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1291, 855)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
@@ -267,4 +289,6 @@ Partial Class Apply_to_All_Record
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Label3 As Button
 End Class

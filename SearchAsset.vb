@@ -26,7 +26,7 @@ Public Class SearchAsset
         Try
             Dim con As New SqlConnection(cs)
             con.Open()
-            str = "Select Alot_ID,Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name,Assign_Location,Assign_Room,Assign_Department,Assign_Tag_Number,Assign_description from Assign_Asset_TB where Assign_Number_ID like '" & search_assets.Text & "%' or Assign_Status like '" & search_assets.Text & "%'"
+            str = "Select * where Assign_Number_ID like '" & search_assets.Text & "%' or Assign_Status like '" & search_assets.Text & "%'"
             cmd = New SqlCommand(str, con)
             da = New SqlDataAdapter(cmd)
             ds = New DataSet
@@ -45,7 +45,7 @@ Public Class SearchAsset
         Try
             Dim con As New SqlConnection(cs)
             con.Open()
-            str = "Select AssetID,Asset_Number_ID,Asset_Name,Asset_Date,Asset_Location,Asset_Room,Asset_Status,Asset_Department,Asset_Tag_Number,Asset_description from Add_Asset_Tb "
+            str = "Select A_No,AssetID,Asset_Number_ID,Asset_Name,Asset_Date,Asset_Location,Asset_Room,Asset_Status,Asset_Department,Asset_Tag_Number,Asset_description from Add_Asset_Tb ORDER BY A_No DESC  "
             cmd = New SqlCommand(str, con)
             da = New SqlDataAdapter(cmd)
             ds = New DataSet
@@ -108,7 +108,7 @@ Public Class SearchAsset
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
 
-        Call (New AddAssetFrm()).Show()
+        AddAssetFrm.Show()
         Me.Close()
         ' Me.Dispose()
         '  Me.Close()
@@ -118,13 +118,13 @@ Public Class SearchAsset
         Try
             Dim con As New SqlConnection(cs)
             con.Open()
-              str = "Select AssetID,Asset_Number_ID,Asset_Name,Asset_Date,Asset_Location,Asset_Room,Asset_Status,Asset_Department,Asset_Tag_Number,Asset_description from Add_Asset_Tb where 
+            str = "Select A_No,AssetID,Asset_Number_ID,Asset_Name,Asset_Date,Asset_Location,Asset_Room,Asset_Status,Asset_Department,Asset_Tag_Number,Asset_description from Add_Asset_Tb where 
             Asset_Name like '" & search_assets.Text & "%' or Asset_Number_ID like '" & search_assets.Text & "%' 
                or Asset_Number like '" & search_assets.Text & "%' or AssetID like '" & search_assets.Text & "%' or
             Asset_Location like '" & search_assets.Text & "%' or Asset_Room like '" & search_assets.Text & "%' or
             Asset_Status like '" & search_assets.Text & "%' or Asset_Department like '" & search_assets.Text & "%' or
               Asset_Tag_Number like '" & search_assets.Text & "%' or Asset_description like '" & search_assets.Text & "%' 
-              and Asset_Status <> 'Pending'"
+              and Asset_Status <> 'Pending'  ORDER BY A_No DESC"
             cmd = New SqlCommand(str, con)
             da = New SqlDataAdapter(cmd)
             ds = New DataSet
@@ -147,11 +147,7 @@ Public Class SearchAsset
 
 
 
-        If Main_Search_Assets.Rows(e.RowIndex).Cells(e.ColumnIndex).Value IsNot Nothing Then
-            SearchspecificFrm.searchrelated_txt.Text = Main_Search_Assets.Rows(e.RowIndex).Cells(e.ColumnIndex).Value.ToString()
-            SearchspecificFrm.Show()
-            Me.Close()
-        End If
+
 
 
     End Sub
@@ -169,8 +165,7 @@ Public Class SearchAsset
         Try
             Dim con As New SqlConnection(cs)
             con.Open()
-            str = "Select Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name as [Asset_Name],Assign_Location,Assign_Room,
-            Assign_Department,Assign_Tag_Number,Assign_description,Current_Status,Current_Status_Date from Assign_Asset_TB "
+            str = "Select * from Assign_Asset_TB  ORDER BY Alot_ID DESC"
             cmd = New SqlCommand(str, con)
             da = New SqlDataAdapter(cmd)
             ds = New DataSet
@@ -189,18 +184,11 @@ Public Class SearchAsset
         Try
             Dim con As New SqlConnection(cs)
             con.Open()
-            strr = "Select Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name as [Asset_Name],Assign_Location,Assign_Room,
-            Assign_Department,Assign_Tag_Number,Assign_description,Current_Status,Current_Status_Date from Assign_Asset_TB where 
-
-              Assign_Status like '" & TextBox2.Text & "%' or Assiginie_Name  like '" & TextBox2.Text & "%'or
-           Assign_Number_ID like '" & TextBox2.Text & "%' or
-
-             Assign_Name  like '" & TextBox2.Text & "%' or Assign_Location like '" & TextBox2.Text & "%'  or 
-            Assign_Room like '" & TextBox2.Text & "%' or Assign_Department like '" & TextBox2.Text & "%' or
-
-            Assign_description  like '" & TextBox2.Text & "%' or Current_Status  like '" & TextBox2.Text & "%' or
-
-          Assign_Tag_Number  like '" & TextBox2.Text & "%' or Assign_description  like '" & TextBox2.Text & "%'"
+            strr = "Select * from Assign_Asset_TB where
+   Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox2.Text & "%' or Assign_Tag_Number like'" & TextBox2.Text & "%' or
+         Assign_Current_Status like '%" & TextBox2.Text & "'or Assign_Location like '%" & TextBox2.Text & "%'or Assign_Department like '" & TextBox2.Text & "%' or
+         Assign_Current_Status_Date like '%" & TextBox2.Text & "%'or Assign_Room like '" & TextBox2.Text & "%' or
+         Assign_description like'" & TextBox2.Text & "%'  ORDER BY Alot_ID DESC"
             cmd = New SqlCommand(strr, con)
             da = New SqlDataAdapter(cmd)
             ds = New DataSet
@@ -288,6 +276,14 @@ Public Class SearchAsset
             End If
         End If
 
+    End Sub
+
+    Private Sub Main_Search_Assets_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles Main_Search_Assets.CellContentDoubleClick
+        If Main_Search_Assets.Rows(e.RowIndex).Cells(e.ColumnIndex).Value IsNot Nothing Then
+            SearchspecificFrm.searchrelated_txt.Text = Main_Search_Assets.Rows(e.RowIndex).Cells(e.ColumnIndex).Value.ToString()
+            SearchspecificFrm.Show()
+            Me.Close()
+        End If
     End Sub
 End Class
 

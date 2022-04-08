@@ -21,7 +21,7 @@ Public Class Apply_to_All_Record
         End Try
     End Sub
     Private Sub Apply_to_All_Record_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        TextBox2.Text = asst_id_number.Text
         ' Label3.Visible = False
         'Label4.Visible = False
         'Label5.Visible = False
@@ -50,7 +50,7 @@ Public Class Apply_to_All_Record
         Try
             dbaccessconnection()
             con.Open()
-            cmd.CommandText = "Update Assign_Asset_TB set Current_Status='" & pending_lbl.Text & "', Current_Status_Date='" & DateTimePicker1.Value & "' where Assign_Number_ID='" & asst_id_number.Text & "' AND Current_Status='Running'"
+            cmd.CommandText = "Update Assign_Asset_TB set Assign_Current_Status='" & pending_lbl.Text & "', Assign_Current_Status_Date='" & DateTimePicker1.Value & "' where Assign_Asset_ID='" & asst_id_number.Text & "' AND Assign_Current_Status='Running'"
 
             cmd.ExecuteNonQuery()
             con.Close()
@@ -68,7 +68,10 @@ Public Class Apply_to_All_Record
         Try
             dbaccessconnection()
             con.Open()
-            cmd.CommandText = "Update Assign_Asset_TB set Current_Status='" & pending_lbl.Text & "', Current_Status_Date='" & DateTimePicker1.Value & "' where Assiginie_Name='" & assinie_nme_lbl.Text & "' AND Current_Status='Running'"
+            cmd.CommandText = "Update Assign_Asset_TB set Assign_Current_Status='" & pending_lbl.Text & "', Assign_Current_Status_Date='" & DateTimePicker1.Value & "' where  Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox2.Text & "%' or Assign_Tag_Number like'" & TextBox2.Text & "%' or
+         Assign_Current_Status like '%" & TextBox2.Text & "'or Assign_Location like '%" & TextBox2.Text & "%'or Assign_Department like '" & TextBox2.Text & "%' or
+         Assign_Current_Status_Date like '%" & TextBox2.Text & "%'or Assign_Room like '" & TextBox2.Text & "%' or
+         Assign_description like'" & TextBox2.Text & "%' AND Assiginie_Name='" & assinie_nme_lbl.Text & "' AND Assign_Current_Status='Running' AND Assign_Asset_ID='" & asst_id_number.Text & "'"
 
             cmd.ExecuteNonQuery()
             con.Close()
@@ -101,14 +104,17 @@ Public Class Apply_to_All_Record
 
             dbaccessconnection()
             con.Open()
-            cmd.CommandText = "Update Assign_Asset_TB set Current_Status='" & terminate_lbl.Text & "', Current_Status_Date='" & DateTimePicker1.Value & "' where Assiginie_Name='" & assinie_nme_lbl.Text & "'"
+            cmd.CommandText = "Update Assign_Asset_TB set Assign_Current_Status='" & terminate_lbl.Text & "', Assign_Current_Status_Date='" & DateTimePicker1.Value & "' where Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox2.Text & "%' or Assign_Tag_Number like'" & TextBox2.Text & "%' or
+         Assign_Current_Status like '%" & TextBox2.Text & "'or Assign_Location like '%" & TextBox2.Text & "%'or Assign_Department like '" & TextBox2.Text & "%' or
+         Assign_Current_Status_Date like '%" & TextBox2.Text & "%'or Assign_Room like '" & TextBox2.Text & "%' or
+         Assign_description like'" & TextBox2.Text & "%' AND Assiginie_Name='" & assinie_nme_lbl.Text & "' AND Assign_Current_Status='Running' AND Assign_Asset_ID ='" & asst_id_number.Text & "'"
 
             cmd.ExecuteNonQuery()
             con.Close()
             ' get_asset_record()
             '   MessageBox.Show("Operation completed Successfully")
         Catch ex As Exception
-            MsgBox("Data Inserted Failed because " & ex.Message)
+            MsgBox("Failed because " & ex.Message)
             Me.Dispose()
         End Try
     End Sub
@@ -117,14 +123,14 @@ Public Class Apply_to_All_Record
 
             dbaccessconnection()
             con.Open()
-            cmd.CommandText = "Update Assign_Asset_TB set Current_Status='" & terminate_lbl.Text & "', Current_Status_Date='" & DateTimePicker1.Value & "' where Assign_Number_ID ='" & asst_id_number.Text & "'   AND Current_Status='Running'"
+            cmd.CommandText = "Update Assign_Asset_TB set Assign_Current_Status='" & terminate_lbl.Text & "', Assign_Current_Status_Date='" & DateTimePicker1.Value & "' where Assign_Asset_ID ='" & asst_id_number.Text & "' AND Assign_Current_Status='Running'"
 
             cmd.ExecuteNonQuery()
             con.Close()
             ' get_asset_record()
             '   MessageBox.Show("Operation completed Successfully")
         Catch ex As Exception
-            MsgBox("Data Inserted Failed because " & ex.Message)
+            MsgBox("Failed because " & ex.Message)
             Me.Dispose()
         End Try
     End Sub
@@ -134,7 +140,7 @@ Public Class Apply_to_All_Record
         Try
             Dim con As New SqlConnection(cs)
             con.Open()
-            str = "Select Alot_ID,Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name,Assign_Location,Assign_Room,Assign_Department,Assign_Tag_Number,Assign_description,Current_Status,Current_Status_Date from Assign_Asset_TB where  Assiginie_Name ='" & assinie_nme_lbl.Text & "'   AND Current_Status='" & running_tbl.Text & "' "
+            str = "Select * from Assign_Asset_TB where  Assiginie_Name ='" & assinie_nme_lbl.Text & "'   AND Assign_Current_Status='" & running_tbl.Text & "' ORDER BY Alot_ID DESC"
             cmd = New SqlCommand(str, con)
             da = New SqlDataAdapter(cmd)
             ds = New DataSet
@@ -154,7 +160,7 @@ Public Class Apply_to_All_Record
         Try
             Dim con As New SqlConnection(cs)
             con.Open()
-            str = "Select Alot_ID,Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name,Assign_Location,Assign_Room,Assign_Department,Assign_Tag_Number,Assign_description,Current_Status,Current_Status_Date from Assign_Asset_TB where  Assign_Number_ID ='" & asst_id_number.Text & "' AND Current_Status='Running' "
+            str = "Select * from Assign_Asset_TB where  Assign_Asset_ID ='" & asst_id_number.Text & "' AND Assign_Current_Status='Running' ORDER BY Alot_ID DESC"
             cmd = New SqlCommand(str, con)
             da = New SqlDataAdapter(cmd)
             ds = New DataSet
@@ -170,7 +176,7 @@ Public Class Apply_to_All_Record
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
-        Dim ask As MsgBoxResult = MsgBox("All above values will be terminated", MsgBoxStyle.YesNo)
+        Dim ask As MsgBoxResult = MsgBox("All above values will be terminated", MsgBoxStyle.YesNoCancel)
         If ask = MsgBoxResult.Yes Then
 
 
@@ -184,12 +190,12 @@ Public Class Apply_to_All_Record
             Else
                 get_asign_asset()
                 update_running()
-                AddAssetFrm.ShowDialog()
+                AddAssetFrm.Show()
                 Me.Close()
             End If
-
-            MessageBox.Show("All Assets Terminated successfully")
-                ElseIf ask = MsgBoxResult.No Then
+            '
+            'MessageBox.Show("All Assets Terminated successfully")
+        ElseIf ask = MsgBoxResult.No Then
             If Label8.Text = "Tmain" Then
 
                 update_main_table_pending()
@@ -197,21 +203,15 @@ Public Class Apply_to_All_Record
             Else
                 get_asign_asset()
                 no_terminate()
-                no_terminate_from_main_to_all_assign()
-                update_main_table_pending()
+                ' no_terminate_from_main_to_all_assign()
+                ' update_main_table_pending()
             End If
 
 
                 MessageBox.Show("Termination Cancel successfully")
             End If
 
-        If Label8.Text = "Tmain" Then
-            get_asign_main_asset()
 
-
-        Else
-            get_asign_asset()
-        End If
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs)
@@ -292,5 +292,52 @@ Public Class Apply_to_All_Record
             End If
         End If
 
+    End Sub
+    Private Sub ass_search()
+        Dim strr As String
+        Try
+            Dim con As New SqlConnection(cs)
+            con.Open()
+            strr = "Select * from Assign_Asset_TB where 
+              
+Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox2.Text & "%' or Assign_Tag_Number like'" & TextBox2.Text & "%' or
+         Assign_Current_Status like '%" & TextBox2.Text & "'or Assign_Location like '%" & TextBox2.Text & "%'or Assign_Department like '" & TextBox2.Text & "%' or
+         Assign_Current_Status_Date like '%" & TextBox2.Text & "%'or Assign_Room like '" & TextBox2.Text & "%' or
+         Assign_description like'" & TextBox2.Text & "%'  AND Assign_Current_Status='Running' AND Assign_Asset_ID ='" & asst_id_number.Text & "' ORDER BY Alot_ID DESC"
+
+
+            cmd = New SqlCommand(strr, con)
+            da = New SqlDataAdapter(cmd)
+            ds = New DataSet
+            da.Fill(ds, "Assign_Asset_TB")
+            con.Close()
+            DataGridView1.DataSource = ds
+            DataGridView1.DataMember = "Assign_Asset_TB"
+            DataGridView1.Visible = True
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Failed:Search", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Me.Dispose()
+        End Try
+    End Sub
+    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
+
+        get_asign_asset()
+    End Sub
+
+    Private Sub TextBox2_Validated(sender As Object, e As EventArgs) Handles TextBox2.Validated
+
+    End Sub
+
+    Private Sub Label3_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Label3.Click
+        If TextBox2.Text = String.Empty Then
+            get_asign_asset()
+        Else
+            ass_search()
+        End If
     End Sub
 End Class

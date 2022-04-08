@@ -28,7 +28,7 @@ Public Class PendingFrm
         Try
             Dim con As New SqlConnection(cs)
             con.Open()
-            str = "Select Alot_ID,Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name,Assign_Location,Assign_Room,Assign_Department,Assign_Tag_Number,Assign_description,Current_Status,Current_Status_Date from Assign_Asset_TB where Current_Status='Pending'"
+            str = "Select * from Assign_Asset_TB where Assign_Current_Status='Pending' ORDER BY Alot_ID DESC"
             cmd = New SqlCommand(str, con)
             da = New SqlDataAdapter(cmd)
             ds = New DataSet
@@ -47,14 +47,14 @@ Public Class PendingFrm
         Try
             Dim con As New SqlConnection(cs)
             con.Open()
-            str = "Select * from Add_Asset_Tb where Asset_Status='Pending'"
+            str = "Select A_No,AssetID,Asset_Number_ID,Asset_Name,Asset_Date,Asset_Location,Asset_Room,Asset_Status,Asset_Department,Asset_Tag_Number,Asset_description from Add_Asset_Tb where Asset_Status='Pending' ORDER BY A_No DESC"
             cmd = New SqlCommand(str, con)
             da = New SqlDataAdapter(cmd)
             ds = New DataSet
-            da.Fill(ds, "Assign_Asset_TB")
+            da.Fill(ds, "Add_Asset_Tb")
             con.Close()
             DataGridView1.DataSource = ds
-            DataGridView1.DataMember = "Assign_Asset_TB"
+            DataGridView1.DataMember = "Add_Asset_Tb"
             DataGridView1.Visible = True
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Failed:Search", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -84,7 +84,7 @@ Public Class PendingFrm
 
             dbaccessconnection()
             con.Open()
-            cmd.CommandText = "Update Assign_Asset_TB set Current_Status='" & Label1.Text & "', Current_Status_Date='" & DateTimePicker1.Value & "' where Current_Status='Pending'"
+            cmd.CommandText = "Update Assign_Asset_TB set Assign_Current_Status='" & Label1.Text & "', Assign_Current_Status_Date='" & DateTimePicker1.Value & "' where  Assign_Current_Status='Pending'"
 
             cmd.ExecuteNonQuery()
             con.Close()

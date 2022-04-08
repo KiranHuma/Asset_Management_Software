@@ -44,8 +44,7 @@ Public Class AddAssetFrm
         Try
             Dim con As New SqlConnection(cs)
             con.Open()
-            str = "Select Alot_ID,Assiginie_Name as [Assignie Name],Assign_Status as [Status],Assign_Date,Assign_Number_ID,Assign_Name as [Asset_Name],Assign_Location,Assign_Room,
-            Assign_Department,Assign_Tag_Number,Assign_description,Current_Status,Current_Status_Date from Assign_Asset_TB "
+            str = "Select * from Assign_Asset_TB ORDER BY Alot_ID DESC"
             cmd = New SqlCommand(str, con)
             da = New SqlDataAdapter(cmd)
             ds = New DataSet
@@ -63,7 +62,7 @@ Public Class AddAssetFrm
         Try
             Dim con As New SqlConnection(cs)
             con.Open()
-            Dim da As New SqlDataAdapter("Select A_No,Asset_Number_ID,Asset_Name,Asset_Date,Asset_Location,Asset_Room,Asset_Status,Asset_Department,Asset_Tag_Number,Asset_description from Add_Asset_Tb where Asset_Status <> 'Pending' ", con)
+            Dim da As New SqlDataAdapter("Select A_No,Asset_Number_ID,Asset_Name,Asset_Date,Asset_Location,Asset_Room,Asset_Status,Asset_Department,Asset_Tag_Number,Asset_description from Add_Asset_Tb  where Asset_Status <> 'Pending' ORDER BY A_No DESC", con)
             Dim dt As New DataTable
             da.Fill(dt)
             source2.DataSource = dt
@@ -358,8 +357,8 @@ Public Class AddAssetFrm
         Try
             dbaccessconnection()
             con.Open()
-            cmd.CommandText = "INSERT INTO Assign_Asset_TB (Alot_ID,Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name,Assign_Location,Assign_Room,Assign_Department,Assign_Tag_Number,Assign_description,Current_Status,Current_Status_Date)values
-                                                 ('" & assign_asset_ID.Text & "','" & assiginie_name_txt.Text & "','" & asset_status_txt.Text & "','" & assign_datetxt.Value & "','" & TextBox5.Text & "','" & Asset_Name_txt.Text & "','" & Asset_location_txt.Text & "','" & asset_room_txt.Text & "','" & asset_department_txt.Text & "','" & asset_tagnumber_txt.Text & "','" & asset_description_txt.Text & "','" & Label33.Text & "','" & assign_datetxt.Text & "')"
+            cmd.CommandText = "INSERT INTO Assign_Asset_TB (Alot_ID,Assiginie_Name,Assign_Asset_ID,Assign_Tag_Number,Assign_Current_Status,Assign_Location,Assign_Department,Assign_Current_Status_Date,Assign_Room,Assign_description,Asset_Name,Asset_ID,Asset_Tag_Number,Asset_Date)values
+                                                 ('" & assign_asset_ID.Text & "','" & assiginie_name_txt.Text & "','" & TextBox4.Text & "','" & assign_tag_number.Text & "','" & current_status_assign.Text & "','" & assign_Asset_location_txt.Text & "','" & assign_Asset_department_txt.Text & "','" & assign_datetxt.Text & "','" & assign_Asset_room_txt.Text & "','" & assign_Asset_description_txt.Text & "','" & assign_Asset_Name_txt.Text & "','" & assignasset_id.Text & "','" & assignasset_tagnyb2.Text & "','" & DateTimePicker1.Value & "')"
 
             cmd.ExecuteNonQuery()
             con.Close()
@@ -372,22 +371,28 @@ Public Class AddAssetFrm
         End Try
     End Sub
     Private Sub yes_no_dialogue_assign()
-        If assiginie_name_txt.Text = String.Empty Then
+        If TextBox4.Text = String.Empty Then
 
             MessageBox.Show("Fill in the Assign the asset")
         ElseIf Asset_Name_txt.Text = String.Empty Then
             MessageBox.Show("Select asset to assign")
+        ElseIf Label17.Text = "NotAssign" Then
+            MessageBox.Show("Select asset to assign")
+        ElseIf asset_status_txt.Text = "Terminate" Then
+            MessageBox.Show("This asset is terminated.Select other asset")
         Else
             Dim ask As MsgBoxResult = MsgBox("Are you sure you want to assign", MsgBoxStyle.YesNo)
             If ask = MsgBoxResult.Yes Then
-                Label17.Text = "Assign"
+
                 ' txtboxid_assign()
-
+                Panel3.Visible = False
+                Panel1.Visible = True
                 'update_status()
+                txtboxid_assign()
                 insert_assign()
-                Button5.Enabled = False
+                'Button5.Enabled = False
                 assign_tab_refresh()
-
+                Label17.Text = "NotAssign"
             ElseIf ask = MsgBoxResult.No Then
 
                 MessageBox.Show("Asset not assigned")
@@ -402,7 +407,7 @@ Public Class AddAssetFrm
         Panel3.Visible = False
         Panel1.Visible = True
         Panel5.Visible = False
-        Panel7.Visible = False
+        'Panel7.Visible = False
         Panel8.Visible = True
 
         yes_no_dialogue_assign()
@@ -448,7 +453,13 @@ Public Class AddAssetFrm
     Private Sub asset_gridview_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles asset_gridview.CellMouseClick
         Try
             Label15.Text = "Edit"
+            Label17.Text = "Assign"
+            Panel7.Visible = True
 
+
+            '  TabControl1.SelectedIndex = 0
+
+            assign_datetxt.Value = DateTime.Now
             Me.id_auto.Text = asset_gridview.CurrentRow.Cells(0).Value.ToString
 
             Me.TextBox5.Text = asset_gridview.CurrentRow.Cells(1).Value.ToString
@@ -463,6 +474,13 @@ Public Class AddAssetFrm
             Me.asset_description_txt.Text = asset_gridview.CurrentRow.Cells(9).Value.ToString
             ' asset_concatenate_id_txt.Visible = True
 
+
+            'assign textboxes
+
+            Me.assign_Asset_Name_txt.Text = asset_gridview.CurrentRow.Cells(1).Value.ToString
+            Me.assignasset_id.Text = asset_gridview.CurrentRow.Cells(2).Value.ToString
+            Me.assignasset_tagnyb2.Text = asset_gridview.CurrentRow.Cells(8).Value.ToString
+            Me.DateTimePicker1.Text = asset_gridview.CurrentRow.Cells(3).Value.ToString
             Asset_Number_txt.Visible = False
             Assett_Name_txt.Visible = False
             Label2.Visible = False
@@ -557,13 +575,13 @@ Public Class AddAssetFrm
         Try
             Dim con As New SqlConnection(cs)
             con.Open()
-            str = "Select AssetID,Asset_Number_ID,Asset_Name,Asset_Date,Asset_Location,Asset_Room,Asset_Status,Asset_Department,Asset_Tag_Number,Asset_description from Add_Asset_Tb where 
+            str = "Select A_No,AssetID,Asset_Number_ID,Asset_Name,Asset_Date,Asset_Location,Asset_Room,Asset_Status,Asset_Department,Asset_Tag_Number,Asset_description  from Add_Asset_Tb where 
             Asset_Name like '" & TextBox1.Text & "%' or Asset_Number_ID like '" & TextBox1.Text & "%' 
                or Asset_Number like '" & TextBox1.Text & "%' or AssetID like '" & TextBox1.Text & "%' or
             Asset_Location like '" & TextBox1.Text & "%' or Asset_Room like '" & TextBox1.Text & "%' or
             Asset_Status like '" & TextBox1.Text & "%' or Asset_Department like '" & TextBox1.Text & "%' or
               Asset_Tag_Number like '" & TextBox1.Text & "%' or Asset_description like '" & TextBox1.Text & "%' 
-              and Asset_Status <> 'Pending'"
+              and Asset_Status <> 'Pending' ORDER BY A_No DESC"
             cmd = New SqlCommand(str, con)
             da = New SqlDataAdapter(cmd)
             ds = New DataSet
@@ -605,8 +623,8 @@ Public Class AddAssetFrm
         Apply_to_All_Record.asst_id_number.Text = asset_gridview.CurrentRow.Cells(1).Value.ToString
 
         Apply_to_All_Record.Label8.Text = "Tmain"
-
-
+        Apply_to_All_Record.TextBox2.Visible = False
+        Apply_to_All_Record.Label3.Visible = False
 
         Apply_to_All_Record.Show()
         Me.Close()
@@ -729,10 +747,10 @@ Public Class AddAssetFrm
 
 
     Private Sub assiginie_name_txt_TextChanged(sender As Object, e As EventArgs) Handles assiginie_name_txt.TextChanged
-        Panel4.Visible = True
-        Panel3.Visible = False
-        Panel1.Visible = True
-        Panel5.Visible = False
+        'Panel4.Visible = True
+        'Panel3.Visible = False
+        ' Panel1.Visible = True
+        'Panel5.Visible = False
     End Sub
 
 
@@ -743,9 +761,12 @@ Public Class AddAssetFrm
 
         If Asset_Name_txt.Text = String.Empty Then
 
-            MessageBox.Show("Fill in the Assign the asset")
-
-        Else
+            MessageBox.Show("Fill the asset Name")
+        ElseIf asset_status_txt.Text = "Terminate" Then
+            MsgBox("This asset is terminated you can't update it")
+                Call (New AddAssetFrm()).Show()
+                Me.Close()
+            Else
             Dim ask As MsgBoxResult = MsgBox("Are you sure you want to update", MsgBoxStyle.YesNo)
             If ask = MsgBoxResult.Yes Then
 
@@ -771,47 +792,47 @@ Public Class AddAssetFrm
 
 
     Private Sub asset_gridview_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles asset_gridview.CellDoubleClick
-        If asset_gridview.Rows(e.RowIndex).Cells(e.ColumnIndex).Value IsNot Nothing Then
-            SearchspecificFrm.searchrelated_txt.Text = asset_gridview.Rows(e.RowIndex).Cells(e.ColumnIndex).Value.ToString()
 
-            SearchspecificFrm.Show()
-            Me.Close()
-            Me.Dispose()
-        End If
     End Sub
 
 
 
     Private Sub DataGridView1_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseClick
         Me.Label24.Text = DataGridView1.CurrentRow.Cells(0).Value.ToString
-        Me.ComboBox1.Text = DataGridView1.CurrentRow.Cells(1).Value.ToString
-        Me.assignasset_status.Text = DataGridView1.CurrentRow.Cells(2).Value.ToString
-        Me.assign_datetxt.Text = DataGridView1.CurrentRow.Cells(3).Value.ToString
+        Me.assiginie_name_txt.Text = DataGridView1.CurrentRow.Cells(1).Value.ToString
+        Me.TextBox4.Text = DataGridView1.CurrentRow.Cells(2).Value.ToString
+        Me.assign_tag_number.Text = DataGridView1.CurrentRow.Cells(3).Value.ToString
 
-        Me.assignasset_id.Text = DataGridView1.CurrentRow.Cells(4).Value.ToString
+        Me.current_status_assign.Text = DataGridView1.CurrentRow.Cells(4).Value.ToString
 
-        Me.assign_Asset_Name_txt.Text = DataGridView1.CurrentRow.Cells(5).Value.ToString
+        ' Me.assign_Asset_Name_txt.Text = DataGridView1.CurrentRow.Cells(5).Value.ToString
 
-        Me.assign_Asset_location_txt.Text = DataGridView1.CurrentRow.Cells(6).Value.ToString
-        Me.assign_Asset_room_txt.Text = DataGridView1.CurrentRow.Cells(7).Value.ToString
+        Me.assign_Asset_location_txt.Text = DataGridView1.CurrentRow.Cells(5).Value.ToString
+        Me.assign_Asset_department_txt.Text = DataGridView1.CurrentRow.Cells(6).Value.ToString
+        Me.assign_datetxt.Value = DataGridView1.CurrentRow.Cells(7).Value.ToString
+        Me.assign_Asset_room_txt.Text = DataGridView1.CurrentRow.Cells(8).Value.ToString
+        Me.assign_Asset_description_txt.Text = DataGridView1.CurrentRow.Cells(9).Value.ToString
 
 
-        Me.assign_Asset_department_txt.Text = DataGridView1.CurrentRow.Cells(8).Value.ToString
-        Me.assign_Asset_tag_txt.Text = DataGridView1.CurrentRow.Cells(9).Value.ToString
-        Me.assign_Asset_description_txt.Text = DataGridView1.CurrentRow.Cells(10).Value.ToString
+        Me.assign_Asset_Name_txt.Text = DataGridView1.CurrentRow.Cells(10).Value.ToString
+        Me.assignasset_id.Text = DataGridView1.CurrentRow.Cells(11).Value.ToString
+        Me.assignasset_tagnyb2.Text = DataGridView1.CurrentRow.Cells(12).Value.ToString
+        Me.DateTimePicker1.Value = DataGridView1.CurrentRow.Cells(13).Value.ToString
         'get_code()
         Panel7.Visible = True
-        Panel8.Visible = False
+        Panel8.Visible = True
     End Sub
     Private Sub update_assign()
         Try
 
             dbaccessconnection()
             con.Open()
-            cmd.CommandText = "Update Assign_Asset_TB set Assiginie_Name='" & ComboBox1.Text & "', Assign_Status='" & assignasset_status.Text & "', Assign_Date='" & assign_datetxt.Text & "',
-         Assign_Number_ID= '" & assignasset_id.Text & "',Assign_Name = '" & assign_Asset_Name_txt.Text & "',Assign_Location= '" & assign_Asset_location_txt.Text & "' ,
-         Assign_Room= '" & assign_Asset_room_txt.Text & "',Assign_Department= '" & assign_Asset_department_txt.Text & "',
-         Assign_Tag_Number= '" & assign_Asset_tag_txt.Text & "'  ,Assign_description= '" & assign_Asset_description_txt.Text & "' 
+            cmd.CommandText = "Update Assign_Asset_TB set Assiginie_Name='" & assiginie_name_txt.Text & "', Assign_Asset_ID='" & TextBox4.Text & "', Assign_Tag_Number='" & assign_tag_number.Text & "',
+         Assign_Current_Status= '" & current_status_assign.Text & "',Assign_Location = '" & assign_Asset_location_txt.Text & "',Assign_Department= '" & assign_Asset_department_txt.Text & "' ,
+         Assign_Current_Status_Date= '" & assign_datetxt.Value & "',Assign_Room= '" & assign_Asset_room_txt.Text & "',
+         Assign_description= '" & assign_Asset_description_txt.Text & "'  ,Asset_Name= '" & assign_Asset_Name_txt.Text & "' ,
+             Asset_ID= '" & assignasset_id.Text & "'  ,Asset_Tag_Number= '" & assignasset_tagnyb2.Text & "' ,
+             Asset_Date= '" & DateTimePicker1.Value & "' 
          where Alot_ID='" & Label24.Text & "'"
 
             cmd.ExecuteNonQuery()
@@ -828,8 +849,12 @@ Public Class AddAssetFrm
         Panel3.Visible = True
         Panel1.Visible = False
         Panel5.Visible = False
+        If current_status_assign.Text = "Terminate" Then
+            MsgBox("This asset is terminated you can't update it")
+            Call (New AddAssetFrm()).Show()
+            Me.Close()
 
-        If ComboBox1.Text = String.Empty Then
+        ElseIf assiginie_name_txt.Text = String.Empty Then
 
             MessageBox.Show("Select value from List to Update")
 
@@ -844,9 +869,9 @@ Public Class AddAssetFrm
                 get_asign_assets()
 
                 assign_tab_refresh()
-                Panel7.Visible = False
+                Panel7.Visible = True
                 Panel8.Visible = True
-
+                MsgBox("Update Successfully")
             ElseIf ask = MsgBoxResult.No Then
 
                 MessageBox.Show("Asset not Update")
@@ -876,18 +901,14 @@ Public Class AddAssetFrm
         Try
             Dim con As New SqlConnection(cs)
             con.Open()
-            strr = "Select Alot_ID,Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name ,Assign_Location,Assign_Room,
-            Assign_Department,Assign_Tag_Number,Assign_description,Current_Status,Current_Status_Date from Assign_Asset_TB where 
+            strr = "Select * from Assign_Asset_TB  where 
+              
+Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox2.Text & "%' or Assign_Tag_Number like'" & TextBox2.Text & "%' or
+         Assign_Current_Status like '%" & TextBox2.Text & "'or Assign_Location like '%" & TextBox2.Text & "%'or Assign_Department like '" & TextBox2.Text & "%' or
+         Assign_Current_Status_Date like '%" & TextBox2.Text & "%'or Assign_Room like '" & TextBox2.Text & "%' or
+         Assign_description like'" & TextBox2.Text & "%' ORDER BY Alot_ID DESC"
 
-              Assign_Status like '" & TextBox2.Text & "%' or Assiginie_Name  like '" & TextBox2.Text & "%'or
-           Assign_Number_ID like '" & TextBox2.Text & "%' or
 
-             Assign_Name  like '" & TextBox2.Text & "%' or Assign_Location like '" & TextBox2.Text & "%'  or 
-            Assign_Room like '" & TextBox2.Text & "%' or Assign_Department like '" & TextBox2.Text & "%' or
-
-            Assign_description  like '" & TextBox2.Text & "%' or Current_Status  like '" & TextBox2.Text & "%' or
-
-          Assign_Tag_Number  like '" & TextBox2.Text & "%' or Assign_description  like '" & TextBox2.Text & "%'"
             cmd = New SqlCommand(strr, con)
             da = New SqlDataAdapter(cmd)
             ds = New DataSet
@@ -914,7 +935,7 @@ Public Class AddAssetFrm
             MsgBox("Select the asset to terminate all assets linked to it")
         Else
             Label32.Text = "Terminate"
-            Apply_to_All_Record.asst_id_number.Text = DataGridView1.CurrentRow.Cells(4).Value.ToString
+            Apply_to_All_Record.asst_id_number.Text = DataGridView1.CurrentRow.Cells(2).Value.ToString
             Apply_to_All_Record.assinie_nme_lbl.Text = DataGridView1.CurrentRow.Cells(1).Value.ToString
 
             Apply_to_All_Record.Show()
@@ -929,7 +950,7 @@ Public Class AddAssetFrm
 
             dbaccessconnection()
             con.Open()
-            cmd.CommandText = "Update Assign_Asset_TB set Current_Status='Returned',Current_Status_Date = '" & assign_datetxt.Value & "' where Alot_ID='" & Label24.Text & "'"
+            cmd.CommandText = "Update Assign_Asset_TB set Assign_Current_Status='Returned',Assign_Current_Status_Date = '" & assign_datetxt.Value & "' where Alot_ID='" & Label24.Text & "'"
 
             cmd.ExecuteNonQuery()
             con.Close()
@@ -948,7 +969,8 @@ Public Class AddAssetFrm
         If Label24.Text = String.Empty Then
 
             MessageBox.Show("Select value from List to RemoveLink")
-
+        ElseIf current_status_assign.Text = "Terminate" Then
+            MessageBox.Show("This asset is terminated.Select other asset")
         Else
             Dim ask As MsgBoxResult = MsgBox("Are you sure you want to Remove Link", MsgBoxStyle.YesNo)
             If ask = MsgBoxResult.Yes Then
@@ -962,7 +984,7 @@ Public Class AddAssetFrm
                 Call (New AddAssetFrm()).Show()
                 Me.Close()
                 Me.Dispose()
-                Panel7.Visible = False
+                Panel7.Visible = True
                 Panel8.Visible = True
 
             ElseIf ask = MsgBoxResult.No Then
@@ -995,7 +1017,7 @@ Public Class AddAssetFrm
                 Call (New AddAssetFrm()).Show()
                 Me.Close()
                 Me.Dispose()
-                Panel7.Visible = False
+                Panel7.Visible = True
                 Panel8.Visible = True
 
             ElseIf ask = MsgBoxResult.No Then
@@ -1014,7 +1036,7 @@ Public Class AddAssetFrm
 
             dbaccessconnection()
             con.Open()
-            cmd.CommandText = "Update Assign_Asset_TB set Current_Status='Terminate' ,Current_Status_Date = '" & assign_datetxt.Value & "' where Assign_Number_ID='" & TextBox5.Text & "'"
+            cmd.CommandText = "Update Assign_Asset_TB set Assign_Current_Status='Terminate' ,Assign_Current_Status_Date = '" & assign_datetxt.Value & "' where Assign_Number_ID='" & TextBox4.Text & "'"
 
             cmd.ExecuteNonQuery()
             con.Close()
@@ -1025,18 +1047,23 @@ Public Class AddAssetFrm
             Me.Dispose()
         End Try
     End Sub
-    Private Sub get_code_assign()
+    Private Sub get_tag_assign()
         Dim con As New SqlConnection(cs)
         Try
 
-            Dim command As New SqlCommand("select AssetID,Asset_Number,Asset_Number_ID from Add_Asset_Tb where Asset_Name='" & assiginie_name_txt.Text & "'", con)
+            Dim command As New SqlCommand("select * from Add_Asset_Tb where Asset_Number_ID='" & TextBox4.Text & "'", con)
             con.Open()
             cmd.Parameters.Clear()
             Dim read As SqlDataReader = command.ExecuteReader()
 
             Do While read.Read()
                 ' TextBox4.Text = (read("AssetID").ToString())
-                TextBox4.Text = (read("Asset_Number_ID").ToString())
+                assign_tag_number.Text = (read("Asset_Tag_Number").ToString())
+                assign_Asset_location_txt.Text = (read("Asset_Location").ToString())
+                assign_Asset_department_txt.Text = (read("Asset_Department").ToString())
+                assign_Asset_room_txt.Text = (read("Asset_Room").ToString())
+                assign_Asset_description_txt.Text = (read("Asset_description").ToString())
+
             Loop
             read.Close()
 
@@ -1136,15 +1163,18 @@ Public Class AddAssetFrm
         For Each txt3 In Panel8.Controls.OfType(Of ComboBox)()
             txt3.Text = ""
         Next
+        For Each txt3 In Panel8.Controls.OfType(Of TextBox)()
+            txt3.Text = ""
+        Next
         assign_Asset_description_txt.Text = " "
-        TabControl1.SelectedIndex = 0
+        '  TabControl1.SelectedIndex = 0
 
         TabControl1.SelectedIndex = 1
         Panel4.Visible = True
         Panel3.Visible = True
         Panel1.Visible = False
         Panel5.Visible = False
-        Panel7.Visible = False
+        Panel7.Visible = True
         Panel8.Visible = True
         assign_datetxt.Value = DateTime.Now
     End Sub
@@ -1163,5 +1193,44 @@ Public Class AddAssetFrm
 
         asset_concatenate_id_txt.Text = Asset_Code_txt.Text + separater_txt.Text + Asset_Number_txt.Text
         code_check()
+    End Sub
+
+    Private Sub assignasset_status_TextChanged(sender As Object, e As EventArgs) Handles assignasset_tagnyb2.TextChanged
+        If assignasset_tagnyb2.Text = "Terminate" Then
+            MsgBox("This asset is terminated you can't assign it again")
+            Call (New AddAssetFrm()).Show()
+            Me.Close()
+        End If
+
+    End Sub
+
+    Private Sub TextBox4_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TextBox4.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub TextBox4_SelectedValueChanged(sender As Object, e As EventArgs) Handles TextBox4.SelectedValueChanged
+        get_tag_assign()
+    End Sub
+
+    Private Sub assign_tag_number_TextChanged(sender As Object, e As EventArgs) Handles assign_tag_number.TextChanged
+
+    End Sub
+
+    Private Sub assign_Asset_Name_txt_TextChanged(sender As Object, e As EventArgs) Handles assign_Asset_Name_txt.TextChanged
+
+    End Sub
+
+    Private Sub assignasset_id_TextChanged(sender As Object, e As EventArgs) Handles assignasset_id.TextChanged
+
+    End Sub
+
+    Private Sub asset_gridview_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles asset_gridview.CellContentDoubleClick
+        If asset_gridview.Rows(e.RowIndex).Cells(e.ColumnIndex).Value IsNot Nothing Then
+            SearchspecificFrm.searchrelated_txt.Text = asset_gridview.Rows(e.RowIndex).Cells(e.ColumnIndex).Value.ToString()
+
+            SearchspecificFrm.Show()
+            Me.Close()
+            Me.Dispose()
+        End If
     End Sub
 End Class

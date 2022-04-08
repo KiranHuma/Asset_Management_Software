@@ -34,27 +34,23 @@ Public Class SearchspecificFrm
         Try
             Dim con As New SqlConnection(cs)
             con.Open()
-            str = "Select Assiginie_Name,Assign_Status,Assign_Date,Assign_Number_ID,Assign_Name as [Asset_Name],Assign_Location,Assign_Room,
-Assign_Department,Assign_Tag_Number,Assign_description,Current_Status,Current_Status_Date from Assign_Asset_TB  where 
+            str = "Select * from Assign_Asset_TB where 
+              
+Assiginie_Name like'" & searchrelated_txt.Text & "%' or  Assign_Asset_ID like'" & searchrelated_txt.Text & "%' or Assign_Tag_Number like'" & searchrelated_txt.Text & "%' or
+         Assign_Current_Status like '%" & searchrelated_txt.Text & "'or Assign_Location like '%" & searchrelated_txt.Text & "%'or Assign_Department like '" & searchrelated_txt.Text & "%' or
+         Assign_Current_Status_Date like '%" & searchrelated_txt.Text & "%'or Assign_Room like '" & searchrelated_txt.Text & "%' or
+         Assign_description like'" & searchrelated_txt.Text & "%' Order BY Alot_ID DESC
 
-Assign_Status like '" & searchrelated_txt.Text & "%' or Assign_Number_ID like '" & searchrelated_txt.Text & "%' or
-
-Assign_Name  like '" & searchrelated_txt.Text & "%' or Assign_Location like '" & searchrelated_txt.Text & "%'  Or 
-Assign_Room like '" & searchrelated_txt.Text & "%' or Assign_Department like '" & searchrelated_txt.Text & "%' or
-
-Assign_description  like '" & searchrelated_txt.Text & "%' or Current_Status  like '" & searchrelated_txt.Text & "%' or
-
-Assign_Tag_Number  like '" & searchrelated_txt.Text & "%' or Assign_description  like '" & searchrelated_txt.Text & "%'
 "
 
 
             cmd = New SqlCommand(str, con)
             da = New SqlDataAdapter(cmd)
             ds = New DataSet
-            da.Fill(ds, "Add_Asset_Tb")
+            da.Fill(ds, "Assign_Asset_TB")
             con.Close()
             DataGridView1.DataSource = ds
-            DataGridView1.DataMember = "Add_Asset_Tb"
+            DataGridView1.DataMember = "Assign_Asset_TB"
             DataGridView1.Visible = True
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Failed:Search", MessageBoxButtons.OK, MessageBoxIcon.Error)
