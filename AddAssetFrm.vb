@@ -126,28 +126,38 @@ Public Class AddAssetFrm
     End Sub
     Private Sub alphanumeric_genrated()
         'auto increment alphanumeric id
-
         Try
-            Dim curValue As Integer
-            Dim result As String
-            Using con As SqlConnection = New SqlConnection(cs)
-                con.Open()
-                Dim cmd = New SqlCommand("select Max(Asset_Number) from Add_Asset_Tb", con)
-                result = cmd.ExecuteScalar().ToString()
-                If String.IsNullOrEmpty(result) Then
-                    result = "0000"
-                End If
+            Dim num As New Integer
+            Dim constr As String = cs
+            Using con As SqlConnection = New SqlConnection(constr)
+                Using cmd As SqlCommand = New SqlCommand("SELECT MAX(Asset_Number) FROM Add_Asset_Tb ")
+                    cmd.CommandType = CommandType.Text
+                    cmd.Connection = con
+                    con.Open()
 
-                result = result.Substring(3)
-                Int32.TryParse(result, curValue)
-                curValue = curValue + 1
-                result = curValue.ToString("D4")
-                Asset_Number_txt.Text = result
+
+
+                    If (IsDBNull(cmd.ExecuteScalar)) Then
+                        num = 1
+                        Asset_Number_txt.Text = num.ToString.ToString.PadLeft(4, "0")
+                    Else
+
+                        num = cmd.ExecuteScalar + 1
+                        Asset_Number_txt.Text = num.ToString.ToString.PadLeft(4, "0")
+                        ' getvaluedb()
+
+                    End If
+
+                    con.Close()
+
+                End Using
             End Using
         Catch ex As Exception
-            MessageBox.Show("Failed:AutoIncrement of AssetID" & ex.Message)
+            MsgBox("Failed:Autoincrement  " & ex.Message)
             Me.Dispose()
         End Try
+
+
 
     End Sub
     Private Sub txtboxid_assign()

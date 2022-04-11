@@ -340,4 +340,8 @@ Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox
             ass_search()
         End If
     End Sub
+
+    Private Sub TextBox2_MouseEnter(sender As Object, e As EventArgs) Handles TextBox2.MouseEnter
+        TextBox2.Text = " "
+    End Sub
 End Class
