@@ -249,7 +249,7 @@ Public Class AddAssetFrm
         Try
             Dim conn As New System.Data.SqlClient.SqlConnection(cs)
             'Dim strSQL As String = "SELECT DISTINCT Asset_Name FROM Add_Asset_Tb "
-            Dim strSQL As String = "SELECT  Asset_Name FROM Add_Asset_Tb "
+            Dim strSQL As String = "SELECT Asset_Name FROM Add_Asset_Tb where Asset_Status <> 'Pending' AND Asset_Status <> 'Terminate'"
             Dim da As New System.Data.SqlClient.SqlDataAdapter(strSQL, conn)
             Dim ds As New DataSet
             da.Fill(ds, "Add_Asset_Tb")
@@ -389,7 +389,10 @@ Public Class AddAssetFrm
         ElseIf Label17.Text = "NotAssign" Then
             MessageBox.Show("Select asset to assign")
         ElseIf asset_status_txt.Text = "Terminate" Then
+
             MessageBox.Show("This asset is terminated.Select other asset")
+        ElseIf asset_status_txt.Text = "Pending" Then
+            MessageBox.Show("This asset is Pending.Select other asset")
         Else
             Dim ask As MsgBoxResult = MsgBox("Are you sure you want to assign", MsgBoxStyle.YesNo)
             If ask = MsgBoxResult.Yes Then
@@ -421,7 +424,7 @@ Public Class AddAssetFrm
         Panel8.Visible = True
 
         yes_no_dialogue_assign()
-
+        get_asign_assets()
 
     End Sub
     Private Sub get_code()
@@ -465,10 +468,17 @@ Public Class AddAssetFrm
             Label15.Text = "Edit"
             Label17.Text = "Assign"
             Panel7.Visible = True
-
-
+            current_status_assign.Text = "Running"
+            For Each txt In Panel8.Controls.OfType(Of TextBox)()
+                txt.Text = ""
+            Next
             '  TabControl1.SelectedIndex = 0
-
+            For Each txt3 In Panel8.Controls.OfType(Of ComboBox)()
+                txt3.Text = ""
+            Next
+            For Each txt3 In Panel8.Controls.OfType(Of TextBox)()
+                txt3.Text = ""
+            Next
             assign_datetxt.Value = DateTime.Now
             Me.id_auto.Text = asset_gridview.CurrentRow.Cells(0).Value.ToString
 
@@ -487,8 +497,8 @@ Public Class AddAssetFrm
 
             'assign textboxes
 
-            Me.assign_Asset_Name_txt.Text = asset_gridview.CurrentRow.Cells(1).Value.ToString
-            Me.assignasset_id.Text = asset_gridview.CurrentRow.Cells(2).Value.ToString
+            Me.assign_Asset_Name_txt.Text = asset_gridview.CurrentRow.Cells(2).Value.ToString
+            Me.assignasset_id.Text = asset_gridview.CurrentRow.Cells(1).Value.ToString
             Me.assignasset_tagnyb2.Text = asset_gridview.CurrentRow.Cells(8).Value.ToString
             Me.DateTimePicker1.Text = asset_gridview.CurrentRow.Cells(3).Value.ToString
             Asset_Number_txt.Visible = False
@@ -631,7 +641,7 @@ Public Class AddAssetFrm
 
     Private Sub Button10_Click_1(sender As Object, e As EventArgs) Handles Button10.Click
         Apply_to_All_Record.asst_id_number.Text = asset_gridview.CurrentRow.Cells(1).Value.ToString
-
+        'Apply_to_All_Record.Label4.Text = asset_gridview.CurrentRow.Cells(2).Value.ToString
         Apply_to_All_Record.Label8.Text = "Tmain"
         Apply_to_All_Record.TextBox2.Visible = False
         Apply_to_All_Record.Label3.Visible = False
@@ -902,9 +912,10 @@ Public Class AddAssetFrm
             SearchspecificFrm.searchrelated_txt.Text = DataGridView1.Rows(e.RowIndex).Cells(e.ColumnIndex).Value.ToString()
 
             SearchspecificFrm.Show()
-            Me.Close()
-            Me.Dispose()
+
+
         End If
+        ' Me.Close()
     End Sub
     Private Sub ass_search()
         Dim strr As String
@@ -916,7 +927,7 @@ Public Class AddAssetFrm
 Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox2.Text & "%' or Assign_Tag_Number like'" & TextBox2.Text & "%' or
          Assign_Current_Status like '%" & TextBox2.Text & "'or Assign_Location like '%" & TextBox2.Text & "%'or Assign_Department like '" & TextBox2.Text & "%' or
          Assign_Current_Status_Date like '%" & TextBox2.Text & "%'or Assign_Room like '" & TextBox2.Text & "%' or
-         Assign_description like'" & TextBox2.Text & "%' ORDER BY Alot_ID DESC"
+         Assign_description like'" & TextBox2.Text & "%' or Asset_Name like'" & TextBox2.Text & "%' or Asset_ID like'" & TextBox2.Text & "%' or Asset_Tag_Number like'" & TextBox2.Text & "%' or Asset_Date like'" & TextBox2.Text & "%' ORDER BY Alot_ID DESC"
 
 
             cmd = New SqlCommand(strr, con)
@@ -981,6 +992,8 @@ Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox
             MessageBox.Show("Select value from List to RemoveLink")
         ElseIf current_status_assign.Text = "Terminate" Then
             MessageBox.Show("This asset is terminated.Select other asset")
+        ElseIf current_status_assign.Text = "Pending" Then
+            MessageBox.Show("This asset is Pending.Select other asset")
         Else
             Dim ask As MsgBoxResult = MsgBox("Are you sure you want to Remove Link", MsgBoxStyle.YesNo)
             If ask = MsgBoxResult.Yes Then
@@ -1187,6 +1200,7 @@ Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox
         Panel7.Visible = True
         Panel8.Visible = True
         assign_datetxt.Value = DateTime.Now
+
     End Sub
     Private Sub assiginie_name_txt_MouseEnter(sender As Object, e As EventArgs) Handles assiginie_name_txt.MouseEnter
 
@@ -1205,14 +1219,7 @@ Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox
         code_check()
     End Sub
 
-    Private Sub assignasset_status_TextChanged(sender As Object, e As EventArgs) Handles assignasset_tagnyb2.TextChanged
-        If assignasset_tagnyb2.Text = "Terminate" Then
-            MsgBox("This asset is terminated you can't assign it again")
-            Call (New AddAssetFrm()).Show()
-            Me.Close()
-        End If
 
-    End Sub
 
     Private Sub TextBox4_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TextBox4.SelectedIndexChanged
 
@@ -1242,5 +1249,9 @@ Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox
             Me.Close()
             Me.Dispose()
         End If
+    End Sub
+
+    Private Sub DataGridView1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
+
     End Sub
 End Class

@@ -160,7 +160,7 @@ Public Class Apply_to_All_Record
         Try
             Dim con As New SqlConnection(cs)
             con.Open()
-            str = "Select * from Assign_Asset_TB where  Assign_Asset_ID ='" & asst_id_number.Text & "' AND Assign_Current_Status='Running' ORDER BY Alot_ID DESC"
+            str = "Select * from Assign_Asset_TB where  Asset_ID ='" & asst_id_number.Text & "' AND Assign_Current_Status='Running' ORDER BY Alot_ID DESC"
             cmd = New SqlCommand(str, con)
             da = New SqlDataAdapter(cmd)
             ds = New DataSet
@@ -208,8 +208,8 @@ Public Class Apply_to_All_Record
             End If
 
 
-                MessageBox.Show("Termination Cancel successfully")
-            End If
+            MessageBox.Show("Termination Cancel successfully")
+        End If
 
 
     End Sub
@@ -229,7 +229,7 @@ Public Class Apply_to_All_Record
 
     End Sub
 
-    Private Sub Button2_Click_1(sender As Object, e As EventArgs) 
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs)
         'update_main_table()
     End Sub
 
@@ -300,10 +300,7 @@ Public Class Apply_to_All_Record
             con.Open()
             strr = "Select * from Assign_Asset_TB where 
               
-Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox2.Text & "%' or Assign_Tag_Number like'" & TextBox2.Text & "%' or
-         Assign_Current_Status like '%" & TextBox2.Text & "'or Assign_Location like '%" & TextBox2.Text & "%'or Assign_Department like '" & TextBox2.Text & "%' or
-         Assign_Current_Status_Date like '%" & TextBox2.Text & "%'or Assign_Room like '" & TextBox2.Text & "%' or
-         Assign_description like'" & TextBox2.Text & "%'  AND Assign_Current_Status='Running' AND Assign_Asset_ID ='" & asst_id_number.Text & "' ORDER BY Alot_ID DESC"
+           (Asset_ID ='" & TextBox2.Text & "' or Asset_Name='" & TextBox2.Text & "' or Assign_Department='" & TextBox2.Text & "' or Assign_Location='" & TextBox2.Text & "' or Assign_Room='" & TextBox2.Text & "' or Assign_description='" & TextBox2.Text & "') AND Assign_Current_Status='Running'  AND Assign_Asset_ID ='" & asst_id_number.Text & "' AND Assiginie_Name='" & assinie_nme_lbl.Text & "' ORDER BY Alot_ID DESC"
 
 
             cmd = New SqlCommand(strr, con)

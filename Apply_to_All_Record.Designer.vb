@@ -43,7 +43,12 @@ Partial Class Apply_to_All_Record
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.TerminateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -227,6 +232,7 @@ Partial Class Apply_to_All_Record
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(229, 22)
         Me.TextBox2.TabIndex = 98
+        Me.TextBox2.Visible = False
         '
         'Label3
         '
@@ -237,12 +243,48 @@ Partial Class Apply_to_All_Record
         Me.Label3.TabIndex = 100
         Me.Label3.Text = "Search"
         Me.Label3.UseVisualStyleBackColor = True
+        Me.Label3.Visible = False
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(587, 661)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(21, 17)
+        Me.Label4.TabIndex = 101
+        Me.Label4.Text = "ID"
+        Me.Label4.Visible = False
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TerminateToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(145, 28)
+        '
+        'TerminateToolStripMenuItem
+        '
+        Me.TerminateToolStripMenuItem.Name = "TerminateToolStripMenuItem"
+        Me.TerminateToolStripMenuItem.Size = New System.Drawing.Size(144, 24)
+        Me.TerminateToolStripMenuItem.Text = "Terminate"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(425, 714)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(56, 17)
+        Me.Label6.TabIndex = 103
+        Me.Label6.Text = "AssetID"
+        Me.Label6.Visible = False
         '
         'Apply_to_All_Record
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1291, 855)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.TextBox1)
@@ -267,6 +309,7 @@ Partial Class Apply_to_All_Record
         Me.Text = "Terminate"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -291,4 +334,8 @@ Partial Class Apply_to_All_Record
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Label3 As Button
+    Friend WithEvents Label4 As Label
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents TerminateToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Label6 As Label
 End Class

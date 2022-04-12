@@ -67,12 +67,13 @@ Partial Class AddAssetFrm
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Assett_Name_txt = New System.Windows.Forms.ComboBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.Button15 = New System.Windows.Forms.Button()
-        Me.Label32 = New System.Windows.Forms.Label()
-        Me.Panel8 = New System.Windows.Forms.Panel()
         Me.current_status_assign = New System.Windows.Forms.TextBox()
-        Me.assign_tag_number = New System.Windows.Forms.TextBox()
+        Me.Button15 = New System.Windows.Forms.Button()
         Me.Label41 = New System.Windows.Forms.Label()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.TextBox()
+        Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.assign_tag_number = New System.Windows.Forms.TextBox()
         Me.Label38 = New System.Windows.Forms.Label()
         Me.Label37 = New System.Windows.Forms.Label()
         Me.Label34 = New System.Windows.Forms.Label()
@@ -130,7 +131,7 @@ Partial Class AddAssetFrm
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.ToolTip2 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Label17 = New System.Windows.Forms.TextBox()
+        Me.Label39 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -633,6 +634,16 @@ Partial Class AddAssetFrm
         Me.TabPage2.Text = "Assign Asset"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
+        'current_status_assign
+        '
+        Me.current_status_assign.Location = New System.Drawing.Point(959, 16)
+        Me.current_status_assign.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.current_status_assign.Name = "current_status_assign"
+        Me.current_status_assign.Size = New System.Drawing.Size(219, 22)
+        Me.current_status_assign.TabIndex = 114
+        Me.current_status_assign.Text = "Running"
+        Me.current_status_assign.Visible = False
+        '
         'Button15
         '
         Me.Button15.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -649,6 +660,16 @@ Partial Class AddAssetFrm
         Me.ToolTip2.SetToolTip(Me.Button15, "Refresh Form" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10))
         Me.Button15.UseVisualStyleBackColor = False
         '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.Location = New System.Drawing.Point(854, 19)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(99, 17)
+        Me.Label41.TabIndex = 113
+        Me.Label41.Text = "Current Status"
+        Me.Label41.Visible = False
+        '
         'Label32
         '
         Me.Label32.AutoSize = True
@@ -658,6 +679,15 @@ Partial Class AddAssetFrm
         Me.Label32.TabIndex = 102
         Me.Label32.Text = "ter"
         Me.Label32.Visible = False
+        '
+        'Label17
+        '
+        Me.Label17.Location = New System.Drawing.Point(731, 16)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(100, 22)
+        Me.Label17.TabIndex = 106
+        Me.Label17.Text = "NotAssign"
+        Me.Label17.Visible = False
         '
         'Panel8
         '
@@ -676,20 +706,10 @@ Partial Class AddAssetFrm
         Me.Panel8.Controls.Add(Me.assign_Asset_location_txt)
         Me.Panel8.Controls.Add(Me.Label21)
         Me.Panel8.Controls.Add(Me.assign_Asset_department_txt)
-        Me.Panel8.Location = New System.Drawing.Point(18, 52)
+        Me.Panel8.Location = New System.Drawing.Point(475, 57)
         Me.Panel8.Name = "Panel8"
         Me.Panel8.Size = New System.Drawing.Size(728, 229)
         Me.Panel8.TabIndex = 101
-        '
-        'current_status_assign
-        '
-        Me.current_status_assign.Location = New System.Drawing.Point(959, 16)
-        Me.current_status_assign.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.current_status_assign.Name = "current_status_assign"
-        Me.current_status_assign.Size = New System.Drawing.Size(219, 22)
-        Me.current_status_assign.TabIndex = 114
-        Me.current_status_assign.Text = "Running"
-        Me.current_status_assign.Visible = False
         '
         'assign_tag_number
         '
@@ -697,16 +717,6 @@ Partial Class AddAssetFrm
         Me.assign_tag_number.Name = "assign_tag_number"
         Me.assign_tag_number.Size = New System.Drawing.Size(233, 22)
         Me.assign_tag_number.TabIndex = 104
-        '
-        'Label41
-        '
-        Me.Label41.AutoSize = True
-        Me.Label41.Location = New System.Drawing.Point(854, 19)
-        Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(99, 17)
-        Me.Label41.TabIndex = 113
-        Me.Label41.Text = "Current Status"
-        Me.Label41.Visible = False
         '
         'Label38
         '
@@ -757,7 +767,7 @@ Partial Class AddAssetFrm
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(82, 12)
+        Me.Label14.Location = New System.Drawing.Point(305, 5)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(141, 32)
         Me.Label14.TabIndex = 59
@@ -835,6 +845,7 @@ Partial Class AddAssetFrm
         '
         'Panel7
         '
+        Me.Panel7.Controls.Add(Me.Label39)
         Me.Panel7.Controls.Add(Me.Label31)
         Me.Panel7.Controls.Add(Me.assignasset_tagnyb2)
         Me.Panel7.Controls.Add(Me.DateTimePicker1)
@@ -845,7 +856,7 @@ Partial Class AddAssetFrm
         Me.Panel7.Controls.Add(Me.assign_Asset_Name_txt)
         Me.Panel7.Controls.Add(Me.assign_Asset_tag_txt)
         Me.Panel7.Controls.Add(Me.Label27)
-        Me.Panel7.Location = New System.Drawing.Point(787, 52)
+        Me.Panel7.Location = New System.Drawing.Point(58, 47)
         Me.Panel7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(375, 239)
@@ -854,7 +865,7 @@ Partial Class AddAssetFrm
         'Label31
         '
         Me.Label31.AutoSize = True
-        Me.Label31.Location = New System.Drawing.Point(23, 135)
+        Me.Label31.Location = New System.Drawing.Point(19, 196)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(38, 17)
         Me.Label31.TabIndex = 105
@@ -862,14 +873,14 @@ Partial Class AddAssetFrm
         '
         'assignasset_tagnyb2
         '
-        Me.assignasset_tagnyb2.Location = New System.Drawing.Point(120, 89)
+        Me.assignasset_tagnyb2.Location = New System.Drawing.Point(116, 150)
         Me.assignasset_tagnyb2.Name = "assignasset_tagnyb2"
         Me.assignasset_tagnyb2.Size = New System.Drawing.Size(205, 22)
         Me.assignasset_tagnyb2.TabIndex = 103
         '
         'DateTimePicker1
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(120, 133)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(116, 194)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(200, 22)
         Me.DateTimePicker1.TabIndex = 104
@@ -877,7 +888,7 @@ Partial Class AddAssetFrm
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(23, 60)
+        Me.Label20.Location = New System.Drawing.Point(19, 121)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(60, 17)
         Me.Label20.TabIndex = 64
@@ -886,7 +897,7 @@ Partial Class AddAssetFrm
         'Label30
         '
         Me.Label30.AutoSize = True
-        Me.Label30.Location = New System.Drawing.Point(23, 89)
+        Me.Label30.Location = New System.Drawing.Point(19, 150)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(81, 17)
         Me.Label30.TabIndex = 101
@@ -894,7 +905,7 @@ Partial Class AddAssetFrm
         '
         'assignasset_id
         '
-        Me.assignasset_id.Location = New System.Drawing.Point(120, 60)
+        Me.assignasset_id.Location = New System.Drawing.Point(116, 121)
         Me.assignasset_id.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.assignasset_id.Name = "assignasset_id"
         Me.assignasset_id.Size = New System.Drawing.Size(205, 22)
@@ -903,7 +914,7 @@ Partial Class AddAssetFrm
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(23, 36)
+        Me.Label23.Location = New System.Drawing.Point(19, 97)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(84, 17)
         Me.Label23.TabIndex = 69
@@ -911,7 +922,7 @@ Partial Class AddAssetFrm
         '
         'assign_Asset_Name_txt
         '
-        Me.assign_Asset_Name_txt.Location = New System.Drawing.Point(120, 29)
+        Me.assign_Asset_Name_txt.Location = New System.Drawing.Point(116, 90)
         Me.assign_Asset_Name_txt.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.assign_Asset_Name_txt.Name = "assign_Asset_Name_txt"
         Me.assign_Asset_Name_txt.Size = New System.Drawing.Size(205, 22)
@@ -1251,14 +1262,15 @@ Partial Class AddAssetFrm
         Me.Panel5.Size = New System.Drawing.Size(603, 72)
         Me.Panel5.TabIndex = 96
         '
-        'Label17
+        'Label39
         '
-        Me.Label17.Location = New System.Drawing.Point(731, 16)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(100, 22)
-        Me.Label17.TabIndex = 106
-        Me.Label17.Text = "NotAssign"
-        Me.Label17.Visible = False
+        Me.Label39.AutoSize = True
+        Me.Label39.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label39.Location = New System.Drawing.Point(56, 22)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(248, 32)
+        Me.Label39.TabIndex = 106
+        Me.Label39.Text = "Assign this Asset"
         '
         'AddAssetFrm
         '
@@ -1407,4 +1419,5 @@ Partial Class AddAssetFrm
     Friend WithEvents Label31 As Label
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents Label17 As TextBox
+    Friend WithEvents Label39 As Label
 End Class

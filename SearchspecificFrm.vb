@@ -39,7 +39,7 @@ Public Class SearchspecificFrm
 Assiginie_Name like'" & searchrelated_txt.Text & "%' or  Assign_Asset_ID like'" & searchrelated_txt.Text & "%' or Assign_Tag_Number like'" & searchrelated_txt.Text & "%' or
          Assign_Current_Status like '%" & searchrelated_txt.Text & "'or Assign_Location like '%" & searchrelated_txt.Text & "%'or Assign_Department like '" & searchrelated_txt.Text & "%' or
          Assign_Current_Status_Date like '%" & searchrelated_txt.Text & "%'or Assign_Room like '" & searchrelated_txt.Text & "%' or
-         Assign_description like'" & searchrelated_txt.Text & "%' Order BY Alot_ID DESC
+         Assign_description like'" & searchrelated_txt.Text & "%' or Asset_Name like'" & searchrelated_txt.Text & "%' or Asset_ID like'" & searchrelated_txt.Text & "%' or Asset_Tag_Number like'" & searchrelated_txt.Text & "%' or Asset_Date like'" & searchrelated_txt.Text & "%' Order BY Alot_ID DESC
 
 "
 

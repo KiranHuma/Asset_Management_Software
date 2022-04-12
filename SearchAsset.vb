@@ -154,6 +154,7 @@ Public Class SearchAsset
 
     Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
         PendingFrm.Show()
+        Me.Close()
     End Sub
 
     Private Sub Label12_Click_1(sender As Object, e As EventArgs)
@@ -185,10 +186,10 @@ Public Class SearchAsset
             Dim con As New SqlConnection(cs)
             con.Open()
             strr = "Select * from Assign_Asset_TB where
-   Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox2.Text & "%' or Assign_Tag_Number like'" & TextBox2.Text & "%' or
+        Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox2.Text & "%' or Assign_Tag_Number like'" & TextBox2.Text & "%' or
          Assign_Current_Status like '%" & TextBox2.Text & "'or Assign_Location like '%" & TextBox2.Text & "%'or Assign_Department like '" & TextBox2.Text & "%' or
          Assign_Current_Status_Date like '%" & TextBox2.Text & "%'or Assign_Room like '" & TextBox2.Text & "%' or
-         Assign_description like'" & TextBox2.Text & "%'  ORDER BY Alot_ID DESC"
+         Assign_description like'" & TextBox2.Text & "%'  or Asset_Name like'" & TextBox2.Text & "%' or Asset_ID like'" & TextBox2.Text & "%' or Asset_Tag_Number like'" & TextBox2.Text & "%' or Asset_Date like'" & TextBox2.Text & "%'  ORDER BY Alot_ID DESC"
             cmd = New SqlCommand(strr, con)
             da = New SqlDataAdapter(cmd)
             ds = New DataSet
