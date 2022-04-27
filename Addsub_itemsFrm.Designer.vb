@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Addsub_itemsFrm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Addsub_itemsFrm
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Addsub_itemsFrm))
@@ -52,6 +52,8 @@ Partial Class Addsub_itemsFrm
         Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.TextBox10 = New System.Windows.Forms.TextBox()
+        Me.TextBox11 = New System.Windows.Forms.TextBox()
         Me.TabPage4.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -359,11 +361,32 @@ Partial Class Addsub_itemsFrm
         Me.Label13.Text = "Already registered"
         Me.Label13.Visible = False
         '
+        'TextBox10
+        '
+        Me.TextBox10.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TextBox10.Location = New System.Drawing.Point(698, 302)
+        Me.TextBox10.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox10.Name = "TextBox10"
+        Me.TextBox10.Size = New System.Drawing.Size(147, 22)
+        Me.TextBox10.TabIndex = 40
+        Me.TextBox10.Visible = False
+        '
+        'TextBox11
+        '
+        Me.TextBox11.Location = New System.Drawing.Point(567, 302)
+        Me.TextBox11.Name = "TextBox11"
+        Me.TextBox11.Size = New System.Drawing.Size(100, 22)
+        Me.TextBox11.TabIndex = 41
+        Me.TextBox11.Text = "Enter Here"
+        Me.TextBox11.Visible = False
+        '
         'Addsub_itemsFrm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1067, 554)
+        Me.Controls.Add(Me.TextBox11)
+        Me.Controls.Add(Me.TextBox10)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.Button9)
         Me.Controls.Add(Me.TabControl1)
@@ -416,4 +439,6 @@ Partial Class Addsub_itemsFrm
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents DeleteToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents TextBox10 As TextBox
+    Friend WithEvents TextBox11 As TextBox
 End Class

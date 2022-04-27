@@ -27,6 +27,7 @@ Partial Class AddAssetFrm
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Button14 = New System.Windows.Forms.Button()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.Button12 = New System.Windows.Forms.Button()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.TextBox6 = New System.Windows.Forms.TextBox()
@@ -36,7 +37,6 @@ Partial Class AddAssetFrm
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.count_users = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
         Me.asset_concatenate_id_txt = New System.Windows.Forms.TextBox()
         Me.id_auto = New System.Windows.Forms.Label()
         Me.Asset_Number_txt = New System.Windows.Forms.TextBox()
@@ -67,15 +67,16 @@ Partial Class AddAssetFrm
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Assett_Name_txt = New System.Windows.Forms.ComboBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.current_status_assign = New System.Windows.Forms.TextBox()
+        Me.Label40 = New System.Windows.Forms.Label()
         Me.Button15 = New System.Windows.Forms.Button()
-        Me.Label41 = New System.Windows.Forms.Label()
         Me.Label32 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.TextBox()
         Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.current_status_assign = New System.Windows.Forms.ComboBox()
         Me.assign_tag_number = New System.Windows.Forms.TextBox()
         Me.Label38 = New System.Windows.Forms.Label()
         Me.Label37 = New System.Windows.Forms.Label()
+        Me.Label41 = New System.Windows.Forms.Label()
         Me.Label34 = New System.Windows.Forms.Label()
         Me.TextBox4 = New System.Windows.Forms.ComboBox()
         Me.assiginie_name_txt = New System.Windows.Forms.ComboBox()
@@ -89,6 +90,7 @@ Partial Class AddAssetFrm
         Me.Label21 = New System.Windows.Forms.Label()
         Me.assign_Asset_department_txt = New System.Windows.Forms.TextBox()
         Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.Label39 = New System.Windows.Forms.Label()
         Me.Label31 = New System.Windows.Forms.Label()
         Me.assignasset_tagnyb2 = New System.Windows.Forms.TextBox()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
@@ -131,7 +133,8 @@ Partial Class AddAssetFrm
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.ToolTip2 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Label39 = New System.Windows.Forms.Label()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.Panel9 = New System.Windows.Forms.Panel()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -146,6 +149,7 @@ Partial Class AddAssetFrm
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel5.SuspendLayout()
+        Me.Panel9.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -164,44 +168,10 @@ Partial Class AddAssetFrm
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.Panel9)
         Me.TabPage1.Controls.Add(Me.Button14)
         Me.TabPage1.Controls.Add(Me.Button12)
         Me.TabPage1.Controls.Add(Me.Button9)
-        Me.TabPage1.Controls.Add(Me.TextBox6)
-        Me.TabPage1.Controls.Add(Me.Label35)
-        Me.TabPage1.Controls.Add(Me.TextBox5)
-        Me.TabPage1.Controls.Add(Me.asset_status_txt)
-        Me.TabPage1.Controls.Add(Me.Button3)
-        Me.TabPage1.Controls.Add(Me.Panel2)
-        Me.TabPage1.Controls.Add(Me.asset_concatenate_id_txt)
-        Me.TabPage1.Controls.Add(Me.id_auto)
-        Me.TabPage1.Controls.Add(Me.Asset_Number_txt)
-        Me.TabPage1.Controls.Add(Me.Label13)
-        Me.TabPage1.Controls.Add(Me.Asset_Name_txt)
-        Me.TabPage1.Controls.Add(Me.asset_room_txt)
-        Me.TabPage1.Controls.Add(Me.Asset_Code_txt)
-        Me.TabPage1.Controls.Add(Me.asset_tagnumber_txt)
-        Me.TabPage1.Controls.Add(Me.asset_department_txt)
-        Me.TabPage1.Controls.Add(Me.Asset_location_txt)
-        Me.TabPage1.Controls.Add(Me.Asset_date_txt)
-        Me.TabPage1.Controls.Add(Me.Label1)
-        Me.TabPage1.Controls.Add(Me.Label2)
-        Me.TabPage1.Controls.Add(Me.Available_txt)
-        Me.TabPage1.Controls.Add(Me.Label3)
-        Me.TabPage1.Controls.Add(Me.Label4)
-        Me.TabPage1.Controls.Add(Me.Label5)
-        Me.TabPage1.Controls.Add(Me.Label6)
-        Me.TabPage1.Controls.Add(Me.Label7)
-        Me.TabPage1.Controls.Add(Me.separater_txt)
-        Me.TabPage1.Controls.Add(Me.Label8)
-        Me.TabPage1.Controls.Add(Me.Label11)
-        Me.TabPage1.Controls.Add(Me.Label9)
-        Me.TabPage1.Controls.Add(Me.asset_description_txt)
-        Me.TabPage1.Controls.Add(Me.Label10)
-        Me.TabPage1.Controls.Add(Me.Button2)
-        Me.TabPage1.Controls.Add(Me.Button7)
-        Me.TabPage1.Controls.Add(Me.Button4)
-        Me.TabPage1.Controls.Add(Me.Assett_Name_txt)
         Me.TabPage1.Location = New System.Drawing.Point(4, 25)
         Me.TabPage1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TabPage1.Name = "TabPage1"
@@ -226,6 +196,16 @@ Partial Class AddAssetFrm
         Me.Button14.TabIndex = 96
         Me.ToolTip1.SetToolTip(Me.Button14, "Exit")
         Me.Button14.UseVisualStyleBackColor = False
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(1002, 223)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(47, 17)
+        Me.Label15.TabIndex = 43
+        Me.Label15.Text = "noedit"
+        Me.Label15.Visible = False
         '
         'Button12
         '
@@ -261,7 +241,7 @@ Partial Class AddAssetFrm
         '
         'TextBox6
         '
-        Me.TextBox6.Location = New System.Drawing.Point(520, 61)
+        Me.TextBox6.Location = New System.Drawing.Point(521, 65)
         Me.TextBox6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TextBox6.Name = "TextBox6"
         Me.TextBox6.Size = New System.Drawing.Size(205, 22)
@@ -271,7 +251,7 @@ Partial Class AddAssetFrm
         'Label35
         '
         Me.Label35.AutoSize = True
-        Me.Label35.Location = New System.Drawing.Point(18, 52)
+        Me.Label35.Location = New System.Drawing.Point(32, 54)
         Me.Label35.Name = "Label35"
         Me.Label35.Size = New System.Drawing.Size(60, 17)
         Me.Label35.TabIndex = 53
@@ -280,7 +260,7 @@ Partial Class AddAssetFrm
         '
         'TextBox5
         '
-        Me.TextBox5.Location = New System.Drawing.Point(95, 50)
+        Me.TextBox5.Location = New System.Drawing.Point(109, 52)
         Me.TextBox5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(205, 22)
@@ -290,7 +270,7 @@ Partial Class AddAssetFrm
         'asset_status_txt
         '
         Me.asset_status_txt.FormattingEnabled = True
-        Me.asset_status_txt.Location = New System.Drawing.Point(99, 207)
+        Me.asset_status_txt.Location = New System.Drawing.Point(113, 209)
         Me.asset_status_txt.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.asset_status_txt.Name = "asset_status_txt"
         Me.asset_status_txt.Size = New System.Drawing.Size(205, 24)
@@ -300,7 +280,7 @@ Partial Class AddAssetFrm
         'Button3
         '
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(309, 207)
+        Me.Button3.Location = New System.Drawing.Point(323, 209)
         Me.Button3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(39, 23)
@@ -311,11 +291,10 @@ Partial Class AddAssetFrm
         'Panel2
         '
         Me.Panel2.Controls.Add(Me.count_users)
-        Me.Panel2.Controls.Add(Me.Label15)
-        Me.Panel2.Location = New System.Drawing.Point(1274, 224)
+        Me.Panel2.Location = New System.Drawing.Point(1058, 46)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(10, 10)
+        Me.Panel2.Size = New System.Drawing.Size(13, 10)
         Me.Panel2.TabIndex = 46
         '
         'count_users
@@ -328,19 +307,9 @@ Partial Class AddAssetFrm
         Me.count_users.Text = "Count User"
         Me.count_users.Visible = False
         '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(39, 39)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(47, 17)
-        Me.Label15.TabIndex = 43
-        Me.Label15.Text = "noedit"
-        Me.Label15.Visible = False
-        '
         'asset_concatenate_id_txt
         '
-        Me.asset_concatenate_id_txt.Location = New System.Drawing.Point(520, 13)
+        Me.asset_concatenate_id_txt.Location = New System.Drawing.Point(521, 17)
         Me.asset_concatenate_id_txt.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.asset_concatenate_id_txt.Name = "asset_concatenate_id_txt"
         Me.asset_concatenate_id_txt.Size = New System.Drawing.Size(205, 22)
@@ -350,7 +319,7 @@ Partial Class AddAssetFrm
         'id_auto
         '
         Me.id_auto.AutoSize = True
-        Me.id_auto.Location = New System.Drawing.Point(163, 11)
+        Me.id_auto.Location = New System.Drawing.Point(177, 13)
         Me.id_auto.Name = "id_auto"
         Me.id_auto.Size = New System.Drawing.Size(16, 17)
         Me.id_auto.TabIndex = 45
@@ -359,7 +328,7 @@ Partial Class AddAssetFrm
         '
         'Asset_Number_txt
         '
-        Me.Asset_Number_txt.Location = New System.Drawing.Point(156, 98)
+        Me.Asset_Number_txt.Location = New System.Drawing.Point(170, 100)
         Me.Asset_Number_txt.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Asset_Number_txt.Name = "Asset_Number_txt"
         Me.Asset_Number_txt.Size = New System.Drawing.Size(147, 22)
@@ -368,7 +337,7 @@ Partial Class AddAssetFrm
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(204, 11)
+        Me.Label13.Location = New System.Drawing.Point(218, 13)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(124, 17)
         Me.Label13.TabIndex = 38
@@ -377,7 +346,7 @@ Partial Class AddAssetFrm
         '
         'Asset_Name_txt
         '
-        Me.Asset_Name_txt.Location = New System.Drawing.Point(99, 135)
+        Me.Asset_Name_txt.Location = New System.Drawing.Point(113, 137)
         Me.Asset_Name_txt.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Asset_Name_txt.Name = "Asset_Name_txt"
         Me.Asset_Name_txt.Size = New System.Drawing.Size(205, 22)
@@ -385,7 +354,7 @@ Partial Class AddAssetFrm
         '
         'asset_room_txt
         '
-        Me.asset_room_txt.Location = New System.Drawing.Point(520, 136)
+        Me.asset_room_txt.Location = New System.Drawing.Point(521, 140)
         Me.asset_room_txt.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.asset_room_txt.Name = "asset_room_txt"
         Me.asset_room_txt.Size = New System.Drawing.Size(205, 22)
@@ -393,7 +362,7 @@ Partial Class AddAssetFrm
         '
         'Asset_Code_txt
         '
-        Me.Asset_Code_txt.Location = New System.Drawing.Point(284, 69)
+        Me.Asset_Code_txt.Location = New System.Drawing.Point(298, 71)
         Me.Asset_Code_txt.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Asset_Code_txt.Name = "Asset_Code_txt"
         Me.Asset_Code_txt.Size = New System.Drawing.Size(29, 22)
@@ -402,7 +371,7 @@ Partial Class AddAssetFrm
         '
         'asset_tagnumber_txt
         '
-        Me.asset_tagnumber_txt.Location = New System.Drawing.Point(520, 212)
+        Me.asset_tagnumber_txt.Location = New System.Drawing.Point(521, 216)
         Me.asset_tagnumber_txt.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.asset_tagnumber_txt.Name = "asset_tagnumber_txt"
         Me.asset_tagnumber_txt.Size = New System.Drawing.Size(205, 22)
@@ -412,7 +381,7 @@ Partial Class AddAssetFrm
         '
         Me.asset_department_txt.FormattingEnabled = True
         Me.asset_department_txt.Items.AddRange(New Object() {"Department1", "Department2", "Department3", "Department4"})
-        Me.asset_department_txt.Location = New System.Drawing.Point(520, 173)
+        Me.asset_department_txt.Location = New System.Drawing.Point(521, 177)
         Me.asset_department_txt.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.asset_department_txt.Name = "asset_department_txt"
         Me.asset_department_txt.Size = New System.Drawing.Size(205, 24)
@@ -422,7 +391,7 @@ Partial Class AddAssetFrm
         '
         Me.Asset_location_txt.FormattingEnabled = True
         Me.Asset_location_txt.Items.AddRange(New Object() {"Location1 ", "Location2", "Location3", "Location5", "Location6"})
-        Me.Asset_location_txt.Location = New System.Drawing.Point(520, 97)
+        Me.Asset_location_txt.Location = New System.Drawing.Point(521, 101)
         Me.Asset_location_txt.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Asset_location_txt.Name = "Asset_location_txt"
         Me.Asset_location_txt.Size = New System.Drawing.Size(205, 24)
@@ -431,7 +400,7 @@ Partial Class AddAssetFrm
         'Asset_date_txt
         '
         Me.Asset_date_txt.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.Asset_date_txt.Location = New System.Drawing.Point(99, 172)
+        Me.Asset_date_txt.Location = New System.Drawing.Point(113, 174)
         Me.Asset_date_txt.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Asset_date_txt.Name = "Asset_date_txt"
         Me.Asset_date_txt.Size = New System.Drawing.Size(205, 22)
@@ -440,7 +409,7 @@ Partial Class AddAssetFrm
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(21, 69)
+        Me.Label1.Location = New System.Drawing.Point(35, 71)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(80, 17)
         Me.Label1.TabIndex = 10
@@ -449,7 +418,7 @@ Partial Class AddAssetFrm
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(163, 74)
+        Me.Label2.Location = New System.Drawing.Point(177, 76)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(97, 17)
         Me.Label2.TabIndex = 11
@@ -458,7 +427,7 @@ Partial Class AddAssetFrm
         'Available_txt
         '
         Me.Available_txt.AutoSize = True
-        Me.Available_txt.Location = New System.Drawing.Point(27, 11)
+        Me.Available_txt.Location = New System.Drawing.Point(41, 13)
         Me.Available_txt.Name = "Available_txt"
         Me.Available_txt.Size = New System.Drawing.Size(65, 17)
         Me.Available_txt.TabIndex = 36
@@ -468,7 +437,7 @@ Partial Class AddAssetFrm
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(5, 138)
+        Me.Label3.Location = New System.Drawing.Point(19, 140)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(84, 17)
         Me.Label3.TabIndex = 12
@@ -477,7 +446,7 @@ Partial Class AddAssetFrm
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(27, 175)
+        Me.Label4.Location = New System.Drawing.Point(41, 177)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(38, 17)
         Me.Label4.TabIndex = 13
@@ -486,7 +455,7 @@ Partial Class AddAssetFrm
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(423, 96)
+        Me.Label5.Location = New System.Drawing.Point(424, 100)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(62, 17)
         Me.Label5.TabIndex = 14
@@ -495,7 +464,7 @@ Partial Class AddAssetFrm
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(423, 135)
+        Me.Label6.Location = New System.Drawing.Point(424, 139)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(45, 17)
         Me.Label6.TabIndex = 15
@@ -504,7 +473,7 @@ Partial Class AddAssetFrm
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(27, 212)
+        Me.Label7.Location = New System.Drawing.Point(41, 214)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(48, 17)
         Me.Label7.TabIndex = 16
@@ -513,7 +482,7 @@ Partial Class AddAssetFrm
         'separater_txt
         '
         Me.separater_txt.AutoSize = True
-        Me.separater_txt.Location = New System.Drawing.Point(265, 76)
+        Me.separater_txt.Location = New System.Drawing.Point(279, 78)
         Me.separater_txt.Name = "separater_txt"
         Me.separater_txt.Size = New System.Drawing.Size(13, 17)
         Me.separater_txt.TabIndex = 32
@@ -523,7 +492,7 @@ Partial Class AddAssetFrm
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(423, 174)
+        Me.Label8.Location = New System.Drawing.Point(424, 178)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(82, 17)
         Me.Label8.TabIndex = 17
@@ -532,7 +501,7 @@ Partial Class AddAssetFrm
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(423, 11)
+        Me.Label11.Location = New System.Drawing.Point(424, 15)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(60, 17)
         Me.Label11.TabIndex = 30
@@ -542,7 +511,7 @@ Partial Class AddAssetFrm
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(423, 213)
+        Me.Label9.Location = New System.Drawing.Point(424, 217)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(87, 17)
         Me.Label9.TabIndex = 18
@@ -550,17 +519,17 @@ Partial Class AddAssetFrm
         '
         'asset_description_txt
         '
-        Me.asset_description_txt.Location = New System.Drawing.Point(828, 76)
+        Me.asset_description_txt.Location = New System.Drawing.Point(824, 76)
         Me.asset_description_txt.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.asset_description_txt.Name = "asset_description_txt"
-        Me.asset_description_txt.Size = New System.Drawing.Size(334, 96)
+        Me.asset_description_txt.Size = New System.Drawing.Size(196, 96)
         Me.asset_description_txt.TabIndex = 19
         Me.asset_description_txt.Text = ""
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(841, 57)
+        Me.Label10.Location = New System.Drawing.Point(821, 53)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(79, 17)
         Me.Label10.TabIndex = 27
@@ -569,7 +538,7 @@ Partial Class AddAssetFrm
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(731, 95)
+        Me.Button2.Location = New System.Drawing.Point(732, 99)
         Me.Button2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(39, 23)
@@ -580,7 +549,7 @@ Partial Class AddAssetFrm
         'Button7
         '
         Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.Location = New System.Drawing.Point(99, 98)
+        Me.Button7.Location = New System.Drawing.Point(113, 100)
         Me.Button7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(39, 23)
@@ -591,7 +560,7 @@ Partial Class AddAssetFrm
         'Button4
         '
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(731, 174)
+        Me.Button4.Location = New System.Drawing.Point(732, 178)
         Me.Button4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(39, 23)
@@ -603,7 +572,7 @@ Partial Class AddAssetFrm
         '
         Me.Assett_Name_txt.FormattingEnabled = True
         Me.Assett_Name_txt.Items.AddRange(New Object() {"EMPLOYEE", "DESKTOP COMPUTER", "LAPTOP", "SURFACE", "PHONE EXT", "CELL PHONE", "MACHINE", "SOFTWARE", "WORK INSTRUCTION", "ALARM"})
-        Me.Assett_Name_txt.Location = New System.Drawing.Point(15, 96)
+        Me.Assett_Name_txt.Location = New System.Drawing.Point(29, 98)
         Me.Assett_Name_txt.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Assett_Name_txt.Name = "Assett_Name_txt"
         Me.Assett_Name_txt.Size = New System.Drawing.Size(77, 24)
@@ -611,9 +580,8 @@ Partial Class AddAssetFrm
         '
         'TabPage2
         '
-        Me.TabPage2.Controls.Add(Me.current_status_assign)
+        Me.TabPage2.Controls.Add(Me.Label40)
         Me.TabPage2.Controls.Add(Me.Button15)
-        Me.TabPage2.Controls.Add(Me.Label41)
         Me.TabPage2.Controls.Add(Me.Label32)
         Me.TabPage2.Controls.Add(Me.Label17)
         Me.TabPage2.Controls.Add(Me.Panel8)
@@ -634,15 +602,15 @@ Partial Class AddAssetFrm
         Me.TabPage2.Text = "Assign Asset"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
-        'current_status_assign
+        'Label40
         '
-        Me.current_status_assign.Location = New System.Drawing.Point(959, 16)
-        Me.current_status_assign.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.current_status_assign.Name = "current_status_assign"
-        Me.current_status_assign.Size = New System.Drawing.Size(219, 22)
-        Me.current_status_assign.TabIndex = 114
-        Me.current_status_assign.Text = "Running"
-        Me.current_status_assign.Visible = False
+        Me.Label40.AutoSize = True
+        Me.Label40.Location = New System.Drawing.Point(640, 21)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(48, 17)
+        Me.Label40.TabIndex = 115
+        Me.Label40.Text = "Status"
+        Me.Label40.Visible = False
         '
         'Button15
         '
@@ -659,16 +627,6 @@ Partial Class AddAssetFrm
         Me.Button15.TabIndex = 103
         Me.ToolTip2.SetToolTip(Me.Button15, "Refresh Form" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10))
         Me.Button15.UseVisualStyleBackColor = False
-        '
-        'Label41
-        '
-        Me.Label41.AutoSize = True
-        Me.Label41.Location = New System.Drawing.Point(854, 19)
-        Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(99, 17)
-        Me.Label41.TabIndex = 113
-        Me.Label41.Text = "Current Status"
-        Me.Label41.Visible = False
         '
         'Label32
         '
@@ -691,9 +649,11 @@ Partial Class AddAssetFrm
         '
         'Panel8
         '
+        Me.Panel8.Controls.Add(Me.current_status_assign)
         Me.Panel8.Controls.Add(Me.assign_tag_number)
         Me.Panel8.Controls.Add(Me.Label38)
         Me.Panel8.Controls.Add(Me.Label37)
+        Me.Panel8.Controls.Add(Me.Label41)
         Me.Panel8.Controls.Add(Me.Label34)
         Me.Panel8.Controls.Add(Me.TextBox4)
         Me.Panel8.Controls.Add(Me.assiginie_name_txt)
@@ -710,6 +670,17 @@ Partial Class AddAssetFrm
         Me.Panel8.Name = "Panel8"
         Me.Panel8.Size = New System.Drawing.Size(728, 229)
         Me.Panel8.TabIndex = 101
+        '
+        'current_status_assign
+        '
+        Me.current_status_assign.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.current_status_assign.FormattingEnabled = True
+        Me.current_status_assign.Items.AddRange(New Object() {"Running", "Pending", "Terminate", "Returned"})
+        Me.current_status_assign.Location = New System.Drawing.Point(107, 179)
+        Me.current_status_assign.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.current_status_assign.Name = "current_status_assign"
+        Me.current_status_assign.Size = New System.Drawing.Size(233, 24)
+        Me.current_status_assign.TabIndex = 115
         '
         'assign_tag_number
         '
@@ -735,6 +706,15 @@ Partial Class AddAssetFrm
         Me.Label37.Size = New System.Drawing.Size(60, 17)
         Me.Label37.TabIndex = 105
         Me.Label37.Text = "Asset ID"
+        '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.Location = New System.Drawing.Point(10, 184)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(99, 17)
+        Me.Label41.TabIndex = 113
+        Me.Label41.Text = "Current Status"
         '
         'Label34
         '
@@ -807,7 +787,6 @@ Partial Class AddAssetFrm
         Me.Label26.Size = New System.Drawing.Size(79, 17)
         Me.Label26.TabIndex = 75
         Me.Label26.Text = "Description"
-        Me.Label26.Visible = False
         '
         'Label25
         '
@@ -861,6 +840,16 @@ Partial Class AddAssetFrm
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(375, 239)
         Me.Panel7.TabIndex = 100
+        '
+        'Label39
+        '
+        Me.Label39.AutoSize = True
+        Me.Label39.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label39.Location = New System.Drawing.Point(56, 22)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(248, 32)
+        Me.Label39.TabIndex = 106
+        Me.Label39.Text = "Assign this Asset"
         '
         'Label31
         '
@@ -1262,21 +1251,65 @@ Partial Class AddAssetFrm
         Me.Panel5.Size = New System.Drawing.Size(603, 72)
         Me.Panel5.TabIndex = 96
         '
-        'Label39
+        'Label42
         '
-        Me.Label39.AutoSize = True
-        Me.Label39.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label39.Location = New System.Drawing.Point(56, 22)
-        Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(248, 32)
-        Me.Label39.TabIndex = 106
-        Me.Label39.Text = "Assign this Asset"
+        Me.Label42.AutoSize = True
+        Me.Label42.Location = New System.Drawing.Point(788, 451)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(59, 17)
+        Me.Label42.TabIndex = 97
+        Me.Label42.Text = "Label42"
+        Me.Label42.Visible = False
+        '
+        'Panel9
+        '
+        Me.Panel9.Controls.Add(Me.Label13)
+        Me.Panel9.Controls.Add(Me.Assett_Name_txt)
+        Me.Panel9.Controls.Add(Me.Label15)
+        Me.Panel9.Controls.Add(Me.Button7)
+        Me.Panel9.Controls.Add(Me.Panel2)
+        Me.Panel9.Controls.Add(Me.separater_txt)
+        Me.Panel9.Controls.Add(Me.Label7)
+        Me.Panel9.Controls.Add(Me.TextBox6)
+        Me.Panel9.Controls.Add(Me.asset_description_txt)
+        Me.Panel9.Controls.Add(Me.Label10)
+        Me.Panel9.Controls.Add(Me.Label4)
+        Me.Panel9.Controls.Add(Me.Label35)
+        Me.Panel9.Controls.Add(Me.asset_concatenate_id_txt)
+        Me.Panel9.Controls.Add(Me.Label3)
+        Me.Panel9.Controls.Add(Me.asset_room_txt)
+        Me.Panel9.Controls.Add(Me.TextBox5)
+        Me.Panel9.Controls.Add(Me.asset_tagnumber_txt)
+        Me.Panel9.Controls.Add(Me.Available_txt)
+        Me.Panel9.Controls.Add(Me.asset_department_txt)
+        Me.Panel9.Controls.Add(Me.asset_status_txt)
+        Me.Panel9.Controls.Add(Me.Asset_location_txt)
+        Me.Panel9.Controls.Add(Me.Label2)
+        Me.Panel9.Controls.Add(Me.Label5)
+        Me.Panel9.Controls.Add(Me.Button3)
+        Me.Panel9.Controls.Add(Me.Label6)
+        Me.Panel9.Controls.Add(Me.Label1)
+        Me.Panel9.Controls.Add(Me.Label8)
+        Me.Panel9.Controls.Add(Me.Asset_date_txt)
+        Me.Panel9.Controls.Add(Me.Label11)
+        Me.Panel9.Controls.Add(Me.Asset_Code_txt)
+        Me.Panel9.Controls.Add(Me.Label9)
+        Me.Panel9.Controls.Add(Me.id_auto)
+        Me.Panel9.Controls.Add(Me.Asset_Name_txt)
+        Me.Panel9.Controls.Add(Me.Asset_Number_txt)
+        Me.Panel9.Controls.Add(Me.Button2)
+        Me.Panel9.Controls.Add(Me.Button4)
+        Me.Panel9.Location = New System.Drawing.Point(18, 13)
+        Me.Panel9.Name = "Panel9"
+        Me.Panel9.Size = New System.Drawing.Size(1243, 271)
+        Me.Panel9.TabIndex = 97
         '
         'AddAssetFrm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1357, 804)
+        Me.Controls.Add(Me.Label42)
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel3)
@@ -1288,7 +1321,6 @@ Partial Class AddAssetFrm
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
-        Me.TabPage1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
@@ -1308,7 +1340,10 @@ Partial Class AddAssetFrm
         Me.Panel3.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
+        Me.Panel9.ResumeLayout(False)
+        Me.Panel9.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -1415,9 +1450,12 @@ Partial Class AddAssetFrm
     Friend WithEvents assign_tag_number As TextBox
     Friend WithEvents Label38 As Label
     Friend WithEvents Label41 As Label
-    Friend WithEvents current_status_assign As TextBox
     Friend WithEvents Label31 As Label
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents Label17 As TextBox
     Friend WithEvents Label39 As Label
+    Friend WithEvents Label40 As Label
+    Friend WithEvents current_status_assign As ComboBox
+    Friend WithEvents Label42 As Label
+    Friend WithEvents Panel9 As Panel
 End Class

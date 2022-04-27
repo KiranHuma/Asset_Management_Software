@@ -50,7 +50,7 @@ Public Class Apply_to_All_Record
         Try
             dbaccessconnection()
             con.Open()
-            cmd.CommandText = "Update Assign_Asset_TB set Assign_Current_Status='" & pending_lbl.Text & "', Assign_Current_Status_Date='" & DateTimePicker1.Value & "' where Assign_Asset_ID='" & asst_id_number.Text & "' AND Assign_Current_Status='Running'"
+            cmd.CommandText = "Update Assign_Asset_TB set Assign_Current_Status='" & pending_lbl.Text & "', Assign_Current_Status_Date='" & DateTimePicker1.Value & "' where Assign_Current_Status='Running'  AND (Asset_ID ='" & asst_id_number.Text & "' or Assign_Asset_ID='" & asst_id_number.Text & "')"
 
             cmd.ExecuteNonQuery()
             con.Close()
@@ -68,10 +68,7 @@ Public Class Apply_to_All_Record
         Try
             dbaccessconnection()
             con.Open()
-            cmd.CommandText = "Update Assign_Asset_TB set Assign_Current_Status='" & pending_lbl.Text & "', Assign_Current_Status_Date='" & DateTimePicker1.Value & "' where  Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox2.Text & "%' or Assign_Tag_Number like'" & TextBox2.Text & "%' or
-         Assign_Current_Status like '%" & TextBox2.Text & "'or Assign_Location like '%" & TextBox2.Text & "%'or Assign_Department like '" & TextBox2.Text & "%' or
-         Assign_Current_Status_Date like '%" & TextBox2.Text & "%'or Assign_Room like '" & TextBox2.Text & "%' or
-         Assign_description like'" & TextBox2.Text & "%' AND Assiginie_Name='" & assinie_nme_lbl.Text & "' AND Assign_Current_Status='Running' AND Assign_Asset_ID='" & asst_id_number.Text & "'"
+            cmd.CommandText = "Update Assign_Asset_TB set Assign_Current_Status='" & pending_lbl.Text & "', Assign_Current_Status_Date='" & DateTimePicker1.Value & "' where   Assiginie_Name='" & assinie_nme_lbl.Text & "' AND Assign_Current_Status='Running' AND Assign_Asset_ID='" & asst_id_number.Text & "'"
 
             cmd.ExecuteNonQuery()
             con.Close()
@@ -104,10 +101,7 @@ Public Class Apply_to_All_Record
 
             dbaccessconnection()
             con.Open()
-            cmd.CommandText = "Update Assign_Asset_TB set Assign_Current_Status='" & terminate_lbl.Text & "', Assign_Current_Status_Date='" & DateTimePicker1.Value & "' where Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox2.Text & "%' or Assign_Tag_Number like'" & TextBox2.Text & "%' or
-         Assign_Current_Status like '%" & TextBox2.Text & "'or Assign_Location like '%" & TextBox2.Text & "%'or Assign_Department like '" & TextBox2.Text & "%' or
-         Assign_Current_Status_Date like '%" & TextBox2.Text & "%'or Assign_Room like '" & TextBox2.Text & "%' or
-         Assign_description like'" & TextBox2.Text & "%' AND Assiginie_Name='" & assinie_nme_lbl.Text & "' AND Assign_Current_Status='Running' AND Assign_Asset_ID ='" & asst_id_number.Text & "'"
+            cmd.CommandText = "Update Assign_Asset_TB set Assign_Current_Status='" & terminate_lbl.Text & "', Assign_Current_Status_Date='" & DateTimePicker1.Value & "' where  Assiginie_Name='" & assinie_nme_lbl.Text & "' AND Assign_Current_Status='Running' "
 
             cmd.ExecuteNonQuery()
             con.Close()
@@ -123,7 +117,7 @@ Public Class Apply_to_All_Record
 
             dbaccessconnection()
             con.Open()
-            cmd.CommandText = "Update Assign_Asset_TB set Assign_Current_Status='" & terminate_lbl.Text & "', Assign_Current_Status_Date='" & DateTimePicker1.Value & "' where Assign_Asset_ID ='" & asst_id_number.Text & "' AND Assign_Current_Status='Running'"
+            cmd.CommandText = "Update Assign_Asset_TB set Assign_Current_Status='" & terminate_lbl.Text & "', Assign_Current_Status_Date='" & DateTimePicker1.Value & "' where  Assign_Current_Status='Running'  AND (Asset_ID ='" & asst_id_number.Text & "' or Assign_Asset_ID='" & asst_id_number.Text & "')"
 
             cmd.ExecuteNonQuery()
             con.Close()
@@ -140,7 +134,7 @@ Public Class Apply_to_All_Record
         Try
             Dim con As New SqlConnection(cs)
             con.Open()
-            str = "Select * from Assign_Asset_TB where  Assiginie_Name ='" & assinie_nme_lbl.Text & "'   AND Assign_Current_Status='" & running_tbl.Text & "' ORDER BY Alot_ID DESC"
+            str = "Select * from Assign_Asset_TB where Assiginie_Name ='" & assinie_nme_lbl.Text & "'  AND Assign_Current_Status='" & running_tbl.Text & "'   ORDER BY Alot_ID DESC"
             cmd = New SqlCommand(str, con)
             da = New SqlDataAdapter(cmd)
             ds = New DataSet
@@ -160,7 +154,7 @@ Public Class Apply_to_All_Record
         Try
             Dim con As New SqlConnection(cs)
             con.Open()
-            str = "Select * from Assign_Asset_TB where  Asset_ID ='" & asst_id_number.Text & "' AND Assign_Current_Status='Running' ORDER BY Alot_ID DESC"
+            str = "Select * from Assign_Asset_TB where  Assign_Current_Status='Running'  AND (Asset_ID ='" & asst_id_number.Text & "' or Assign_Asset_ID='" & asst_id_number.Text & "')  ORDER BY Alot_ID DESC"
             cmd = New SqlCommand(str, con)
             da = New SqlDataAdapter(cmd)
             ds = New DataSet
@@ -185,13 +179,17 @@ Public Class Apply_to_All_Record
                 get_asign_main_asset()
                 update_main_table_terminate_running()
                 update_running_assign_from_main()
-                AddAssetFrm.ShowDialog()
-                Me.Close()
+                'Me.ShowInTaskbar = False
+                get_asign_main_asset()
+                Call (New AddAssetFrm()).ShowDialog()
+                '  Me.Dispose()
             Else
                 get_asign_asset()
                 update_running()
-                AddAssetFrm.Show()
-                Me.Close()
+                ' Me.ShowInTaskbar = False
+                Call (New AddAssetFrm()).ShowDialog()
+                get_asign_asset()
+                ' Me.Dispose()
             End If
             '
             'MessageBox.Show("All Assets Terminated successfully")
@@ -200,15 +198,25 @@ Public Class Apply_to_All_Record
 
                 update_main_table_pending()
                 no_terminate_from_main_to_all_assign()
+                MessageBox.Show("Terminate it later:See pending list")
+                'Me.ShowInTaskbar = False
+                Call (New AddAssetFrm()).ShowDialog()
+                get_asign_main_asset()
+                ' Me.Dispose()
             Else
                 get_asign_asset()
                 no_terminate()
+                get_asign_asset()
+                'Me.ShowInTaskbar = False
+                Call (New AddAssetFrm()).ShowDialog()
+                ' Me.Dispose()
                 ' no_terminate_from_main_to_all_assign()
                 ' update_main_table_pending()
+                MessageBox.Show("Terminate it later:See pending list")
             End If
 
 
-            MessageBox.Show("Termination Cancel successfully")
+
         End If
 
 

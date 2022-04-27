@@ -210,12 +210,56 @@ Public Class Addsub_itemsFrm
         TextBox3.Text = null_valuee
         TextBox4.Text = null_valuee
         TextBox5.Text = null_valuee
-
-
+        TextBox10.Text = ""
+        TextBox11.Text = null_valuee
 
     End Sub
 
+    Public Sub code_check_in_assign()
 
+
+
+        Dim con As New SqlConnection(cs)
+            con.Open()
+        str = "select count(*)from Add_Asset_Tb where Asset_Location='" & TextBox11.Text & "' or Asset_Status='" & TextBox11.Text & "' or Asset_Department='" & TextBox11.Text & "'  or AssetID ='" & TextBox10.Text & "' or Asset_Status = 'Terminate'"
+        com = New SqlCommand(str, con)
+            Dim count As Integer = Convert.ToInt32(com.ExecuteScalar())
+            con.Close()
+        If count > 0 Then
+            Dim ask As MsgBoxResult = MsgBox("Sorry! It is running check the asset list,Still want to delete", MsgBoxStyle.YesNoCancel)
+            If ask = MsgBoxResult.Yes Then
+                Try
+
+                    Dim ObjConnection As New SqlConnection()
+                    Dim i As Integer
+                    Dim mResult
+                    mResult = MsgBox("Want you really delete the selected records?",
+                    vbYesNo + vbQuestion, "Removal confirmation")
+                    If mResult = vbNo Then
+                        Exit Sub
+                    End If
+                    ObjConnection.ConnectionString = cs
+                    Dim ObjCommand As New SqlCommand()
+                    ObjCommand.Connection = ObjConnection
+                    For i = Me.DataGridView1.SelectedRows.Count - 1 To 0 Step -1
+                        ObjCommand.CommandText = "delete from Asset_Records where M_ID='" & DataGridView1.SelectedRows(i).Cells("M_ID").Value & "' "
+                        ObjConnection.Open()
+                        ObjCommand.ExecuteNonQuery()
+                        ObjConnection.Close()
+                        Me.DataGridView1.Rows.Remove(Me.DataGridView1.SelectedRows(i))
+                    Next
+                Catch ex As Exception
+                    MessageBox.Show("Failed:Deleting Selected Values" & ex.Message)
+                    Me.Dispose()
+                End Try
+            ElseIf ask = MsgBoxResult.No Then
+                Me.ShowInTaskbar = False
+                Call (New Addsub_itemsFrm()).Show()
+                Me.Close()
+
+            End If
+        End If
+    End Sub
     Private Sub TabPage2_Enter(sender As Object, e As EventArgs) Handles TabPage2.Enter
         txtboxid_assign()
 
@@ -223,7 +267,7 @@ Public Class Addsub_itemsFrm
         TextBox1.Text = null_valuee
         TextBox4.Text = null_valuee
         TextBox5.Text = null_valuee
-
+        TextBox11.Text = null_valuee
     End Sub
 
 
@@ -232,6 +276,7 @@ Public Class Addsub_itemsFrm
         txtboxid_assign()
         TextBox1.Text = null_valuee
         get_status()
+        TextBox11.Text = null_valuee
 
         TextBox3.Text = null_valuee
         TextBox5.Text = null_valuee
@@ -246,6 +291,7 @@ Public Class Addsub_itemsFrm
         TextBox1.Text = null_valuee
         TextBox4.Text = null_valuee
         TextBox3.Text = null_valuee
+        TextBox11.Text = null_valuee
 
     End Sub
 
@@ -538,29 +584,43 @@ Public Class Addsub_itemsFrm
     End Sub
 
     Private Sub DeleteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteToolStripMenuItem.Click
+        If TextBox11.Text = null_valuee Then
+            MessageBox.Show("Select Value")
 
-        Try
-            Dim ObjConnection As New SqlConnection()
-            Dim i As Integer
-            Dim mResult
-            mResult = MsgBox("Want you really delete the selected records?",
-            vbYesNo + vbQuestion, "Removal confirmation")
-            If mResult = vbNo Then
-                Exit Sub
-            End If
-            ObjConnection.ConnectionString = cs
-            Dim ObjCommand As New SqlCommand()
-            ObjCommand.Connection = ObjConnection
-            For i = Me.DataGridView1.SelectedRows.Count - 1 To 0 Step -1
-                ObjCommand.CommandText = "delete from Asset_Records where M_ID='" & DataGridView1.SelectedRows(i).Cells("M_ID").Value & "'"
-                ObjConnection.Open()
-                ObjCommand.ExecuteNonQuery()
-                ObjConnection.Close()
-                Me.DataGridView1.Rows.Remove(Me.DataGridView1.SelectedRows(i))
-            Next
-        Catch ex As Exception
-            MessageBox.Show("Failed:Deleting Selected Values" & ex.Message)
-            Me.Dispose()
-        End Try
+            Return
+        Else
+
+            code_check_in_assign()
+        End If
+
+
+
+
+    End Sub
+
+    Private Sub ContextMenuStrip1_Opening(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles ContextMenuStrip1.Opening
+
+    End Sub
+
+    Private Sub DataGridView1_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseClick
+        Me.TextBox11.Text = DataGridView1.CurrentRow.Cells(1).Value.ToString
+    End Sub
+
+    Private Sub DeleteToolStripMenuItem_MouseEnter(sender As Object, e As EventArgs) Handles DeleteToolStripMenuItem.MouseEnter
+
+    End Sub
+
+    Private Sub TabPage3_Click(sender As Object, e As EventArgs) Handles TabPage3.Click
+
+    End Sub
+
+    Private Sub TextBox11_TextChanged(sender As Object, e As EventArgs) Handles TextBox11.TextChanged
+        Dim usertext As String = "IT-"
+        Dim strMyString As String = TextBox11.Text
+        TextBox10.Text = usertext + Microsoft.VisualBasic.Left(strMyString, 2)
+    End Sub
+
+    Private Sub Button10_Click(sender As Object, e As EventArgs)
+
     End Sub
 End Class

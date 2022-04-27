@@ -166,12 +166,12 @@ Partial Class Apply_to_All_Record
         'assinie_nme_lbl
         '
         Me.assinie_nme_lbl.AutoSize = True
-        Me.assinie_nme_lbl.Location = New System.Drawing.Point(344, 690)
+        Me.assinie_nme_lbl.ForeColor = System.Drawing.SystemColors.Control
+        Me.assinie_nme_lbl.Location = New System.Drawing.Point(381, 760)
         Me.assinie_nme_lbl.Name = "assinie_nme_lbl"
         Me.assinie_nme_lbl.Size = New System.Drawing.Size(51, 17)
         Me.assinie_nme_lbl.TabIndex = 28
         Me.assinie_nme_lbl.Text = "Label6"
-        Me.assinie_nme_lbl.Visible = False
         '
         'running_tbl
         '

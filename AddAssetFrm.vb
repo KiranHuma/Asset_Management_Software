@@ -77,14 +77,21 @@ Public Class AddAssetFrm
         If asset_concatenate_id_txt.Text = String.Empty Then
 
             MessageBox.Show("Asset Number should not empty")
+        ElseIf Assett_Name_txt.Text = String.Empty Then
+            MessageBox.Show("Fill in the Asset Code")
+        ElseIf Asset_Name_txt.Text = String.Empty Then
+            MessageBox.Show("Fill in the asset Name")
+        ElseIf asset_status_txt.Text = String.Empty Then
+            MessageBox.Show("Select the Status")
         Else
 
             Dim ask As MsgBoxResult = MsgBox("Are you sure you want to add", MsgBoxStyle.YesNo)
             If ask = MsgBoxResult.Yes Then
-
+                txtboxid_assign()
                 '  asset_grid()
                 insert()
                 get_asset_record()
+                'addnewasset_clearr()
             ElseIf ask = MsgBoxResult.No Then
 
                 MessageBox.Show("Asset not add Successfully")
@@ -139,11 +146,11 @@ Public Class AddAssetFrm
 
                     If (IsDBNull(cmd.ExecuteScalar)) Then
                         num = 1
-                        Asset_Number_txt.Text = num.ToString.ToString.PadLeft(4, "0")
+                        Asset_Number_txt.Text = num.ToString.ToString.PadLeft(6, "0")
                     Else
 
                         num = cmd.ExecuteScalar + 1
-                        Asset_Number_txt.Text = num.ToString.ToString.PadLeft(4, "0")
+                        Asset_Number_txt.Text = num.ToString.ToString.PadLeft(6, "0")
                         ' getvaluedb()
 
                     End If
@@ -204,17 +211,42 @@ Public Class AddAssetFrm
             cmd.ExecuteNonQuery()
             con.Close()
 
+            Me.ShowInTaskbar = False
 
-            Call (New AddAssetFrm()).Show()
+            Call (New AddAssetFrm()).ShowDialog()
             Me.Close()
-            Me.Dispose()
+
         Catch ex As Exception
             MsgBox("Data Inserted Failed because " & ex.Message)
             Me.Dispose()
         End Try
     End Sub
+    Public Sub addnewasset_clearr()
+
+
+
+        For Each txt In Panel9.Controls.OfType(Of TextBox)()
+            txt.Text = ""
+        Next
+        '  TabControl1.SelectedIndex = 0
+        For Each txt3 In Panel9.Controls.OfType(Of ComboBox)()
+            txt3.Text = ""
+        Next
+        Available_txt.Text = "Available"
+        Label13.Text = "Already registered"
+        TextBox5.Text = ""
+        Assett_Name_txt.Text = ""
+
+        Asset_Code_txt.Text = ""
+        id_auto.Text = 0
+
+        asset_status_txt.Text = "New"
+        Label15.Text = "noedit"
+        count_users.Text = "Count User"
+    End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         yes_no_dialogue_add()
+
     End Sub
 
     Private Sub Asset_Number_txt_TextChanged(sender As Object, e As EventArgs) Handles Asset_Number_txt.TextChanged
@@ -409,8 +441,10 @@ Public Class AddAssetFrm
             ElseIf ask = MsgBoxResult.No Then
 
                 MessageBox.Show("Asset not assigned")
-                Call (New AddAssetFrm()).Show()
-                Me.Dispose()
+                Me.ShowInTaskbar = False
+
+                Call (New AddAssetFrm()).ShowDialog()
+                Me.Close()
 
             End If
         End If
@@ -466,6 +500,7 @@ Public Class AddAssetFrm
     Private Sub asset_gridview_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles asset_gridview.CellMouseClick
         Try
             Label15.Text = "Edit"
+            Button1.Enabled = False
             Label17.Text = "Assign"
             Panel7.Visible = True
             current_status_assign.Text = "Running"
@@ -489,6 +524,7 @@ Public Class AddAssetFrm
             Me.Asset_location_txt.Text = asset_gridview.CurrentRow.Cells(4).Value.ToString
             Me.asset_room_txt.Text = asset_gridview.CurrentRow.Cells(5).Value.ToString
             Me.asset_status_txt.Text = asset_gridview.CurrentRow.Cells(6).Value.ToString
+            Me.Label40.Text = asset_gridview.CurrentRow.Cells(6).Value.ToString
             Me.asset_department_txt.Text = asset_gridview.CurrentRow.Cells(7).Value.ToString
             Me.asset_tagnumber_txt.Text = asset_gridview.CurrentRow.Cells(8).Value.ToString
             Me.asset_description_txt.Text = asset_gridview.CurrentRow.Cells(9).Value.ToString
@@ -639,46 +675,46 @@ Public Class AddAssetFrm
 
 
 
-    Private Sub Button10_Click_1(sender As Object, e As EventArgs) Handles Button10.Click
+    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
         Apply_to_All_Record.asst_id_number.Text = asset_gridview.CurrentRow.Cells(1).Value.ToString
         'Apply_to_All_Record.Label4.Text = asset_gridview.CurrentRow.Cells(2).Value.ToString
         Apply_to_All_Record.Label8.Text = "Tmain"
         Apply_to_All_Record.TextBox2.Visible = False
         Apply_to_All_Record.Label3.Visible = False
-
+        Me.ShowInTaskbar = False
         Apply_to_All_Record.Show()
-        Me.Close()
         Me.Dispose()
+
     End Sub
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
 
 
-        Call (New Addsub_itemsFrm()).Show()
+        Addsub_itemsFrm.Show()
         Me.Close()
-        Me.Dispose()
+
         'Me.Dispose()
         'Me.Close()
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Call (New Addsub_itemsFrm()).Show()
+        Addsub_itemsFrm.Show()
         Me.Close()
-        Me.Dispose()
+
         'Me.Dispose()
         'Me.Close()
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Call (New Addsub_itemsFrm()).Show()
+        Addsub_itemsFrm.Show()
         Me.Close()
         Me.Dispose()
         'Me.Close()
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        Call (New Addsub_itemsFrm()).Show()
+        Addsub_itemsFrm.Show()
         Me.Close()
-        Me.Dispose()
+
     End Sub
 
 
@@ -784,8 +820,10 @@ Public Class AddAssetFrm
             MessageBox.Show("Fill the asset Name")
         ElseIf asset_status_txt.Text = "Terminate" Then
             MsgBox("This asset is terminated you can't update it")
-                Call (New AddAssetFrm()).Show()
-                Me.Close()
+            Me.ShowInTaskbar = False
+            Me.ShowInTaskbar = False
+            Call (New AddAssetFrm()).ShowDialog()
+            Me.Close()
             Else
             Dim ask As MsgBoxResult = MsgBox("Are you sure you want to update", MsgBoxStyle.YesNo)
             If ask = MsgBoxResult.Yes Then
@@ -794,14 +832,19 @@ Public Class AddAssetFrm
                 'update_status()
                 update2()
                 get_asset_record()
-                Call (New AddAssetFrm()).Show()
+
+
+
+                Me.ShowInTaskbar = False
+                Call (New AddAssetFrm()).ShowDialog()
                 Me.Close()
 
                 Me.Dispose()
             ElseIf ask = MsgBoxResult.No Then
 
                 MessageBox.Show("Asset not Update")
-                Call (New AddAssetFrm()).Show()
+                Me.ShowInTaskbar = False
+                Call (New AddAssetFrm()).ShowDialog()
 
                 Me.Close()
                 Me.Dispose()
@@ -839,6 +882,7 @@ Public Class AddAssetFrm
         Me.assignasset_tagnyb2.Text = DataGridView1.CurrentRow.Cells(12).Value.ToString
         Me.DateTimePicker1.Value = DataGridView1.CurrentRow.Cells(13).Value.ToString
         'get_code()
+        Label42.Visible = False
         Panel7.Visible = True
         Panel8.Visible = True
     End Sub
@@ -871,7 +915,8 @@ Public Class AddAssetFrm
         Panel5.Visible = False
         If current_status_assign.Text = "Terminate" Then
             MsgBox("This asset is terminated you can't update it")
-            Call (New AddAssetFrm()).Show()
+            Me.ShowInTaskbar = False
+            Call (New AddAssetFrm()).ShowDialog()
             Me.Close()
 
         ElseIf assiginie_name_txt.Text = String.Empty Then
@@ -895,7 +940,8 @@ Public Class AddAssetFrm
             ElseIf ask = MsgBoxResult.No Then
 
                 MessageBox.Show("Asset not Update")
-                Call (New AddAssetFrm()).Show()
+                Me.ShowInTaskbar = False
+                Call (New AddAssetFrm()).ShowDialog()
 
                 Me.Close()
                 Me.Dispose()
@@ -927,7 +973,7 @@ Public Class AddAssetFrm
 Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox2.Text & "%' or Assign_Tag_Number like'" & TextBox2.Text & "%' or
          Assign_Current_Status like '%" & TextBox2.Text & "'or Assign_Location like '%" & TextBox2.Text & "%'or Assign_Department like '" & TextBox2.Text & "%' or
          Assign_Current_Status_Date like '%" & TextBox2.Text & "%'or Assign_Room like '" & TextBox2.Text & "%' or
-         Assign_description like'" & TextBox2.Text & "%' or Asset_Name like'" & TextBox2.Text & "%' or Asset_ID like'" & TextBox2.Text & "%' or Asset_Tag_Number like'" & TextBox2.Text & "%' or Asset_Date like'" & TextBox2.Text & "%' ORDER BY Alot_ID DESC"
+         Assign_description like'" & TextBox2.Text & "%' or Asset_Name ='" & TextBox2.Text & "' or Asset_ID like'" & TextBox2.Text & "%' or Asset_Tag_Number like'" & TextBox2.Text & "%' or Asset_Date like'" & TextBox2.Text & "%' ORDER BY Alot_ID DESC"
 
 
             cmd = New SqlCommand(strr, con)
@@ -958,10 +1004,10 @@ Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox
             Label32.Text = "Terminate"
             Apply_to_All_Record.asst_id_number.Text = DataGridView1.CurrentRow.Cells(2).Value.ToString
             Apply_to_All_Record.assinie_nme_lbl.Text = DataGridView1.CurrentRow.Cells(1).Value.ToString
-
+            Me.ShowInTaskbar = False
             Apply_to_All_Record.Show()
-            Me.Close()
             Me.Dispose()
+
         End If
 
 
@@ -990,9 +1036,9 @@ Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox
         If Label24.Text = String.Empty Then
 
             MessageBox.Show("Select value from List to RemoveLink")
-        ElseIf current_status_assign.Text = "Terminate" Then
+        ElseIf label40.Text = "Terminate" Then
             MessageBox.Show("This asset is terminated.Select other asset")
-        ElseIf current_status_assign.Text = "Pending" Then
+        ElseIf label40.Text = "Pending" Then
             MessageBox.Show("This asset is Pending.Select other asset")
         Else
             Dim ask As MsgBoxResult = MsgBox("Are you sure you want to Remove Link", MsgBoxStyle.YesNo)
@@ -1003,17 +1049,19 @@ Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox
                 remove_link()
 
                 get_asign_assets()
-
-                Call (New AddAssetFrm()).Show()
-                Me.Close()
-                Me.Dispose()
+                assign_tab_refresh()
+                ' Me.ShowInTaskbar = False
+                ' Call (New AddAssetFrm()).ShowDialog()
+                ' Me.Close()
+                '  Me.Dispose()
                 Panel7.Visible = True
                 Panel8.Visible = True
 
             ElseIf ask = MsgBoxResult.No Then
 
                 MessageBox.Show("Asset not Update")
-                Call (New AddAssetFrm()).Show()
+                Me.ShowInTaskbar = False
+                Call (New AddAssetFrm()).ShowDialog()
 
                 Me.Close()
                 Me.Dispose()
@@ -1036,8 +1084,8 @@ Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox
                 'update_status()
                 delete_asset()
                 terminate_assets_permanantly_status()
-
-                Call (New AddAssetFrm()).Show()
+                Me.ShowInTaskbar = False
+                Call (New AddAssetFrm()).ShowDialog()
                 Me.Close()
                 Me.Dispose()
                 Panel7.Visible = True
@@ -1046,7 +1094,8 @@ Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox
             ElseIf ask = MsgBoxResult.No Then
 
                 MessageBox.Show("Asset not Delete")
-                Call (New AddAssetFrm()).Show()
+                Me.ShowInTaskbar = False
+                Call (New AddAssetFrm()).ShowDialog()
 
                 Me.Close()
                 Me.Dispose()
@@ -1102,10 +1151,11 @@ Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
 
-
-        Call (New SearchAsset()).Show()
+        Me.ShowInTaskbar = False
+        Call (New SearchAsset()).ShowDialog()
         Me.Close()
-        Me.Dispose()
+
+
     End Sub
 
     Private Sub TextBox5_TextChanged(sender As Object, e As EventArgs) Handles TextBox5.TextChanged
@@ -1117,7 +1167,8 @@ Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox
     End Sub
 
     Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
-        Call (New AddAssetFrm()).Show()
+        Me.ShowInTaskbar = False
+        Call (New AddAssetFrm()).ShowDialog()
         Me.Close()
         Me.Dispose()
     End Sub
@@ -1137,7 +1188,8 @@ Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox
         ElseIf ask = MsgBoxResult.No Then
 
             MessageBox.Show("Reset Cancel")
-            Call (New AddAssetFrm()).Show()
+            Me.ShowInTaskbar = False
+            Call (New AddAssetFrm()).ShowDialog()
 
             Me.Close()
             Me.Dispose()
@@ -1175,6 +1227,7 @@ Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox
 
     Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click
         assign_tab_refresh()
+        Label42.Visible = False
     End Sub
     Private Sub assign_tab_refresh()
         For Each txt In Panel7.Controls.OfType(Of TextBox)()
@@ -1186,12 +1239,15 @@ Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox
         For Each txt3 In Panel8.Controls.OfType(Of ComboBox)()
             txt3.Text = ""
         Next
+
         For Each txt3 In Panel8.Controls.OfType(Of TextBox)()
             txt3.Text = ""
         Next
         assign_Asset_description_txt.Text = " "
         '  TabControl1.SelectedIndex = 0
 
+        'Button5.Enabled = True
+        current_status_assign.Text = "Running"
         TabControl1.SelectedIndex = 1
         Panel4.Visible = True
         Panel3.Visible = True
@@ -1222,7 +1278,7 @@ Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox
 
 
     Private Sub TextBox4_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TextBox4.SelectedIndexChanged
-
+        check_already_assigned()
     End Sub
 
     Private Sub TextBox4_SelectedValueChanged(sender As Object, e As EventArgs) Handles TextBox4.SelectedValueChanged
@@ -1250,7 +1306,26 @@ Assiginie_Name like'" & TextBox2.Text & "%' or  Assign_Asset_ID like'" & TextBox
             Me.Dispose()
         End If
     End Sub
+    Public Sub check_already_assigned()
+        Dim con As New SqlConnection(cs)
+        con.Open()
+        str = "select count(*)from Assign_Asset_TB where Asset_ID='" & assignasset_id.Text & "' AND Assign_Asset_ID='" & TextBox4.Text & "' AND  Assiginie_Name='" & assiginie_name_txt.Text & "'"
+        com = New SqlCommand(str, con)
+        Dim count As Integer = Convert.ToInt32(com.ExecuteScalar())
+        con.Close()
+        If count > 0 Then
+            Label42.Visible = True
+            Label42.Text = "Sorry! Already Assigned"
+            Label42.ForeColor = Color.Red
+            'label7.Text = "";
+            Button5.Enabled = False
+        Else
+            Label42.Text = ""
+            Label42.Visible = False
+            Button5.Enabled = True
+        End If
 
+    End Sub
     Private Sub DataGridView1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
 
     End Sub

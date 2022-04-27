@@ -106,13 +106,7 @@ Public Class SearchAsset
 
 
 
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
 
-        AddAssetFrm.Show()
-        Me.Close()
-        ' Me.Dispose()
-        '  Me.Close()
-    End Sub
     Private Sub search__asset()
         Dim str As String
         Try
@@ -142,24 +136,13 @@ Public Class SearchAsset
         search__asset()
     End Sub
 
-    Private Sub Main_Search_Assets_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles Main_Search_Assets.CellContentClick
 
-
-
-
-
-
-
-    End Sub
 
     Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
         PendingFrm.Show()
         Me.Close()
     End Sub
 
-    Private Sub Label12_Click_1(sender As Object, e As EventArgs)
-
-    End Sub
 
     Private Sub get_asign_assets()
         Dim str As String
@@ -285,6 +268,13 @@ Public Class SearchAsset
             SearchspecificFrm.Show()
             Me.Close()
         End If
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.ShowInTaskbar = False
+
+        Call (New AddAssetFrm()).ShowDialog()
+        Me.Close()
     End Sub
 End Class
 
